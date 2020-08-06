@@ -2,20 +2,26 @@
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
 lock '3.14.1'
 
-# 自身のアプリ名、リポジトリ名を記述
+# Capistranoのログの表示に利用する
 set :application, 'Phote-App'
+
+# どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:0223ms/Phote-App.git'
 
+# バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.5.1'
+set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2.3.1です
 
-# chat-spaceで使ったpemを指定
+# どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/xxx.pem']
+                  keys: ['~/.ssh/Phote-App.pem'] 
 
+# プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
+
+# Unicornの設定ファイルの場所
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
