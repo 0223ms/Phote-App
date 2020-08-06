@@ -3,8 +3,8 @@
 lock '3.14.1'
 
 # 自身のアプリ名、リポジトリ名を記述
-set :application, 'アプリ名'
-set :repo_url,  'git@github.com:githubのユーザー名/リポジトリ名.git'
+set :application, 'Phote-App'
+set :repo_url,  'git@github.com:0223ms/Phote-App.git'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
