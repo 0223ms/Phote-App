@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: Phote-App_production
-  username: Phote-App
-  password: <%= ENV['PHOTE-APP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
