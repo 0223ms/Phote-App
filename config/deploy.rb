@@ -1,7 +1,7 @@
-# config valid only for current version of Capistrano
-# capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
+# Gemfile.lockを見てcapistranoのバージョンを入れる
 lock '3.14.1'
 
+# 自身のアプリ名、リポジトリ名を記述
 set :application, 'Phote-App'
 set :repo_url,  'git@github.com:0223ms/Phote-App.git'
 
