@@ -10,7 +10,7 @@
       .show-header-details-top__username
         %span
           =@user.username
-      -if @user = current_user
+      -if @user == current_user
         .show-header-details-top__edit
           .edit-btn
             =link_to edit_user_registration_path do
@@ -34,12 +34,30 @@
                 %button.cancel-btn キャンセル
       -else
         .show-header-details-top__follow
-          %button.follow-btn
-            フォローする
-          =link_to "#", class: "follow-message-btn" do
-            メッセージを送信
-          %button.follow-cancel-btn
-            =icon('fas fa-user-check', class: "follow-cancel-icon")
+          -# = render partial: 'follows/follow-button', locals: {user: @user}
+          - unless current_user.following?(@user)
+            =form_for(current_user.follows.build) do |f|
+              =f.hidden_field :following_id, value: @user.id
+              =f.submit 'フォローする', class: 'follow-btn'
+          - if current_user.following?(@user)
+            =link_to "#", class: "follow-message-btn" do
+              メッセージを送信
+            %button.follow-cancel-btn
+              =icon('fas fa-user-check', class: "follow-cancel-icon")
+            .follow-cancel-window
+              .follow-cancel-window__text
+                -if @user.image?
+                  =image_tag @user.image.url, size: "80", class: "follow-cancel-window__text__user-image"
+                -else
+                  =image_tag src="user1.png", size: "80", class: "follow-cancel-window__text__user-image"
+                =@user.username
+                %span のフォローをやめますか？
+              = form_for(current_user.follows.find_by(following_id: @user.id), html: { method: :delete }) do |f|
+                .follow-cancel-window__btn
+                  =f.hidden_field :following_id, value: @user.id
+                  =f.submit "フォローをやめる", class: 'follow-cancel'
+              %button.cancel-window
+                キャンセル
           %button.option-btn-other
             =icon('fas fa-ellipsis-h', class: "option-btn-icon")
           .gray-back
@@ -60,8 +78,12 @@
       .post-length
         %span 投稿０件
       .follower-length
-        %span フォロワー0人
+        %span フォロワー
+        =@user.follower_ids.length
+        %span 人
       .follow-length
-        %span フォロー0人
+        %span フォロー
+        =@user.following_ids.length
+        %span 人
     .show-header-details-bottom
       %span ニックネーム
