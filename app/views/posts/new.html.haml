@@ -1,0 +1,31 @@
+.post__contents
+  .post__contents__container
+    = form_with model: @posts, local: true do |f|
+      .header__post
+        .header__post__back
+          =link_to root_path do
+            =icon('fas fa-chevron-left', class: "header-back-icon")
+        .header__post__newpost
+          新規投稿
+        = f.submit "シェア", class: 'header__post__submit'
+
+      .main__post
+        .main__post__contents
+          .main__post__contents__icon
+            = image_tag "/BackgroundHomeSummer.jpg", size: "30x30", alt: "顔写真1", class: "post-icon"
+          = f.text_area :text, class: "main__post__contents__cap", placeholder: 'キャプションを入力...'
+          = f.label :image, class: 'main__post__contents__image' do
+            =icon('far fa-image', class: "main-newpost-icon")
+          = f.file_field :image, class: 'hidden'
+
+        .main__post__tag
+          .main__post__tag__add
+            タグ付けする
+          .main__post__tag__icon
+            =link_to root_path do
+              =icon('fas fa-chevron-left', class: "main-tag-icon")
+      -# = f.label :image, class: 'form__mask__image' do
+      -#       = icon('far fa-image', class: "header-post-icon")
+      -#       = f.file_field :image, class: 'hidden'
+      -#   = f.text_field :name, placeholder: "キャプションを入力"
+      -#   = f.submit "シェア"
