@@ -105,17 +105,21 @@
         }
         .show-header-details-top__follow{
           margin-left: 30px;
-          padding: 10px 0; 
+          // padding: 10px 0; 
+          display: flex;
           .follow-btn{
             background-color: $button;
             border: none;
             cursor: pointer;
             outline: none;
-            padding: 5px 10px;
+            padding: 0 10px;
             appearance: none;
             color: $background;
             border-radius: 4px;
             font-weight: bold;
+            height: 30px;
+            margin-top: 8px;
+            line-height: 30px;
           }
           .follow-message-btn{
             text-decoration: none;
@@ -124,7 +128,10 @@
             color: $font-basic;
             border: solid 1px $light-gray;
             border-radius: 4px;
-            padding: 5px 10px;
+            line-height: 30px;
+            padding: 0 4px;
+            margin: 10px 0 0 10px;
+            height: 30px;
           }
           .follow-cancel-btn{
             background-color: transparent;
@@ -132,9 +139,60 @@
             border-radius: 4px;
             cursor: pointer;
             outline: none;
-            padding: 5px 6px;
             appearance: none;
-            margin-left: 10px;
+            margin: 10px 0 0 10px;
+            height: 30px;
+            width: 34px;
+          }
+          .follow-cancel-window{
+            display: none;
+            position: fixed;
+            top: calc(50% - 200px);
+            left: calc(50% - 200px);
+            width: 400px;
+            border-radius: 10px;
+            background-color: $background;
+            z-index: 20;
+            &__text{
+              text-align: center;
+              font-size: 18px;
+              color: $font-basic;
+              padding: 10px 30px;
+              font-size: 15px;
+              &__user-image{
+                display: block;
+                margin: 20px auto;
+              }
+            }
+            &__btn{
+              .follow-cancel{
+                height: 50px;
+                width: 100%;
+                font-size: 15px;
+                font-weight: bold;
+                color: rgb(255, 72, 0);
+                border: none;
+                border-top: solid 1px $light-gray;
+                background-color: transparent;
+                cursor: pointer;
+                outline: none;
+                padding: 10px;
+                appearance: none;
+              }
+            }
+            .cancel-window{
+              height: 50px;
+              width: 100%;
+              font-size: 15px;
+              color: $font-basic;
+              border: none;
+              border-top: solid 1px $light-gray;
+              background-color: transparent;
+              cursor: pointer;
+              outline: none;
+              padding: 10px;
+              appearance: none;
+            }
           }
           .option-btn-other{
             background-color: transparent;
@@ -206,11 +264,13 @@
           color: $font-basic;
           font-weight: bold;
           font-family: Ludica Sans Unicode;
+          margin-left: 20px;
         }
         .follow-length{
           color: $font-basic;
           font-weight: bold;
           font-family: Ludica Sans Unicode;
+          margin-left: 20px;
         }
       }
       .show-header-details-bottom{
