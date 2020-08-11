@@ -20,7 +20,8 @@
 
         .main__post__tag
           .main__post__tag__add
-            タグ付けする
+            =link_to new_tag_path, class: "tag-add" do
+              タグ付けする
           .main__post__tag__icon
             =link_to root_path do
               =icon('fas fa-chevron-left', class: "main-tag-icon")
