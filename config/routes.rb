@@ -18,5 +18,13 @@ Rails.application.routes.draw do
       get :tag_post
     end
   end
+
+
+  root "tops#index"
+
+  resources :messages, only: [:index, :show]
+
+  resources :posts, only: [:index, :new]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

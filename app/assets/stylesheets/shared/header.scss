@@ -53,8 +53,15 @@
     }
     &__options{
       display: flex;
+      .header-post{
+        font-size: 24px;
+        a{
+          color: rgb(54, 54, 54);
+        }
+      }
       .header-home{
         font-size: 24px;
+        margin-left: 20px;
         a{
           color: rgb(54, 54, 54);
         }
