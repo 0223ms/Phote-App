@@ -1,0 +1,44 @@
+.tag {
+  background-color: #fafafa;
+  width: 100%;
+  height: 100%;
+  &__header {
+    height: 44px;
+    padding: 0 16px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    &__add {
+      color: #262626;
+      width: 95%;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+  &__main {
+    text-align: center;
+  }
+  &__footer {
+    text-align: center;
+    color: #8e8e8e;
+  }
+  
+}
+
+.fa-times {
+  color: #262626;
+  font-size: 25px;
+  line-height: 18px;
+}
+
+.tag-complete {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0095f6;
+  text-decoration: none;
+}
+.tag-icon {
+  margin: 20% 0;
+}
