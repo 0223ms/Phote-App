@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
 
+
+  def index
+    @posts = Post.all
+  end
+  
   def new
     @post = Post.new
   end
@@ -13,8 +18,15 @@ class PostsController < ApplicationController
   end
 
   private
-  def tweet_params
-    post.permit(:name, :image, :text)
+  def post_params
+    params.require(:post).permit(:image, :content).merge(user_id: current_user.id)
   end
 
+  def set_tweet
+    @post = Post.find(params[:id]) 
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
 end
