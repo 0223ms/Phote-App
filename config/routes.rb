@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post 'update_password', to: 'users/registrations#update_password'
   end
 
-  root "tops#index"
+
 
   resources :follows, only: [:create, :destroy]
   resources :messages, only: [:index, :show]
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
 
-  root "tops#index"
+  root to: "posts#index"
 
   resources :messages, only: [:index, :show]
 
