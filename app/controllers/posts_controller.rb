@@ -9,6 +9,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show
+
+  end
+  
   def create
     Post.create(post_params)
   end
