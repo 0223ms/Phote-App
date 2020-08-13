@@ -1,0 +1,64 @@
+.posts__show
+  .posts__show__main
+    .posts__show__main__body
+      .posts__show__main__body__contents
+        .posts__show__main__body__contents__image
+          = image_tag src="/BackgroundHomeSummer.jpg", size: "436x436", class: "show-icon"
+        .posts__show__main__body__contents__side
+          .posts__show__main__body__contents__side__header
+            .posts__show__main__body__contents__side__header__icon
+              = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "show-header-icon"
+            .posts__show__main__body__contents__side__header__name
+              =link_to exhibition_path, class: "show-name" do
+                username
+            .posts__show__main__body__contents__side__header__fab
+              = icon('fas fa-ellipsis-h',  class: "show-header-icon")
+          .posts__show__main__body__contents__side__right
+            .posts__show__main__body__contents__side__right__main
+              .posts__show__main__body__contents__side__right__main__icon
+                = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "show-header-icon"
+              .posts__show__main__body__contents__side__right__main__name
+                =link_to exhibition_path, class: "show-name" do
+                  username
+                .posts__show__main__body__contents__side__right__main__name__text
+                  photephotephotephotephotephotephotephote
+                  %br
+                  photephotephotephotephotephotephotephote
+                  %br
+                  photephotephotephotephotephotephotephote
+                  %br
+                  photephotephotephotephotephotephotephote
+                  %br
+                  photephotephotephotephotephotephotephote
+                  %br
+                  photephotephotephotephotephotephotephote
+                  %br
+                  photephotephotephotephotephotephotephote
+                  %br
+                  photephotephotephotephotephotephotephote
+                  %br
+                  photephotephotephotephotephotephotephote
+                  
+            .posts__show__main__body__contents__side__right__footer
+              .posts__show__main__body__contents__side__right__footer__icon
+                = icon('far fa-heart',  class: "main-show-icon")
+              .posts__show__main__body__contents__side__right__footer__icon
+                = icon('far fa-comment',  class: "main-show-icon")
+              .posts__show__main__body__contents__side__right__footer__icon
+                = icon('far fa-share-square',  class: "main-show-icon")
+            .posts__show__main__body__contents__side__right__like
+              .posts__show__main__body__contents__side__right__like__image
+                = image_tag src="/BackgroundHomeSummer.jpg", size: "25x25", class: "show-header-icon"
+              .posts__show__main__body__contents__side__right__like__fab
+                フォロワー、他50人が「いいね！」しました
+
+            .posts__show__main__body__contents__side__right__time
+              10時間前
+              
+            = form_with model: @post, local: true do |f|
+              .posts__show__main__body__contents__side__right__comment
+                .posts__show__main__body__contents__side__right__comment__box
+
+                  = f.text_area :content, class: "posts__show__main__body__contents__side__right__comment__box__add", placeholder: 'コメントを追加...'
+                  = f.submit "投稿する", class: 'posts__show__main__body__contents__side__right__comment__box__submit'
+            
