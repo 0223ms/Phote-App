@@ -9,7 +9,6 @@ $(function(){
                     </div>
                   </div>
                   <div class="product-image__operetion">
-                    <div class="product-image__operetion--edit">編集</div>
                     <div class="product-image__operetion--delete" id="delete_btn_${count}">削除</div>
                   </div>
                 </div>`
@@ -41,7 +40,7 @@ $(function(){
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
     var count = $('.product-image').length
     //labelのidとforを更新
-    $('.image-box').attr({id: `image-box--${count}`,for: `product_images_attributes_${id}_image`});
+    $('.image-box').attr({id: `image-box--${count}`,for: `post_images_attributes_${id}_image`});
     //選択したfileのオブジェクトを取得
     var file = this.files[0];
     var reader = new FileReader();
@@ -61,14 +60,14 @@ $(function(){
       $(`#preview-box__${id} img`).attr('src', `${image}`);
 
       //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
-      if ($(`#product_images_attributes_${id}__destroy`)){
-        $(`#product_images_attributes_${id}__destroy`).prop('checked',false);
+      if ($(`#post_images_attributes_${id}__destroy`)){
+        $(`#post_images_attributes_${id}__destroy`).prop('checked',false);
       } 
       //=============================================================================
 
       //labelのidとforの値を変更
       var count = $('.product-image').length
-      $('.image-box').attr({id: `image-box--${count}`,for: `product_images_attributes_${count}_image`});
+      $('.image-box').attr({id: `image-box--${count}`,for: `post_images_attributes_${count}_image`});
     }
   });
 
@@ -81,21 +80,21 @@ $(function(){
 
     //新規投稿時
     //削除用チェックボックスの有無で判定
-    if ($(`#product_images_attributes_${id}__destroy`).length == 0) {
+    if ($(`#post_images_attributes_${id}__destroy`).length == 0) {
       //フォームの中身を削除 
-      $(`#product_images_attributes_${id}_image`).val("");
+      $(`#post_images_attributes_${id}_image`).val("");
 
       var count = $('.product-image').length
-      $('.image-box').attr({id: `image-box--${count}`,for: `product_images_attributes_${id}_image`});
+      $('.image-box').attr({id: `image-box--${count}`,for: `post_images_attributes_${id}_image`});
 
     } else {
 
       //投稿編集時
-      $(`#product_images_attributes_${id}__destroy`).prop('checked',true);
+      $(`#post_images_attributes_${id}__destroy`).prop('checked',true);
 
       //削除したプレビューのidによって、ラベルのidを変更する
         var count = $('.product-image').length
-        $('.image-box').attr({id: `image-box--${count}`,for: `product_images_attributes_${id}_image`});
+        $('.image-box').attr({id: `image-box--${count}`,for: `post_images_attributes_${id}_image`});
     }
     //=============================================================================
   });

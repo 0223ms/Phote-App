@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-
+  before_action :move_to_index, only: [:new, :create, :edit, :update]
+  before_action :post_item, except: [:index, :new, :create]
 
   def index
     @posts = Post.all
