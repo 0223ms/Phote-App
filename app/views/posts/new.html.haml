@@ -1,6 +1,6 @@
 .post__contents
   .post__contents__container
-    = form_with model: @posts, local: true do |f|
+    = form_with model: @post, local: true do |f|
       .header__post
         .header__post__back
           =link_to root_path do
@@ -14,9 +14,26 @@
           .main__post__contents__icon
             = image_tag "/BackgroundHomeSummer.jpg", size: "30x30", alt: "顔写真1", class: "post-icon"
           = f.text_area :content, class: "main__post__contents__cap", placeholder: 'キャプションを入力...'
-          = f.label :image, class: 'main__post__contents__image' do
-            =icon('far fa-image', class: "main-newpost-icon")
-          = f.file_field :image, class: 'hidden'
+          
+
+        %label{for: "product_images_attributes_0_image", class: "image-box", id: "image-box--0"}
+          %pre.label-text
+            %i.fas.fa-camera{class: "exhibit__btn--icon"}
+            ドラッグアンドドロップ
+            またはクリックしてファイルをアップロード 
+
+          = f.fields_for :images, class: "image-file", id: "product_images" do |i|
+            %label{class: "image-field"}
+              = i.file_field :image, class: "image-field"
+            %input{class:"image-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image"}
+            %input{class:"image-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image"}
+            %input{class:"image-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image"}
+            %input{class:"image-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image"}
+            %input{class:"image-field", type: "file", name: "product[images_attributes][5][image]", id: "product_images_attributes_5_image"}
+            %input{class:"image-field", type: "file", name: "product[images_attributes][6][image]", id: "product_images_attributes_6_image"}
+            %input{class:"image-field", type: "file", name: "product[images_attributes][7][image]", id: "product_images_attributes_7_image"}
+            %input{class:"image-field", type: "file", name: "product[images_attributes][8][image]", id: "product_images_attributes_8_image"}
+            %input{class:"image-field", type: "file", name: "product[images_attributes][9][image]", id: "product_images_attributes_9_image"}
 
         .main__post__tag
           .main__post__tag__add
@@ -25,8 +42,21 @@
           .main__post__tag__icon
             =link_to root_path do
               =icon('fas fa-chevron-left', class: "main-tag-icon")
-      -# = f.label :image, class: 'form__mask__image' do
-      -#       = icon('far fa-image', class: "header-post-icon")
-      -#       = f.file_field :image, class: 'hidden'
-      -#   = f.text_field :name, placeholder: "キャプションを入力"
-      -#   = f.submit "シェア"
+
+
+
+  
+
+      
+      
+      -#  .main__post
+      -#   .main__post__contents
+      -#     .main__post__contents__icon
+      -#       = image_tag "/BackgroundHomeSummer.jpg", size: "30x30", alt: "顔写真1", class: "post-icon"
+      -#     = f.text_area :content, class: "main__post__contents__cap", placeholder: 'キャプションを入力...'
+      -#     = f.fields_for :images, class: "image-file", id: "product_images" do |i|
+      -#       = i.label :image, class: 'main__post__contents__image' do
+      -#         =icon('far fa-image', class: "main-newpost-icon")
+      -#       = i.file_field :image, class: "image-field"
+      -#       - @post.images.length.upto(9) do |i|
+      -#         %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"image-field", type:"file"}

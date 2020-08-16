@@ -336,6 +336,7 @@
     padding: 16px;
     border-bottom: 1px solid #dbdbdb;
     display: flex;
+    margin-bottom: 12px;
     &__icon {
       border-radius: 20px;
       margin-right: 6px;
@@ -391,6 +392,9 @@
   text-decoration: none;
 }
 
+// .image-field {
+//   display: none;
+// }
 
 
 // show
@@ -545,3 +549,150 @@
   padding: 8px;
   font-size: 24px;
 }
+
+
+
+
+
+
+// モーダルウィンドウ
+
+.option-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  font-size: 26px;
+  color: $font-basic;
+}
+.gray-back{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background-color: #000000a6;
+  display: none;
+}
+.option-menu{
+  position: fixed;
+  top: 180px;
+  left: 500px;
+  width: 400px;
+  border-radius: 10px;
+  background-color: $background;
+  display: none;
+  z-index: 15;
+  ul{
+    .option-list{
+      border-bottom: solid 1px $light-gray;
+      line-height: 80px;
+      text-align: center;
+      a{
+        text-decoration: none;
+        color: $font-basic;
+      }
+      &__follow {
+        
+        border-bottom: solid 1px $light-gray;
+        line-height: 80px;
+        text-align: center;
+        a {
+          text-decoration: none;
+          color: red;
+        }
+      }
+    }
+    .option-list-bottom{
+      line-height: 80px;
+      text-align: center;
+      button{
+        font-size: 16px;
+        color: $font-basic;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+// 新規投稿　イメージ
+.image-box{
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+  display: flex;
+  height: 150px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  transition: all 0.5s ease-out 0s;
+}
+.exhibit__btn--icon{
+  color:black;
+  font-size: 24px;
+}
+.label-text{
+  font-size: 12px;
+  text-align: center;
+}
+
+
+
+
+// .image-field{
+//   display:none;
+// }
+
+#image-box--0{
+  width: 100%;
+}
+#image-box--1{
+  width: 100%;
+}
+#image-box--2{
+  width: 100%;
+}
+#image-box--3{
+  width: 100%;
+}
+#image-box--4{
+  width: 100%;
+}
+#image-box--5{
+  width: 100%;
+}
+#image-box--6{
+  width: 100%;
+}
+#image-box--7{
+  width: 100%;
+}
+#image-box--8{
+  width: 100%;
+}
+#image-box--9{
+  width: 100%;
+}
+#image-box--10{
+  display: none;
+}
+
+

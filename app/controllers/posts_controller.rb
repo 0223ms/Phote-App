@@ -7,14 +7,21 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
+    @post.images.build
   end
 
   def show
-
+    @post = Post.find_by(id:params[:id])
   end
   
   def create
-    Post.create(post_params)
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+      flash.now[:alert] = "投稿に失敗しました"
+    end
   end
 
   def edit
@@ -23,10 +30,10 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :content).merge(user_id: current_user.id)
+    params.require(:post).permit(:content, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
-  def set_tweet
+  def set_post
     @post = Post.find(params[:id]) 
   end
 
