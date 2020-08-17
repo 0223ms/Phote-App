@@ -1,0 +1,55 @@
+.mainber
+  .mainber__header
+    .mainber__header__head
+      %span.mainber__head__image
+        = image_tag src="/BackgroundHomeSummer.jpg", size: "42x42", class: "tops-icon"
+      
+      .mainber__header__head__name-place
+        .mainber__header__head__name-place__name
+          = post.user.nickname
+        .mainber__header__head__name-place__place
+          場所
+      .show-header-details-top__option
+        %button.option-btn
+          = icon('fas fa-ellipsis-h',  class: "mainber__headright__btn--icon")
+
+        .gray-back
+        .option-menu
+          %ul
+            %li.option-list__follow
+              =link_to "#" do
+                フォローをやめる
+            %li.option-list
+              =link_to  "#" do
+                投稿へ移動
+            %li.option-list-bottom
+              %button.cancel-btn キャンセル
+  %span.mainber__images
+    -# = image_tag src="/BackgroundHomeSummer.jpg", class: "main-new-arrival__product--image--first", size: "614x614"
+    = image_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614x614"
+  %section.mainber__icon
+    %span.mainber__icon__heart
+      = icon('far fa-heart',  class: "mainber__icon__heart__btn--icon")
+    %span.mainber__icon__heart
+      = icon('far fa-comment',  class: "mainber__icon__heart__btn--icon")
+    %span.mainber__icon__heart
+      = icon('far fa-share-square',  class: "mainber__icon__heart__btn--icon")
+
+
+  %section.mainber__fab
+    フォロワー、他50人が「いいね！」しました
+  .mainber__username
+    = post.user.nickname
+  .mainber__content
+    = post.content
+  .mainber__time
+    %time(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
+  .mainber__comment
+    = form_with model: @post, local: true do |f|
+      .mainber__comment__box
+        = f.text_area :content, class: "comment-text", placeholder: 'コメントを追加...'
+        = f.submit "投稿する", class: "comment-submit"
+
+
+
+        
