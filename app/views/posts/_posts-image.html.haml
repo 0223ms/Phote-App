@@ -6,7 +6,7 @@
       
       .mainber__header__head__name-place
         .mainber__header__head__name-place__name
-          = post.user.nickname
+          = post.user.username
         .mainber__header__head__name-place__place
           場所
       .show-header-details-top__option
@@ -39,13 +39,13 @@
   %section.mainber__fab
     フォロワー、他50人が「いいね！」しました
   .mainber__username
-    = post.user.nickname
+    = post.user.username
   .mainber__content
     = post.content
   .mainber__time
     %time(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
   .mainber__comment
-    = form_with model: @post, local: true do |f|
+    = form_with model: @comment, local: true do |f|
       .mainber__comment__box
         = f.text_area :content, class: "comment-text", placeholder: 'コメントを追加...'
         = f.submit "投稿する", class: "comment-submit"

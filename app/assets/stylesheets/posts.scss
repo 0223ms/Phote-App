@@ -197,8 +197,11 @@
 // mainside
 
 .mainside {
+  position: fixed;
+  right: 17%;
   width: 293px;
   height: 518px;
+
   &__profile {
     margin: 18px 0 10px 0;
     width: 293px;
