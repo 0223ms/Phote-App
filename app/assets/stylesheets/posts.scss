@@ -62,7 +62,6 @@
 
 .mainber {
   width: 614px;
-  height: 850px;
   margin-bottom: 60px;
   border: 1px solid #dbdbdb;
   background-color: #fff;
@@ -72,16 +71,13 @@
       display: flex;
       &__head {
         padding: 16px;
-        height: 55px;
+        height: 70px;
         width: 582px;
         display: flex;
         align-items: center;
-        &__image {
-
-        }
         &__name-place {
           margin-left: 14px;
-          width: 536px;
+          width: 100%;
           height: 41px;
           &__name {
             font-weight: bold;
@@ -91,6 +87,7 @@
             font-size: 12px;
             color: #262626;
             padding: 2px;
+            
           }
         }
       }
@@ -149,37 +146,62 @@
     font-weight: 600;
     margin-bottom: 4px;
   }
+  &__content {
+    padding:  0 16px;
+    width: 582px;
+    height: 22px;
+    color: #262626;
+    font-size: 14px;
+    line-height: 18px;
+
+    margin-bottom: 4px;
+  }
   &__time {
     padding-left: 16px;
     margin-bottom: 4px;
     color: #8e8e8e;
-    font-size: 14px;
+    font-size: 10px;
 
   }
   &__comment {
     width: 614px;
-    height: 53px;
     margin-top: 4px;
     border-top: 1px solid #efefef;
     align-items: center;
-    &__text {
-      color: #c7c7c7;
-      font-weight: 400;
-      text-align: center;
-      font-size: 14px;
-      line-height: 18px;
-      margin: 18px 0 -4px 0;
-     
+    &__box {
+      margin-top: 4px;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
 
+.comment-text {
+  border: 0px;
+  outline: none;
+  resize: none;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+}
+
+.comment-submit {
+  color: #0095f6;
+  font-size: 14px;
+  border: 0px;
+  background-color: #fff;
+
+}
 
 // mainside
 
 .mainside {
+  position: fixed;
+  right: 17%;
   width: 293px;
   height: 518px;
+
   &__profile {
     margin: 18px 0 10px 0;
     width: 293px;
