@@ -10,7 +10,7 @@
               = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "show-header-icon"
             .posts__show__main__body__contents__side__header__name
               =link_to exhibition_path, class: "show-name" do
-                = current_user.username
+                = @post.user.username
             .posts__show__main__body__contents__side__header__fab
               %button.option-btn-post
                 = icon('fas fa-ellipsis-h',  class: "show-header-icon")
@@ -43,7 +43,7 @@
                 = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "show-header-icon"
               .posts__show__main__body__contents__side__right__main__name
                 =link_to exhibition_path, class: "show-name" do
-                  = current_user.username
+                  = @post.user.username
                 .posts__show__main__body__contents__side__right__main__name__text
                   = @post.content
                   

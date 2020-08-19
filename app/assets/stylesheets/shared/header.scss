@@ -110,6 +110,7 @@
   box-shadow: 0 0 4px 4px rgba(199, 199, 199, 0.4);
   border-radius: 6px;
   display: none;
+  z-index: 100;
   .notification-list{
     a{
       height: 36px;
