@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
-  before_action :post_item, except: [:index, :new, :create]
+  # before_action :post_item, except: [:index, :new, :create]
 
   def index
     @posts = Post.includes(:user).order('created_at DESC')
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    # @post = Post.find_by(id:params[:id])
+    @post = Post.find(params[:id])
   end
   
   def create
@@ -28,6 +28,13 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to root_path
+  end
+
 
   private
   def post_params

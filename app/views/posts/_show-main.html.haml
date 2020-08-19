@@ -3,41 +3,49 @@
     .posts__show__main__body
       .posts__show__main__body__contents
         .posts__show__main__body__contents__image
-          = image_tag src="/BackgroundHomeSummer.jpg", size: "436x436", class: "show-icon"
+          = image_tag @post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "436x436"
         .posts__show__main__body__contents__side
           .posts__show__main__body__contents__side__header
             .posts__show__main__body__contents__side__header__icon
               = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "show-header-icon"
             .posts__show__main__body__contents__side__header__name
               =link_to exhibition_path, class: "show-name" do
-                username
+                = current_user.username
             .posts__show__main__body__contents__side__header__fab
-              = icon('fas fa-ellipsis-h',  class: "show-header-icon")
+              %button.option-btn-post
+                = icon('fas fa-ellipsis-h',  class: "show-header-icon")
+              .gray-back
+                -if user_signed_in? && current_user.id == @post.user_id
+                  .option-menu
+                    %ul
+                      %li.option-listc-delete
+                        =link_to '削除', "/posts/#{@post.id}", method: :delete
+                        
+                      %li.option-list-edit
+                        =link_to  "#" do
+                          編集
+                      %li.option-list-bottom
+                        %button.cancel-btn キャンセル
+                -else
+                  .option-menu     
+                    %ul
+                      %li.option-list-follow-cancel
+                        =link_to "#" do
+                          フォローをやめる
+                      %li.option-post
+                        =link_to  "#" do
+                          投稿へ移動
+                      %li.option-list-bottom
+                        %button.cancel-btn キャンセル
           .posts__show__main__body__contents__side__right
             .posts__show__main__body__contents__side__right__main
               .posts__show__main__body__contents__side__right__main__icon
                 = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "show-header-icon"
               .posts__show__main__body__contents__side__right__main__name
                 =link_to exhibition_path, class: "show-name" do
-                  username
+                  = current_user.username
                 .posts__show__main__body__contents__side__right__main__name__text
-                  photephotephotephotephotephotephotephote
-                  %br
-                  photephotephotephotephotephotephotephote
-                  %br
-                  photephotephotephotephotephotephotephote
-                  %br
-                  photephotephotephotephotephotephotephote
-                  %br
-                  photephotephotephotephotephotephotephote
-                  %br
-                  photephotephotephotephotephotephotephote
-                  %br
-                  photephotephotephotephotephotephotephote
-                  %br
-                  photephotephotephotephotephotephotephote
-                  %br
-                  photephotephotephotephotephotephotephote
+                  = @post.content
                   
             .posts__show__main__body__contents__side__right__footer
               .posts__show__main__body__contents__side__right__footer__icon
@@ -53,9 +61,9 @@
                 フォロワー、他50人が「いいね！」しました
 
             .posts__show__main__body__contents__side__right__time
-              10時間前
+              %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
               
-            = form_with model: @post, local: true do |f|
+            = form_with model: @posts, local: true do |f|
               .posts__show__main__body__contents__side__right__comment
                 .posts__show__main__body__contents__side__right__comment__box
 
