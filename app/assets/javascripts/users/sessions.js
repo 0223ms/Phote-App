@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
   $(function(){
     $(document).ready(function(){
       $(".signIn-background").fadeIn(1500)
