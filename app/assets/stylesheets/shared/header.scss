@@ -103,6 +103,7 @@
 }
 .header-users-notification{
   position: fixed;
+  z-index: 100;
   top: 56px;
   right: 200px;
   width: 240px;
@@ -125,7 +126,7 @@
   }
   .notification-list-bottom{
     a{
-      height: 36px;
+      height: 20px;
       width: 100%;
       display: block;
       text-decoration: none;

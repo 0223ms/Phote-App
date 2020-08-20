@@ -1,5 +1,5 @@
 =render "shared/header-messages"
 .messages-maincontents
   .messages-maincontents__main
-    =render "left-side"
-    =render "message"
+    =render partial: "shared/left-side", locals: { room_users: @room_users }
+    =render partial:"main-message", local: { room: @room }

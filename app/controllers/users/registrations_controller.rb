@@ -20,6 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.save
     if resource.persisted?
       sign_in(:user, @user)
+      cookies.signed[:user_id] = @user.id
       redirect_to root_path
     else
       render :new and return

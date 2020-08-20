@@ -1,0 +1,68 @@
+$("#user-modal").html("<%= escape_javascript(render 'shared/form', locals: {user: @user}) %>")
+$("#user-modal").modal("show")
+
+function addUser(user, imageUrl) {
+  let html = `
+    <div class="modal-user-lists__list__defoult">
+      <label for="user-radio-button-${ user.id }" class="user-list-box">
+        <div class="user-image-box">
+          <img class="list-user-image" src="${ imageUrl }" width="40" height="40">
+        </div>
+        <div class="user-name-box">
+          <div class="user-name-box__username">
+            ${ user.username }
+          </div>
+          <div class="user-name-box__nickname">
+            ${ user.nickname }
+          </div>
+        </div>
+        <div class="user-radio-button">
+          <input class="user-radio-button" id="user-radio-button-${ user.id }" type="radio" value="${ user.id }" name="room[user_id]">
+          <label for="user-radio-button-${ user.id }">
+            <span></span>
+          </label>
+        </div>
+      </label>
+    </div>
+  `;
+  $(".modal-user-lists__list").append(html);
+}
+function addNoUser() {
+  let html = `
+    <div class="modal-user-lists__list__defoult">
+      <div class="user-list-box">ユーザーが見つかりません</div>
+    </div>
+  `;
+  $(".modal-user-lists__list").append(html);
+}
+
+$("#modal-search-id").on("keyup", function(){
+  let input = $("#modal-search-id").val();
+  $.ajax({
+    type: "GET",
+    url: "/rooms/search",
+    data: { keyword: input },
+    dataType: "json"
+  })
+  .done(function(users) {
+    $(".modal-user-lists__list").empty();
+    if (users.length !== 0) {
+      users.forEach(function(user) {
+        if (user.image.url !== null){
+          let imageUrl = user.image.url;
+          addUser(user, imageUrl);
+        } else {
+          let imageUrl = "/assets/user1.png";
+          addUser(user, imageUrl);
+        }
+      });
+    } else if (input.length == 0) {
+      return false;
+    } else {
+      addNoUser();
+    }
+  })
+  .fail(function() {
+    alert("通信エラーです。ユーザーが表示できません。");
+  });
+})

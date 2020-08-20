@@ -11,13 +11,17 @@ Rails.application.routes.draw do
 
 
   resources :follows, only: [:create, :destroy]
-  resources :messages, only: [:index, :show]
+  resources :rooms, only: [:index, :new, :create] do
+    get :search, on: :collection
+  end
+  resources :messages, only: [:show]
   resources :exhibitions, only: [:show] do
     member do
       get :save_post
       get :tag_post
     end
   end
+  mount ActionCable.server => '/cable'
 
 
   root to: "posts#index"

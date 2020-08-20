@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_145244) do
+ActiveRecord::Schema.define(version: 2020_08_10_113303) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content", null: false
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2020_08_08_145244) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
-    t.string "image"
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
     t.datetime "created_at", null: false
@@ -66,12 +65,16 @@ ActiveRecord::Schema.define(version: 2020_08_08_145244) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tag_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -116,7 +119,6 @@ ActiveRecord::Schema.define(version: 2020_08_08_145244) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "rooms", "users"
   add_foreign_key "tag_posts", "posts"
   add_foreign_key "tag_posts", "tags"
 end

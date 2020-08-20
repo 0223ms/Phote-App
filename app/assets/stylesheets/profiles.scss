@@ -34,13 +34,19 @@
         display: flex;
         &__left-content{
           width: 200px;
-          .user-image{
-            float: right;
-            margin: 8px 30px 0 0;
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            cursor: pointer;
+          .user-image-box{
+            position: relative;
+            height: 50px;
+            .user-image{
+              position: absolute;
+              top: 0;
+              right: 0;
+              margin: 8px 30px 0 0;
+              height: 40px;
+              width: 40px;
+              border-radius: 50%;
+              cursor: pointer;  
+            }
           }
         }
         &__right-content{
