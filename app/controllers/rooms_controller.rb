@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @user = User.where.not(id: current_user)
+    @user = User.where.not(id: current_user.id)
     @room = Room.new
   end
 
