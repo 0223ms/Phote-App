@@ -1,0 +1,20 @@
+.message-chat
+  .message-chat__header
+    .message-chat__header__content
+      .message-chat__header__content__contents
+        .message-chat__header__content__contents__left
+          - image = @room.users.select{ |user| user!= current_user }[0].image
+          - unless image.blank?
+            = image_tag image.url, size: "24x24", class: "message-chat__header__content__contents__left__icon"
+          - else
+            = image_tag "user1.png", size: "24x24", class: "message-chat__header__content__contents__left__icon"
+          .message-chat__header__content__contents__left__username
+            = @room.users.select{ |user| user!= current_user }[0].username
+        .message-chat__header__content__contents__right
+          = icon('fas fa-info-circle',  class: "message-chat__header__content__right--icon")
+  = render 'message'
+  .message-form
+    %input.message-form__message#message-form__message-id{:placeholder => "メッセージ...", :type => "text", :autocomplete => "off"}
+    %input#hidden-user{:value => "#{current_user.id}", :type => "text"}
+    %input#hidden-room{:value => "#{@room.id}", :type => "text"}
+    %submit#message-fotm-button 送信

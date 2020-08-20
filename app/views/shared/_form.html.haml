@@ -1,0 +1,32 @@
+=form_with model: @room, local: true do |f|
+  .modal-dialog
+    .modal-content
+      .modal-header
+        .modal-header__text
+          新規メッセージ
+        =f.submit '次へ', class: "modal-header__next"
+      .modal-search
+        .modal-search__text
+          宛先:
+          %input#modal-search-id.modal-search__field{:placeholder => "検索する", :type => "text", :autocomplete => "off"}/
+      .modal-user-lists
+        .modal-user-lists__text
+          ユーザー:
+        .modal-user-lists__list
+          - @user.each do |user|
+            .modal-user-lists__list__defoult
+              %label.user-list-box(for="user-radio-button-#{ user.id }")
+                .user-image-box
+                  -if user.image?
+                    =image_tag src="#{user.image.url}", size: "40",class: "list-user-image"
+                  -else
+                    =image_tag src="user1.png", size: "40",class: "list-user-image"
+                .user-name-box
+                  .user-name-box__username
+                    =user.username
+                  .user-name-box__nickname
+                    =user.nickname
+                .user-radio-button
+                  =f.radio_button :user_id, user.id, { class: "user-radio-button", id: "user-radio-button-#{ user.id }" }
+                  %label(for="user-radio-button-#{ user.id }")
+                    %span

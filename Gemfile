@@ -81,3 +81,5 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'devise'
 gem 'rails-i18n'
+gem 'bootstrap', '~> 4.1.1'
+

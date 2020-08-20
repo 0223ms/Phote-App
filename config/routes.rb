@@ -11,12 +11,15 @@ Rails.application.routes.draw do
   root "tops#index"
 
   resources :follows, only: [:create, :destroy]
-  resources :messages, only: [:index, :show]
+  resources :rooms, only: [:index, :new, :create] do
+    get :search, on: :collection
+  end
+  resources :messages, only: [:show]
   resources :exhibitions, only: [:show] do
     member do
       get :save_post
       get :tag_post
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount ActionCable.server => '/cable'
 end

@@ -1,0 +1,27 @@
+.left-side
+  .left-side__header
+    .left-side__header__contents
+      .left-side__header__contents__text
+        Direct
+      .left-side__header__contents__fab
+        =link_to new_room_path, remote: true do
+          = icon('far fa-edit',  class: "direct__btn--icon")
+  #user-modal{class: "modal fade", "aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .left-side__center
+    .left-side__center__contents
+      .left-side__center__contents__message
+        .left-side__center__contents__message__man
+          - unless room_users.blank?
+            - room_users.each do |room_user|
+              - room = Room.find(room_user.room_id)
+              - user = room.users.select{ |user| user!= current_user }[0]
+              =link_to message_path(room.id), class: "left-side__center__contents__message__man__link" do
+                -if user.image?
+                  =image_tag user.image.url, size: "52", class: "left-side__center__contents__message__man__link__icon"
+                -else
+                  = image_tag "user1.png", size: "52", class: "left-side__center__contents__message__man__link__icon"
+                .left-side__center__contents__message__man__link__content
+                  .left-side__center__contents__message__man__link__content__username
+                    =user.username
+                  .left-side__center__contents__message__man__link__content__text
+                    オンライン中

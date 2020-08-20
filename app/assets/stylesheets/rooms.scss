@@ -1,0 +1,39 @@
+.messages-maincontents{
+  &__main {
+    .messages-main {
+      width: 100%;
+      padding-top: 200px;
+      &__content {
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+        &__title {
+          margin-top: 32px;
+          color: #262626;
+          font-size: 22px;
+          font-weight: 400;
+        }
+        &__text {
+          margin: 16px 0 32px 0;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+          color: #8e8e8e;
+        }
+        &__submit {
+          color: #fff;
+          background-color: #0095f6;
+          font-weight: 600;
+          padding: 5px 9px;
+          font-size: 14px;
+          text-decoration: none;
+          border-radius: 2px;
+        }
+      }
+    }
+    .fa-envelope {
+      font-size: 96px;
+      color: gray;
+    }
+  }
+}
