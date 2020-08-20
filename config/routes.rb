@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post 'update_password', to: 'users/registrations#update_password'
   end
 
-  root "tops#index"
+
 
   resources :follows, only: [:create, :destroy]
   resources :rooms, only: [:index, :new, :create] do
@@ -22,4 +22,14 @@ Rails.application.routes.draw do
     end
   end
   mount ActionCable.server => '/cable'
+
+
+  root to: "posts#index"
+
+  resources :messages, only: [:index, :show]
+
+  resources :posts, only: [:index, :new, :create, :show ,:edit, :update, :destroy]
+  resources :tags, only: [:new]
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

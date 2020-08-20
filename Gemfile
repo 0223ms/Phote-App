@@ -83,3 +83,4 @@ gem 'devise'
 gem 'rails-i18n'
 gem 'bootstrap', '~> 4.1.1'
 
+gem 'mini_magick'

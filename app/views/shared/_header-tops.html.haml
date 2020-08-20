@@ -10,6 +10,9 @@
           %span#search-text-id 検索
         =f.text_field :keyword, class: "header-search-field", id: "header-search-id"
     .header-inner__options
+      .header-post
+        =link_to new_post_path do
+          =icon('far fa-image', class: "header-post-icon")
       .header-home
         =link_to root_path, class: "notification-list-link" do
           =icon('fas fa-bell', class: "header-home-icon")
