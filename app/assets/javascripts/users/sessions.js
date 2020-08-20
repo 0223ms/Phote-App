@@ -1,9 +1,7 @@
 $(function(){
-  $(function(){
-    $(document).ready(function(){
-      $(".signIn-background").fadeIn(1500)
-    })
-  });
+  $(document).ready(function(){
+    $(".signIn-background").fadeIn(1500)
+  })
 
   $(".btn-app").hover(
     function(){
