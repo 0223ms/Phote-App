@@ -1,6 +1,6 @@
 App.room = App.cable.subscriptions.create("RoomChannel", {
   connected: function() {
-    console.log('check');
+
   },
   disconnected: function() {
 
