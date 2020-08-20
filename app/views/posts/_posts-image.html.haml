@@ -8,25 +8,10 @@
         .mainber__header__head__name-place__name
           = post.user.username
         .mainber__header__head__name-place__place
-          場所
-      .show-header-details-top__option
-        %button.option-btn
-          = icon('fas fa-ellipsis-h',  class: "mainber__headright__btn--icon")
-
-        .gray-back
-        .option-menu
-          %ul
-            %li.option-list__follow
-              =link_to "#" do
-                フォローをやめる
-            %li.option-list
-              =link_to  "#" do
-                投稿へ移動
-            %li.option-list-bottom
-              %button.cancel-btn キャンセル
+          = post.user.nickname
   %span.mainber__images
-    -# = image_tag src="/BackgroundHomeSummer.jpg", class: "main-new-arrival__product--image--first", size: "614x614"
-    = image_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614x614"
+    =link_to post_path(post) do
+      = image_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614x614"
   %section.mainber__icon
     %span.mainber__icon__heart
       = icon('far fa-heart',  class: "mainber__icon__heart__btn--icon")

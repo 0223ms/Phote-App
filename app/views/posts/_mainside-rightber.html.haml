@@ -5,9 +5,9 @@
         = image_tag src="/BackgroundHomeSummer.jpg", size: "56x56", class: "tops-icon"
       .mainside__profile__line__text 
         .mainside__profile__line__text__username
-          ユーザーネーム
+          = current_user.username
         .mainside__profile__line__text__nickname
-          ニックネーム
+          = current_user.nickname
   
   .mainside__recommended
     .mainside__recommended__side
