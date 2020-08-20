@@ -22,8 +22,9 @@
                         =link_to '削除', "/posts/#{@post.id}", method: :delete
                         
                       %li.option-list-edit
-                        =link_to  "#" do
-                          編集
+                        %div{"data-turbolinks" => "false"}
+                          =link_to edit_post_path do
+                            編集
                       %li.option-list-bottom
                         %button.cancel-btn キャンセル
                 -else

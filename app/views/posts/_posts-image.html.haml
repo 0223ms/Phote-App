@@ -8,7 +8,7 @@
         .mainber__header__head__name-place__name
           = post.user.username
         .mainber__header__head__name-place__place
-          場所
+          = post.user.nickname
   %span.mainber__images
     =link_to post_path(post) do
       = image_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614x614"

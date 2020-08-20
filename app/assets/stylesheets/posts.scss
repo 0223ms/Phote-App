@@ -148,8 +148,8 @@
   }
   &__content {
     padding:  0 16px;
-    width: 582px;
-    height: 22px;
+    width: 100%;
+    height: 100%;
     color: #262626;
     font-size: 14px;
     line-height: 18px;
@@ -1030,3 +1030,19 @@
   }
 }
 
+
+// edit
+.edit-content {
+  color: #262626;
+  font-size: 14px;
+  height: 50%;
+  line-height: 18px;
+  width: 100%;
+  border: 0px;
+  outline: none;
+  resize: none;
+}
+
+.edit-content::-webkit-scrollbar {
+  display: none;
+}
