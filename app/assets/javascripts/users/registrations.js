@@ -48,5 +48,18 @@ $(document).on('turbolinks:load', function() {
         $(".user-image-box").append(html);
       }
     })
+
+    $("#password-form-current, #password-form-new, #password-form-confirmation").on('keyup', function(){
+      let pass_current = $("#password-form-current");
+      let pass_new = $("#password-form-new");
+      let pass_confirmation = $("#password-form-confirmation");
+      console.log($("check"));
+      if(pass_current.val() !== "" && pass_new.val() !== "" && pass_confirmation.val() !== "") {
+        $(".password-submit").css('pointer-events', '');
+        $(".password-submit").css('background-color', '#02a1fd');
+      } else {
+        $(".password-submit").css('pointer-events', 'none');
+      }
+    })
   });  
 });

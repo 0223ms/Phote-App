@@ -19,6 +19,24 @@ class FollowsController < ApplicationController
     end
   end
 
+  def top_create
+    following = current_user.following(@user)
+    if following.save
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+  def top_destroy
+    following = current_user.unfollow(@user)
+    if following.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
   private
   
   def set_user

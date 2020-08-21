@@ -2,7 +2,10 @@
   .mainside__profile
     .mainside__profile__line
       %span.mainside__profile__line__image
-        = image_tag src="/BackgroundHomeSummer.jpg", size: "56x56", class: "tops-icon"
+        - if current_user.image?
+          = image_tag current_user.image.url, size: "56", class: "tops-icon"
+        - else
+          = image_tag src="user1.png", size: "56", class: "tops-icon"
       .mainside__profile__line__text 
         .mainside__profile__line__text__username
           = current_user.username
@@ -16,61 +19,45 @@
       .mainside__recommended__side__look
         すべて見る
     .mainside__recommended__user
-      .mainside__recommended__user__box
-        .mainside__recommended__user__box__content
-          %span.mainside__recommended__user__box__content__image
-            = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "tops-icon"
-          .mainside__recommended__user__box__content__name
-            .mainside__recommended__user__box__content__name__username
-              ユーザーネーム
-            .mainside__recommended__user__box__content__name__follower
-              フォロワー、他５人がフォロー中
-          .mainside__recommended__user__box__content__follow
-            フォローする
-      
-      .mainside__recommended__user__box
-        .mainside__recommended__user__box__content
-          %span.mainside__recommended__user__box__content__image
-            = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "tops-icon"
-          .mainside__recommended__user__box__content__name
-            .mainside__recommended__user__box__content__name__username
-              ユーザーネーム
-            .mainside__recommended__user__box__content__name__follower
-              フォロワー、他５人がフォロー中
-          .mainside__recommended__user__box__content__follow
-            フォローする
-
-      .mainside__recommended__user__box
-        .mainside__recommended__user__box__content
-          %span.mainside__recommended__user__box__content__image
-            = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "tops-icon"
-          .mainside__recommended__user__box__content__name
-            .mainside__recommended__user__box__content__name__username
-              ユーザーネーム
-            .mainside__recommended__user__box__content__name__follower
-              フォロワー、他５人がフォロー中
-          .mainside__recommended__user__box__content__follow
-            フォローする
-      .mainside__recommended__user__box
-        .mainside__recommended__user__box__content
-          %span.mainside__recommended__user__box__content__image
-            = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "tops-icon"
-          .mainside__recommended__user__box__content__name
-            .mainside__recommended__user__box__content__name__username
-              ユーザーネーム
-            .mainside__recommended__user__box__content__name__follower
-              フォロワー、他５人がフォロー中
-          .mainside__recommended__user__box__content__follow
-            フォローする
-
-      .mainside__recommended__user__box
-        .mainside__recommended__user__box__content
-          %span.mainside__recommended__user__box__content__image
-            = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "tops-icon"
-          .mainside__recommended__user__box__content__name
-            .mainside__recommended__user__box__content__name__username
-              ユーザーネーム
-            .mainside__recommended__user__box__content__name__follower
-              フォロワー、他５人がフォロー中
-          .mainside__recommended__user__box__content__follow
-            フォローする
+      - @users.each do |user|
+        .mainside__recommended__user__box
+          .mainside__recommended__user__box__content
+            %span.mainside__recommended__user__box__content__image
+              - if user.image?
+                = image_tag user.image.url, size: "32", class: "tops-icon"
+              - else
+                = image_tag src="user1.png", size: "32", class: "tops-icon"
+            .mainside__recommended__user__box__content__name
+              .mainside__recommended__user__box__content__name__username
+                = user.username
+              .mainside__recommended__user__box__content__name__follower
+                %span フォロワー
+                = user.follower_ids.length
+                %span 人,
+                %span フォロー
+                = user.following_ids.length
+                %span 人
+            .mainside__recommended__user__box__content__follow
+              -# = render partial: 'follows/follow-button', locals: { user: user }
+              - unless current_user.following?(user)
+                = form_for(current_user.follows.build, url: { controller: "follows", action: "top_create" }) do |f|
+                  = f.hidden_field :following_id, value: user.id
+                  = f.submit 'フォローする', class: 'follow-btn-top'
+              - if current_user.following?(user)
+                %button.follow-cancel-btn-top
+                  フォロー中
+                .back-screen
+                .follow-cancel-window
+                  .follow-cancel-window__text
+                    -if user.image?
+                      = image_tag user.image.url, size: "80", class: "follow-cancel-window__text__user-image"
+                    -else
+                      = image_tag src="user1.png", size: "80", class: "follow-cancel-window__text__user-image"
+                    =user.username
+                    %span のフォローをやめますか？
+                  = form_for(current_user.follows.find_by(following_id: user.id), html: { method: :delete }, url: { controller: "follows", action: "top_destroy" }) do |f|
+                    .follow-cancel-window__btn
+                      = f.hidden_field :following_id, value: user.id
+                      = f.submit "フォローをやめる", class: 'follow-cancel'
+                  %button.cancel-window
+                    キャンセル

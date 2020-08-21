@@ -34,7 +34,6 @@
                 %button.cancel-btn キャンセル
       -else
         .show-header-details-top__follow
-          -# = render partial: 'follows/follow-button', locals: {user: @user}
           - unless current_user.following?(@user)
             =form_for(current_user.follows.build) do |f|
               =f.hidden_field :following_id, value: @user.id
@@ -79,11 +78,11 @@
         %span 投稿０件
       .follower-length
         %span フォロワー
-        =@user.follower_ids.length
+        = @user.follower_ids.length
         %span 人
       .follow-length
         %span フォロー
-        =@user.following_ids.length
+        = @user.following_ids.length
         %span 人
     .show-header-details-bottom
       =@user.nickname
