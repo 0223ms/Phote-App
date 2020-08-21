@@ -13,6 +13,6 @@ $(function(){
     function action() {
       location.href = linkUrl;
     }
-    setTimeout(action,200);
+    setTimeout(action,300);
   });
 });
