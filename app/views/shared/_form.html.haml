@@ -20,7 +20,7 @@
                   -if user.image?
                     =image_tag src="#{user.image.url}", size: "40",class: "list-user-image"
                   -else
-                    =image_tag src="/assets/user1.png", size: "40",class: "list-user-image"
+                    =image_tag src="user1.png", size: "40",class: "list-user-image"
                 .user-name-box
                   .user-name-box__username
                     =user.username
