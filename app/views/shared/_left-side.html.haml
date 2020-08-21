@@ -15,13 +15,14 @@
             - room_users.each do |room_user|
               - room = Room.find(room_user.room_id)
               - user = room.users.select{ |user| user!= current_user }[0]
-              =link_to message_path(room.id), class: "left-side__center__contents__message__man__link" do
-                -if user.image?
-                  =image_tag user.image.url, size: "52", class: "left-side__center__contents__message__man__link__icon"
-                -else
-                  = image_tag "user1.png", size: "52", class: "left-side__center__contents__message__man__link__icon"
-                .left-side__center__contents__message__man__link__content
-                  .left-side__center__contents__message__man__link__content__username
-                    =user.username
-                  .left-side__center__contents__message__man__link__content__text
-                    オンライン中
+              %div{"data-turbolinks" => "false"}
+                =link_to message_path(room.id), class: "left-side__center__contents__message__man__link" do
+                  -if user.image?
+                    =image_tag user.image.url, size: "52", class: "left-side__center__contents__message__man__link__icon"
+                  -else
+                    = image_tag "user1.png", size: "52", class: "left-side__center__contents__message__man__link__icon"
+                  .left-side__center__contents__message__man__link__content
+                    .left-side__center__contents__message__man__link__content__username
+                      =user.username
+                    .left-side__center__contents__message__man__link__content__text
+                      オンライン中
