@@ -112,15 +112,26 @@
     height: 40px;
     display: flex;
     &__heart {
-      .fa-heart {
+      padding-left: 8px;
+      .post-liked{
+        color: rgb(255, 50, 50);
         font-size: 26px;
-        padding: 8px;
       }
+      .post-not-like{
+        color: $font-basic;
+        font-size: 26px;
+      }
+    }
+    &__comment{
       .fa-comment {
+        color: $font-basic;
         font-size: 26px;
         padding: 8px;
       }
+    }
+    &__share{
       .fa-share-square {
+        color: $font-basic;
         font-size: 26px;
         padding: 8px;
       }
@@ -566,6 +577,16 @@
               margin-top: 4px;
               padding: 4px 16px 0 16px;
               display: flex;
+              &__icon{
+                .post-liked{
+                  color: rgb(255, 50, 50);
+                  font-size: 26px;
+                }
+                .post-not-like{
+                  color: $font-basic;
+                  font-size: 26px;
+                }
+              }
             }
             &__like {
               display: flex;

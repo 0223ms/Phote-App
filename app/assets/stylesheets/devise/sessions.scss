@@ -2,79 +2,81 @@
   height: calc(100vh - 100px);
   width: 100vw;
   background-color: $background;
-  display: none;
   padding: 40px;
-  .signIn-main-box{
-    width: 380px;
-    background-color: white;
-    border: solid 0.5px #c9c9c9;
-    margin: 0 auto 10px;
-    padding: 20px 40px;
-    &__title{
-      h1{
-        font-size: 50px;
-        font-family: 'Sacramento', cursive;
-        text-align: center;
-        margin-bottom: 30px;
+  .signIn-inner{
+    animation: anime1 3s ease;
+    .signIn-main-box{
+      width: 380px;
+      background-color: white;
+      border: solid 0.5px #c9c9c9;
+      margin: 0 auto 10px;
+      padding: 20px 40px;
+      &__title{
+        h1{
+          font-size: 50px;
+          font-family: 'Sacramento', cursive;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+      }
+      &__form{
+        margin-bottom: 20px;
+        .signIp-form-field{
+          height: 34px;
+          width: 100%;
+          margin-bottom: 8px;
+          padding: 0 10px;
+          background-color: #f7f5f5;
+          font-size: 12px;
+          border: solid 1px #dfdfdf;
+          border-radius: 2px;
+          outline: none;
+        }
+        .signIn-main-box__form:focus{
+          border-color: #bbbbbb;
+        }
+        .signIp-form-submit{
+          height: 30px;
+          width: 100%;
+          margin-top: 10px;
+          background-color: rgb(0,140, 255);
+          color: $white;
+          font-size: 15px;
+          font-weight: bold;
+          border-radius: 4px;
+          border-style: none;
+        }
       }
     }
-    &__form{
-      margin-bottom: 20px;
-      .signIp-form-field{
-        height: 34px;
-        width: 100%;
-        margin-bottom: 8px;
-        padding: 0 10px;
-        background-color: #f7f5f5;
-        font-size: 12px;
-        border: solid 1px #dfdfdf;
-        border-radius: 2px;
-        outline: none;
+    .signUp-box{
+      width: 380px;
+      background-color: white;
+      border: solid 0.5px #c9c9c9;
+      margin: 10px auto;
+      padding: 20px 50px;
+      display: flex;
+      &__text{
+        font-size: 13px;
       }
-      .signIn-main-box__form:focus{
-        border-color: #bbbbbb;
+      &__link{
+        font-size: 13px;
+        a{
+          text-decoration: none;
+          color: rgb(0, 170, 255);
+        }
       }
-      .signIp-form-submit{
-        height: 30px;
-        width: 100%;
-        margin-top: 10px;
-        background-color: rgb(0,140, 255);
-        color: $white;
+    }
+    .download-items{
+      width: 300px;
+      margin: 20px auto;
+      text-align: center;
+      p{
+        margin-bottom: 20px;
         font-size: 15px;
-        font-weight: bold;
-        border-radius: 4px;
-        border-style: none;
       }
-    }
-  }
-  .signUp-box{
-    width: 380px;
-    background-color: white;
-    border: solid 0.5px #c9c9c9;
-    margin: 10px auto;
-    padding: 20px 50px;
-    display: flex;
-    &__text{
-      font-size: 13px;
-    }
-    &__link{
-      font-size: 13px;
       a{
         text-decoration: none;
-        color: rgb(0, 170, 255);
       }
-    }
-  }
-  .download-items{
-    width: 300px;
-    margin: 20px auto;
-    text-align: center;
-    p{
-      margin-bottom: 20px;
-      font-size: 15px;
-    }
-    a{
-      text-decoration: none;
     }
   }
 }
@@ -86,4 +88,14 @@
   border-radius: 2px;
   margin-bottom: 4px;
   padding: 4px 10px;
+}
+@keyframes anime1 {
+  0% {
+    opacity: 0;
+    top: 50px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
 }

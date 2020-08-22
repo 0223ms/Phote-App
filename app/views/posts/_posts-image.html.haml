@@ -14,10 +14,10 @@
       = image_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614x614"
   %section.mainber__icon
     %span.mainber__icon__heart
-      = icon('far fa-heart',  class: "mainber__icon__heart__btn--icon")
-    %span.mainber__icon__heart
+      = render partial: 'likes/like', locals: { post: post }
+    %span.mainber__icon__comment
       = icon('far fa-comment',  class: "mainber__icon__heart__btn--icon")
-    %span.mainber__icon__heart
+    %span.mainber__icon__share
       = icon('far fa-share-square',  class: "mainber__icon__heart__btn--icon")
 
 

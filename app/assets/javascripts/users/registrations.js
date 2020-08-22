@@ -1,9 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $(function(){
-    $(document).ready(function(){
-      $(".signUp-background").fadeIn(1500);
-    })
-  
+  $(function(){  
     $(".btn-app").hover(
       function(){
         $(this).css('opacity', '0.5');

@@ -50,7 +50,7 @@
                   
             .posts__show__main__body__contents__side__right__footer
               .posts__show__main__body__contents__side__right__footer__icon
-                = icon('far fa-heart',  class: "main-show-icon")
+                = render partial: 'likes/like', locals: { post: @post }
               .posts__show__main__body__contents__side__right__footer__icon
                 = icon('far fa-comment',  class: "main-show-icon")
               .posts__show__main__body__contents__side__right__footer__icon
