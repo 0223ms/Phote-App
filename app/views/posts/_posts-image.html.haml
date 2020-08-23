@@ -2,8 +2,10 @@
   .mainber__header
     .mainber__header__head
       %span.mainber__head__image
-        = image_tag src="/BackgroundHomeSummer.jpg", size: "42x42", class: "tops-icon"
-      
+        - if post.user.image?
+          = image_tag post.user.image.url, size: "42", class: "tops-icon"
+        - else
+          = image_tag src="user1.png", size: "42", class: "tops-icon"      
       .mainber__header__head__name-place
         .mainber__header__head__name-place__name
           = post.user.username
