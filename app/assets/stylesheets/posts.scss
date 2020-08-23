@@ -227,6 +227,12 @@
     &__line {
       padding-left: 5px;
       display: flex;
+      &__image{
+        .tops-icon {
+          border-radius: 50%;
+          border: solid 1px $light-gray;
+        }
+      }
       &__text {
         margin-left: 20px;
         &__username {
@@ -285,7 +291,10 @@
           display: flex;
           &__image {
             margin-right: 12px;
-
+            .tops-icon {
+              border-radius: 50%;
+              border: solid 1px $light-gray;
+            }
           }
           &__name {
             width: 165px;
@@ -405,15 +414,6 @@
     }
   }
 }
-
-.tops-icon {
-  border-radius: 50%;
-}
-
-
-
-
-
 
 .post__contents {
   background-color: #fafafa;
