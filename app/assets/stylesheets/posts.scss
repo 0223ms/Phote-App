@@ -112,15 +112,34 @@
     height: 40px;
     display: flex;
     &__heart {
-      .fa-heart {
+      padding-left: 8px;
+      .post-liked{
+        color: rgb(255, 50, 50);
         font-size: 26px;
-        padding: 8px;
+        transition: 0.5s;
       }
+      .post-not-like{
+        color: $font-basic;
+        font-size: 26px;
+        transition: 0.5s;
+      }
+      .post-liked:active{
+        font-size: 35px;
+      }
+      .post-not-like:active{
+        font-size: 35px;
+      }
+    }
+    &__comment{
       .fa-comment {
+        color: $font-basic;
         font-size: 26px;
         padding: 8px;
       }
+    }
+    &__share{
       .fa-share-square {
+        color: $font-basic;
         font-size: 26px;
         padding: 8px;
       }
@@ -208,6 +227,8 @@
     &__line {
       padding-left: 5px;
       display: flex;
+      &__image{
+      }
       &__text {
         margin-left: 20px;
         &__username {
@@ -266,7 +287,6 @@
           display: flex;
           &__image {
             margin-right: 12px;
-
           }
           &__name {
             width: 165px;
@@ -389,12 +409,8 @@
 
 .tops-icon {
   border-radius: 50%;
+  border: solid 1px $light-gray;
 }
-
-
-
-
-
 
 .post__contents {
   background-color: #fafafa;
@@ -566,6 +582,28 @@
               margin-top: 4px;
               padding: 4px 16px 0 16px;
               display: flex;
+              &__heart{
+                width: 34px;
+                position: relative;
+                .post-liked{
+                  color: rgb(255, 50, 50);
+                  font-size: 26px;
+                  transition: 0.5s;
+                  position: absolute;
+                }
+                .post-not-like{
+                  color: $font-basic;
+                  font-size: 26px;
+                  transition: 0.5s;
+                  position: absolute;
+                }
+                .post-liked:active{
+                  font-size: 35px;
+                }
+                .post-not-like:active{
+                  font-size: 35px;
+                }
+              }
             }
             &__like {
               display: flex;

@@ -1,9 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $(function(){
-    $(document).ready(function(){
-      $(".signUp-background").fadeIn(1500);
-    })
-  
+  $(function(){  
     $(".btn-app").hover(
       function(){
         $(this).css('opacity', '0.5');
@@ -49,16 +45,30 @@ $(document).on('turbolinks:load', function() {
       }
     })
 
+    $("#signUp-form-field-email, #signUp-form-field-nickname, #signUp-form-field-username, #signUp-form-password").on('keyup', function(){
+      let email = $("#signUp-form-field-email");
+      let nickname = $("#signUp-form-field-nickname");
+      let username = $("#signUp-form-field-username");
+      let password = $("#signUp-form-password");
+      if(email.val() !== "" && nickname.val() !== "" && username.val() !== "" && password.val() !== "") {
+        $(".signUp-form-submit").css('pointer-events', 'auto');
+        $(".signUp-form-submit").css('background-color', '#02a1fd');
+      } else {
+        $(".signUp-form-submit").css('pointer-events', 'none');
+        $(".signUp-form-submit").css('background-color', '#02a1fd9c');
+      }
+    })
+
     $("#password-form-current, #password-form-new, #password-form-confirmation").on('keyup', function(){
       let pass_current = $("#password-form-current");
       let pass_new = $("#password-form-new");
       let pass_confirmation = $("#password-form-confirmation");
-      console.log($("check"));
       if(pass_current.val() !== "" && pass_new.val() !== "" && pass_confirmation.val() !== "") {
-        $(".password-submit").css('pointer-events', '');
+        $(".password-submit").css('pointer-events', 'auto');
         $(".password-submit").css('background-color', '#02a1fd');
       } else {
         $(".password-submit").css('pointer-events', 'none');
+        $(".password-submit").css('background-color', '#02a1fd9c');
       }
     })
   });  

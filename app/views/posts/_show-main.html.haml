@@ -28,7 +28,7 @@
                       %li.option-list-bottom
                         %button.cancel-btn キャンセル
                 -else
-                  .option-menu     
+                  .option-menu
                     %ul
                       %li.option-list-follow-cancel
                         =link_to "#" do
@@ -49,8 +49,8 @@
                   = @post.content
                   
             .posts__show__main__body__contents__side__right__footer
-              .posts__show__main__body__contents__side__right__footer__icon
-                = icon('far fa-heart',  class: "main-show-icon")
+              .posts__show__main__body__contents__side__right__footer__heart
+                = render partial: 'likes/like', locals: { post: @post }
               .posts__show__main__body__contents__side__right__footer__icon
                 = icon('far fa-comment',  class: "main-show-icon")
               .posts__show__main__body__contents__side__right__footer__icon
@@ -59,7 +59,8 @@
               .posts__show__main__body__contents__side__right__like__image
                 = image_tag src="/BackgroundHomeSummer.jpg", size: "25x25", class: "show-header-icon"
               .posts__show__main__body__contents__side__right__like__fab
-                フォロワー、他50人が「いいね！」しました
+                = @post.likes.length
+                %span 人が「いいね！」しました
 
             .posts__show__main__body__contents__side__right__time
               %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)

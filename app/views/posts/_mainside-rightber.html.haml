@@ -38,7 +38,6 @@
                 = user.following_ids.length
                 %span 人
             .mainside__recommended__user__box__content__follow
-              -# = render partial: 'follows/follow-button', locals: { user: user }
               - unless current_user.following?(user)
                 = form_for(current_user.follows.build, url: { controller: "follows", action: "top_create" }) do |f|
                   = f.hidden_field :following_id, value: user.id
