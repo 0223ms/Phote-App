@@ -2,13 +2,15 @@
   .mainside__profile
     .mainside__profile__line
       %span.mainside__profile__line__image
-        - if current_user.image?
-          = image_tag current_user.image.url, size: "56", class: "tops-icon"
-        - else
-          = image_tag src="user1.png", size: "56", class: "tops-icon"
+        = link_to exhibition_path(id: current_user.id) do
+          - if current_user.image?
+            = image_tag current_user.image.url, size: "56", class: "tops-icon"
+          - else
+            = image_tag src="user1.png", size: "56", class: "tops-icon"
       .mainside__profile__line__text 
         .mainside__profile__line__text__username
-          = current_user.username
+          = link_to exhibition_path(id: current_user.id) do
+            = current_user.username
         .mainside__profile__line__text__nickname
           = current_user.nickname
   
@@ -23,13 +25,15 @@
         .mainside__recommended__user__box
           .mainside__recommended__user__box__content
             %span.mainside__recommended__user__box__content__image
-              - if user.image?
-                = image_tag user.image.url, size: "32", class: "tops-icon"
-              - else
-                = image_tag src="user1.png", size: "32", class: "tops-icon"
+              = link_to exhibition_path(id: user.id) do
+                - if user.image?
+                  = image_tag user.image.url, size: "32", class: "tops-icon"
+                - else
+                  = image_tag src="user1.png", size: "32", class: "tops-icon"
             .mainside__recommended__user__box__content__name
               .mainside__recommended__user__box__content__name__username
-                = user.username
+                = link_to exhibition_path(id: user.id) do
+                  = user.username
               .mainside__recommended__user__box__content__name__follower
                 %span フォロワー
                 = user.follower_ids.length
