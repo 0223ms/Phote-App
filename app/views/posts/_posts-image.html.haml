@@ -22,7 +22,8 @@
 
 
   %section.mainber__fab
-    フォロワー、他50人が「いいね！」しました
+    = post.likes.length
+    %span 人が「いいね！」しました
   .mainber__username
     = post.user.username
   .mainber__content
