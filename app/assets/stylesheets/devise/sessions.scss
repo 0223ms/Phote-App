@@ -22,15 +22,55 @@
       &__form{
         margin-bottom: 20px;
         .signIp-form-field{
-          height: 34px;
+          height: 38px;
           width: 100%;
           margin-bottom: 8px;
-          padding: 0 10px;
+          padding: 0 10px 0 100px;
           background-color: #f7f5f5;
-          font-size: 12px;
+          font-size: 14px;
           border: solid 1px #dfdfdf;
           border-radius: 2px;
           outline: none;
+        }
+        .email-field-box{
+          position: relative;
+          label{
+            font-size: 12px;
+            color: $form-font-note;
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            left: 8px;
+            width: 100%;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+          }
+          #signIp-form-field-email:focus ~ label {
+            font-size: 10px;
+            top: 0px;
+            transition: 0.3s;
+            color: $form-font-note;
+          }  
+        }
+        .password-field-box{
+          position: relative;
+          label{
+            font-size: 12px;
+            color: $form-font-note;
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            left: 8px;
+            width: 100%;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+          }
+          #signIp-form-field-password:focus ~ label {
+            font-size: 10px;
+            top: 0px;
+            transition: 0.3s;
+            color: $form-font-note;
+          }  
         }
         .signIn-main-box__form:focus{
           border-color: #bbbbbb;
@@ -39,12 +79,13 @@
           height: 30px;
           width: 100%;
           margin-top: 10px;
-          background-color: rgb(0,140, 255);
+          background-color: #02a1fd9c;
           color: $white;
           font-size: 15px;
           font-weight: bold;
           border-radius: 4px;
           border-style: none;
+          pointer-events: none;
         }
       }
     }

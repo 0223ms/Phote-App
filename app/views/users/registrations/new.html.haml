@@ -8,10 +8,18 @@
       .signUp-main-box__form
         =form_with model: @user, url: {controller: "registrations", action: "create"}, local: true do |f|
           = devise_error_messages
-          =f.email_field :email, placeholder: "メールアドレス", class: "signUp-form-field"
-          =f.text_field :nickname, placeholder: "ニックネーム", class: "signUp-form-field"
-          =f.text_field :username, placeholder: "ユーザーネーム", class: "signUp-form-field"
-          =f.password_field :password, placeholder: "パスワード", class: "signUp-form-field", id: "signUp-form-password"
+          .email-field-box-signUp
+            =f.email_field :email, class: "signUp-form-field", id: "signUp-form-field-email"
+            %label(for="signUp-form-field-email") メールアドレス
+          .nickname-field-box-signUp
+            =f.text_field :nickname, class: "signUp-form-field", id: "signUp-form-field-nickname"
+            %label(for="signUp-form-field-nickname") ニックネーム
+          .username-field-box-signUp
+            =f.text_field :username, class: "signUp-form-field", id: "signUp-form-field-username"
+            %label(for="signUp-form-field-username") ユーザーネーム
+          .password-field-box-signUp
+            =f.password_field :password, class: "signUp-form-field", id: "signUp-form-password"
+            %label(for="signUp-form-password") パスワード
           =f.submit '登録する', class: "signUp-form-submit"
       .signUp-main-box__note
         %span<> 登録することで、

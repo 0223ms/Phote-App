@@ -6,8 +6,12 @@
       .signIn-main-box__form
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           = devise_error_messages
-          =f.email_field :email, placeholder: "メールアドレス", class: "signIp-form-field"
-          =f.password_field :password, placeholder: "パスワード", class: "signIp-form-field"
+          .email-field-box
+            =f.email_field :email, class: "signIp-form-field", id: "signIp-form-field-email"
+            %label(for="signIp-form-field-email") メールアドレス
+          .password-field-box
+            =f.password_field :password, class: "signIp-form-field", id: "signIp-form-field-password"
+            %label(for="signIp-form-field-password") パスワード
           =f.submit 'ログイン', class: "signIp-form-submit"
     .signUp-box
       .signUp-box__text

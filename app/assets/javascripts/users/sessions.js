@@ -17,5 +17,17 @@ $(document).on('turbolinks:load', function() {
         $(this).css('opacity', '');
       }
     );
+
+    $("#signIp-form-field-email, #signIp-form-field-password").on('keyup', function(){
+      let email = $("#signIp-form-field-email");
+      let password = $("#signIp-form-field-password");
+      if(email.val() !== "" && password.val() !== "") {
+        $(".signIp-form-submit").css('pointer-events', 'auto');
+        $(".signIp-form-submit").css('background-color', '#02a1fd');
+      } else {
+        $(".signIp-form-submit").css('pointer-events', 'none');
+        $(".signIp-form-submit").css('background-color', '#02a1fd9c');
+      }
+    })
   });  
 });
