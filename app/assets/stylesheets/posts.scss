@@ -116,10 +116,18 @@
       .post-liked{
         color: rgb(255, 50, 50);
         font-size: 26px;
+        transition: 0.5s;
       }
       .post-not-like{
         color: $font-basic;
         font-size: 26px;
+        transition: 0.5s;
+      }
+      .post-liked:active{
+        font-size: 35px;
+      }
+      .post-not-like:active{
+        font-size: 35px;
       }
     }
     &__comment{
@@ -577,14 +585,26 @@
               margin-top: 4px;
               padding: 4px 16px 0 16px;
               display: flex;
-              &__icon{
+              &__heart{
+                width: 34px;
+                position: relative;
                 .post-liked{
                   color: rgb(255, 50, 50);
                   font-size: 26px;
+                  transition: 0.5s;
+                  position: absolute;
                 }
                 .post-not-like{
                   color: $font-basic;
                   font-size: 26px;
+                  transition: 0.5s;
+                  position: absolute;
+                }
+                .post-liked:active{
+                  font-size: 35px;
+                }
+                .post-not-like:active{
+                  font-size: 35px;
                 }
               }
             }

@@ -28,7 +28,7 @@
                       %li.option-list-bottom
                         %button.cancel-btn キャンセル
                 -else
-                  .option-menu     
+                  .option-menu
                     %ul
                       %li.option-list-follow-cancel
                         =link_to "#" do
@@ -49,7 +49,7 @@
                   = @post.content
                   
             .posts__show__main__body__contents__side__right__footer
-              .posts__show__main__body__contents__side__right__footer__icon
+              .posts__show__main__body__contents__side__right__footer__heart
                 = render partial: 'likes/like', locals: { post: @post }
               .posts__show__main__body__contents__side__right__footer__icon
                 = icon('far fa-comment',  class: "main-show-icon")
