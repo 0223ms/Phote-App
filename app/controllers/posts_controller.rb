@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
+  before_action :like_data
   # before_action :post_item, except: [:index, :new, :create]
 
   def index
@@ -55,5 +56,10 @@ class PostsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def like_data
+    my_posts = Post.where(user_id: current_user.id).ids
+    @likes = Like.where(post_id: my_posts)
   end
 end

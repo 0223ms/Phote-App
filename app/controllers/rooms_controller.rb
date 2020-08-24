@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :like_data
   def index
     unless RoomUser.where(user_id: current_user.id).blank?
       @room_users = RoomUser.where(user_id: current_user.id).select(:room_id)
@@ -28,5 +29,12 @@ class RoomsController < ApplicationController
       format.html
       format.json
     end
+  end
+
+  private
+
+  def like_data
+    my_posts = Post.where(user_id: current_user.id).ids
+    @likes = Like.where(post_id: my_posts)
   end
 end
