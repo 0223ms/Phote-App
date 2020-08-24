@@ -23,7 +23,7 @@
       = icon('far fa-share-square',  class: "mainber__icon__heart__btn--icon")
 
 
-  %section.mainber__fab
+  %section.mainber__fab{ id: "mainber__fab-#{ post.id }" }
     = post.likes.length
     %span 人が「いいね！」しました
   .mainber__username
