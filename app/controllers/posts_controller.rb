@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
   before_action :like_data
+  before_action :set_users
   # before_action :post_item, except: [:index, :new, :create]
 
   def index
@@ -44,7 +45,6 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-
   private
   def post_params
     params.require(:post).permit(:content, images_attributes: [:image]).merge(user_id: current_user.id)
@@ -61,5 +61,9 @@ class PostsController < ApplicationController
   def like_data
     my_posts = Post.where(user_id: current_user.id).ids
     @likes = Like.where(post_id: my_posts)
+  end
+
+  def set_users
+    @search_users = User.where.not(id: current_user.id)
   end
 end

@@ -4,11 +4,14 @@
       =link_to root_path do
         Photo
     .header-inner__search
-      =form_with url: "#", local: true do |f|
-        %label(for="header-search-id")
-          =icon('fa', 'search', class: "header-search-icon", id: "search-icon-id")
-          %span#search-text-id 検索
-        =f.text_field :keyword, class: "header-search-field", id: "header-search-id"
+      %label#header-inner__search__label-id(for="header-search-id")
+        =icon('fa', 'search', class: "header-search-icon", id: "search-icon-id")
+        %span#search-text-id 検索
+      %input{:type => "text", :class => "header-search-field", :id => "header-search-id", :autocomplete => "off"}
+    #search-design
+    .header-inner__search-lists
+      - @search_users.each do |user|
+        %span
     .header-inner__options
       .header-post
         =link_to new_post_path, class: "notification-list-link" do

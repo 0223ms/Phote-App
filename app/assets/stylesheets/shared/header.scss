@@ -6,6 +6,7 @@
   z-index: 10;
   border-bottom: solid 1px rgb(223, 223, 223);
   .header-inner{
+    position: relative;
     width: 1000px;
     height: 100%;
     background-color: #fff;
@@ -33,8 +34,10 @@
         left: 70px;
         z-index: 1;
         color: $form-font-note;
+        transition: 0.1s;
         .header-search-icon{
           font-size: 12px;
+          transition: 0.1s;
         }
         #search-text-id{
           font-size: 14px;
@@ -43,13 +46,73 @@
       .header-search-field{
         height: 100%;
         width: 100%;
-        padding: 0 20px;
+        padding: 0 25px;
         position: absolute;
         top: 0;
         left: 0;
         border: solid 1px $light-gray;
         border-radius: 2px;
         outline: none;
+      }
+    }
+    #search-design{
+      content: "";
+      z-index: 105;
+      position: absolute;
+      top: 35px;
+      left: 47%;
+      margin-left: -15px;
+      border: 15px solid transparent;
+      border-bottom: 15px solid $white;
+      filter: drop-shadow(0px -3px 2px rgba(199, 199, 199, 0.4));
+      display: none;
+    }
+    &__search-lists{
+      z-index: 100;
+      position: absolute;
+      top: 60px;
+      left: 34%;
+      min-height: 50px;
+      max-height: 500px;
+      width: 250px;
+      background-color: $white;
+      border: solid 1px $light-gray;
+      border-radius: 6px;
+      box-shadow: 0 0 4px 4px rgba(199, 199, 199, 0.4);
+      display: none;
+      overflow: auto;
+      a{
+        text-decoration: none;
+        .header-inner__search-lists__list{
+          height: 70px;
+          border-bottom: solid 1px $light-gray;
+          display: flex;
+          padding: 10px 15px;
+          .none-user{
+            color: $form-font-note;
+            margin: auto 0;
+          }
+          .search-user-left{
+            padding-top: 10px;
+            margin-right: 14px;
+            &__image{
+              border-radius: 50%;
+              border: solid 1px $light-gray;
+            }
+          }
+          .search-user-right{
+            margin-top: 5px;
+            &__username{
+              font-size: 14px;
+              font-weight: bold;
+              color: $font-basic;
+            }
+            &__nickname{
+              font-size: 14px;
+              color: $form-font-note;
+            }
+          }
+        }
       }
     }
     &__options{
