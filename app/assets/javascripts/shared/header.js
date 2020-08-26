@@ -41,8 +41,10 @@ $(document).on('turbolinks:load', function() {
     $(document).on("click", function(e){
       if( e.which === 1 && e.target === $(".header-like i").get(0) ){
         $(".header-like-notification").fadeIn("1000");
+        $(".header-like-notification-top").fadeIn("1000");
       }else{
         $(".header-like-notification").fadeOut("1000");
+        $(".header-like-notification-top").fadeOut("1000");
       }
     });
 
