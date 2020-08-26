@@ -55,6 +55,28 @@
             height: 72px;
             display: flex;
             align-items: center;
+            position: relative;
+            .green-light{
+              position: absolute;
+              top: 45px;
+              left: 55px;
+              content: "";
+              height: 18px;
+              width: 18px;
+              border-radius: 50%;
+              border: 1px solid $light-gray;
+              background-color: $white;
+              span{
+                position: absolute;
+                top: 1px;
+                left: 1px;
+                content: "";
+                height: 14px;
+                width: 14px;
+                border-radius: 50%;
+                background-color: rgb(85, 255, 17);
+              }
+            }
             &__icon {
               margin-right: 12px;
               border-radius: 50%;
