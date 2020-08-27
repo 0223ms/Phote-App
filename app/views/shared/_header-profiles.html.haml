@@ -4,11 +4,14 @@
       =link_to root_path do
         Photo
     .header-inner__search
-      =form_with url: "#", local: true do |f|
-        %label(for="header-search-id")
-          =icon('fa', 'search', class: "header-search-icon", id: "search-icon-id")
-          %span#search-text-id 検索
-        =f.text_field :keyword, class: "header-search-field", id: "header-search-id"
+      %label#header-inner__search__label-id(for="header-search-id")
+        =icon('fa', 'search', class: "header-search-icon", id: "search-icon-id")
+        %span#search-text-id 検索
+      %input{:type => "text", :class => "header-search-field", :id => "header-search-id", :autocomplete => "off"}
+    #search-design
+    .header-inner__search-lists
+      - @search_users.each do |user|
+        %span
     .header-inner__options
       .header-post
         =link_to new_post_path, class: "notification-list-link" do
@@ -22,42 +25,42 @@
       .header-compass
         =icon('far fa-compass', class: "header-compass-icon")
       .header-like
-        =link_to "#", class: "notification-list-link" do
-          =icon('far fa-heart', class: "header-like-icon")
+        =icon('far fa-heart', class: "header-like-icon")
+        .header-like-notification
+          %ul
+            - @likes.each do |like|
+              %li.like-user-list
+                - user = User.find_by(id: like.user_id)
+                - post = Post.find_by(id: like.post_id)
+                - unless user == current_user
+                  .like-user-list__left
+                    - if user.image?
+                      = image_tag src="#{user.image.url}", size: "28", class: "like-user-list__left__image"
+                    - else
+                      = image_tag src="user1.png", size: "28", class: "like-user-list__left__image"
+                    .like-user-list__left__username
+                      = user.username
+                    %span があなたの写真に「いいね！」しました。
+                  .like-user-list__right
+                    = image_tag src="#{post.images[0].image.url}", size: "38", class: "like-user-list__right__post-image"
+        .header-like-notification-top
       %button.header-users
-        =icon('fas fa-user-circle', class: "header-users-icon")
-.header-users-notification
-  %ul
-    %li.notification-list
-      =link_to exhibition_path(id: current_user.id), class: "notification-list-link" do
-        =icon('far fa-user-circle', class: "notification-icon")
-        %span プロフィール
-    %li.notification-list
-      =link_to save_post_exhibition_path(id: current_user.id), class: "notification-list-link" do
-        =icon('far fa-bookmark', class: "notification-icon")
-        %span 保存済み
-    %li.notification-list
-      =link_to edit_user_registration_path, class: "notification-list-link" do
-        =icon('fas fa-cog', class: "notification-icon")
-        %span 設定
-    %li.notification-list-bottom
-      =link_to destroy_user_session_path, method: :delete do
-        %span ログアウト
-.header-like-notification
-  %ul
-    - @likes.each do |like|
-      %li.like-user-list
-        - user = User.find_by(id: like.user_id)
-        - post = Post.find_by(id: like.post_id)
-        - unless user == current_user
-          .like-user-list__left
-            - if user.image?
-              = image_tag src="#{user.image.url}", size: "28", class: "like-user-list__left__image"
-            - else
-              = image_tag src="user1.png", size: "28", class: "like-user-list__left__image"
-            .like-user-list__left__username
-              = user.username
-            %span があなたの写真に「いいね！」しました。
-          .like-user-list__right
-            = image_tag src="#{post.images[0].image.url}", size: "38", class: "like-user-list__right__post-image"
+        =icon('far fa-user-circle', class: "header-users-icon")
+        .header-users-notification
+          %ul
+            %li.notification-list
+              =link_to exhibition_path(id: current_user.id), class: "notification-list-link" do
+                =icon('far fa-user-circle', class: "notification-icon")
+                %span プロフィール
+            %li.notification-list
+              =link_to save_post_exhibition_path(id: current_user.id), class: "notification-list-link" do
+                =icon('far fa-bookmark', class: "notification-icon")
+                %span 保存済み
+            %li.notification-list
+              =link_to edit_user_registration_path, class: "notification-list-link" do
+                =icon('fas fa-cog', class: "notification-icon")
+                %span 設定
+            %li.notification-list-bottom
+              =link_to destroy_user_session_path, method: :delete do
+                %span ログアウト
 .header-block

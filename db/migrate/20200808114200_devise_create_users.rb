@@ -12,6 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :gender
       t.text :text
       t.string :image
+      t.boolean :online,           default: false
 
       ## Recoverable
       t.string   :reset_password_token

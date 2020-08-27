@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:index, :show]
   resources :posts, only: [:index, :new, :create, :show ,:edit, :update, :destroy] do
     post 'add' => 'likes#create'
-    delete '/add' => 'likes#destroy'  
+    delete '/add' => 'likes#destroy'
   end
   resources :tags, only: [:new]
   mount ActionCable.server => '/cable'

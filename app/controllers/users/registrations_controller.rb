@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
   prepend_before_action :authenticate_scope!, only: [:edit, :edit_password, :update, :update_password]
   before_action :like_data, only: [:edit_password, :edit]
+  before_action :set_users, only: [:edit_password, :edit]
 
   # GET /resource/sign_up
   def new
@@ -100,6 +101,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def like_data
     my_posts = Post.where(user_id: current_user.id).ids
     @likes = Like.where(post_id: my_posts)
+  end
+
+  def set_users
+    @search_users = User.where.not(id: current_user.id)
   end
 
   # The path used after sign up.
