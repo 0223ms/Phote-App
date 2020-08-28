@@ -45,7 +45,7 @@
                     = image_tag src="#{post.images[0].image.url}", size: "38", class: "like-user-list__right__post-image"
         .header-like-notification-top
       %button.header-users
-        =icon('far fa-user-circle', class: "header-users-icon")
+        =icon('fas fa-user-circle', class: "header-users-icon")
         .header-users-notification
           %ul
             %li.notification-list
@@ -55,7 +55,7 @@
             %li.notification-list
               =link_to save_post_exhibition_path(id: current_user.id), class: "notification-list-link" do
                 =icon('far fa-bookmark', class: "notification-icon")
-                %span 保存済み
+                %span いいねした投稿
             %li.notification-list
               =link_to edit_user_registration_path, class: "notification-list-link" do
                 =icon('fas fa-cog', class: "notification-icon")

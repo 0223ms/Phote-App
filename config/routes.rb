@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       post :top_destroy
     end
   end
-  resources :rooms, only: [:index, :new, :create] do
+  resources :rooms, only: [:index, :new, :create, :destroy] do
     get :search, on: :collection
   end
   resources :messages, only: [:show]

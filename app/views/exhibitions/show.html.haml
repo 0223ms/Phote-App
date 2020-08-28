@@ -11,32 +11,37 @@
         %li.show-main-list
           =link_to save_post_exhibition_path(id: current_user.id) do
             =icon('far fa-bookmark', class: "lists-icon")
-            %span 保存済み
+            %span いいねした投稿
         %li.show-main-list
           =link_to tag_post_exhibition_path(id: current_user.id) do
             =icon('far fa-id-card', class: "lists-icon")
             %span タグ付けさせている人
-      .show-main-none
-        .none-item-icon
-          =icon('fas fa-table', class: "posts-icon")
-        %h1.none-item-title
-          投稿リスト
-        .none-item-text
-          写真や動画を投稿すると、ここに表示されます。
-        -if @user = current_user
-          =link_to "#", class: "post-link" do
-            %span 投稿する
-      -# .show-main-posts
-      -#   .show-main-post
-      -#     =link_to "#" do
-      -#       =image_tag src="お洒落画像４.jpg", class: "show-main-post__image"
-      -#   .show-main-post
-      -#     =link_to "#" do
-      -#       =image_tag src="お洒落画像４.jpg", class: "show-main-post__image"
-      -#   .show-main-post
-      -#     =link_to "#" do
-      -#       =image_tag src="お洒落画像４.jpg", class: "show-main-post__image"
-      -#   .show-main-post
-      -#     =link_to "#" do
-      -#       =image_tag src="お洒落画像４.jpg", class: "show-main-post__image"
+      - if @posts.blank?
+        .show-main-none
+          .none-item-icon
+            =icon('fas fa-table', class: "posts-icon")
+          %h1.none-item-title
+            投稿リスト
+          .none-item-text
+            写真や動画を投稿すると、ここに表示されます。
+          -if @user = current_user
+            =link_to "#", class: "post-link" do
+              %span 投稿する
+      - else
+        .show-main-posts
+          - @posts.each do |post|
+            .black-back
+              .show-main-post
+                =link_to post_path(id: post.id) do
+                  =image_tag post.images[0].image.url, class: "show-main-post__image"
+                .show-main-post__inner
+                  .show-main-details
+                    .show-main-details__hearts
+                      = icon('fas fa-heart', class: "show-main-details__hearts__icon")
+                      .show-main-details__hearts__length
+                        = post.likes.length
+                    .show-main-details__comments
+                      = icon('fas fa-comment', class: "show-main-details__comments__icon")
+                      .show-main-details__comments__length
+                        = post.comments.length
 = render 'shared/footer'

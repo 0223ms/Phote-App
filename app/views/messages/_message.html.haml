@@ -1,9 +1,12 @@
 .message-chat__main
   .message-chat__main__content
+    - last_message = ""
     - @messages.each do |message|
       .message-chat__main__content__chat
         .message-chat__main__content__chat__time
-          = message.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          - if  message.created_at.strftime("%Y年%-m月%-d日 %-H:%M") != last_message
+            = message.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+            - last_message = message.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
         - if message.user_id == current_user.id
           .message-chat__main__content__chat__comment-current
             = message.content

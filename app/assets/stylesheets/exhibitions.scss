@@ -70,7 +70,7 @@
           .option-menu{
             position: fixed;
             top: 180px;
-            left: 500px;
+            left: 36%;
             z-index: 250;
             width: 400px;
             border-radius: 10px;
@@ -82,14 +82,17 @@
                 line-height: 80px;
                 text-align: center;
                 a{
+                  display: block;
+                  height: 80px;
                   text-decoration: none;
                   color: $font-basic;
                 }
               }
               .option-list-bottom{
-                line-height: 80px;
                 text-align: center;
                 button{
+                  height: 70px;
+                  width: 100%;
                   font-size: 16px;
                   color: $font-basic;
                   background-color: transparent;
@@ -105,7 +108,6 @@
         }
         .show-header-details-top__follow{
           margin-left: 30px;
-          // padding: 10px 0; 
           display: flex;
           .follow-btn{
             background-color: $button;
@@ -218,7 +220,7 @@
           .option-menu{
             position: fixed;
             top: 180px;
-            left: 500px;
+            left: 36%;
             z-index: 250;
             width: 400px;
             border-radius: 10px;
@@ -230,14 +232,17 @@
                 line-height: 80px;
                 text-align: center;
                 a{
+                  display: block;
+                  height: 80px;
                   text-decoration: none;
                   color: #ff3c3c;
                 }
               }
               .option-list-bottom{
-                line-height: 80px;
                 text-align: center;
                 button{
+                  width: 100%;
+                  height: 70px;
                   font-size: 16px;
                   color: $font-basic;
                   background-color: transparent;
@@ -299,7 +304,7 @@
         justify-content: center;
         .show-main-list{
           font-size: 12px;
-          margin-right: 60px;
+          margin-left: 60px;
           padding-top: 15px;
           a{
             text-decoration: none;
@@ -307,7 +312,7 @@
           }
           &__current{
             font-size: 12px;
-            margin-right: 60px;
+            margin-left: 60px;
             padding-top: 15px;
             border-top: solid 1px rgb(66, 66, 66);
             a{
@@ -347,11 +352,45 @@
         flex-wrap: wrap;
         justify-content: space-between;
         margin-top: 30px;
-        .show-main-post{
-          margin-bottom: 30px;
-          &__image{
-            height: 280px;
-            width: 280px;
+        padding-bottom: 20px;
+        .black-back{
+          background-color: #000000;
+          margin-bottom: 20px;
+          height: 280px;
+          width: 280px;
+          .show-main-post{
+            position: relative;
+            &__image{
+              height: 280px;
+              width: 280px;
+            }
+            &__inner{
+              display: none;
+              .show-main-details{
+                position: absolute;
+                top: 120px;
+                left: 80px;
+                display: flex;
+                &__hearts{
+                  display: flex;
+                  color: $white;
+                  margin-right: 30px;
+                  &__icon{
+                    margin-top: 2px;
+                  }
+                  &__length{
+                    margin-top: 8px;
+                  }
+                }
+                &__comments{
+                  display: flex;
+                  color: $white;
+                  &__length{
+                    margin-top: 8px;
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -33,6 +33,15 @@ class RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    room = Room.find(params[:id])
+    if room.destroy
+      redirect_to rooms_path
+    else
+      redirect_to messages_path(id: room)
+    end
+  end
+
   private
 
   def like_data
