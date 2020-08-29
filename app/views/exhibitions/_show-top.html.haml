@@ -39,7 +39,7 @@
               =f.hidden_field :following_id, value: @user.id
               =f.submit 'フォローする', class: 'follow-btn'
           - if current_user.following?(@user)
-            =link_to "#", class: "follow-message-btn" do
+            =link_to rooms_path, class: "follow-message-btn" do
               メッセージを送信
             %button.follow-cancel-btn
               =icon('fas fa-user-check', class: "follow-cancel-icon")

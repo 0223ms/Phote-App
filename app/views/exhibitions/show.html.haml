@@ -5,15 +5,15 @@
     .show-main-inner
       %ul.show-main-lists
         %li.show-main-list__current
-          =link_to exhibition_path(id: current_user.id) do
+          =link_to exhibition_path(id: @user.id) do
             =icon('fas fa-table', class: "lists-icon")
             %span 投稿
         %li.show-main-list
-          =link_to save_post_exhibition_path(id: current_user.id) do
+          =link_to save_post_exhibition_path(id: @user.id) do
             =icon('far fa-bookmark', class: "lists-icon")
             %span いいねした投稿
         %li.show-main-list
-          =link_to tag_post_exhibition_path(id: current_user.id) do
+          =link_to tag_post_exhibition_path(id: @user.id) do
             =icon('far fa-id-card', class: "lists-icon")
             %span タグ付けさせている人
       - if @posts.blank?
