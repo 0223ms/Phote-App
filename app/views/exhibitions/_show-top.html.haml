@@ -75,7 +75,9 @@
                 %button.cancel-btn キャンセル
     .show-header-details-middle
       .post-length
-        %span 投稿０件
+        %span 投稿
+        = @user.posts.length
+        %span 件
       .follower-length
         %span フォロワー
         = @user.follower_ids.length

@@ -1,20 +1,25 @@
 class ExhibitionsController < ApplicationController
   before_action :like_data
   before_action :set_users
+  before_action :set_show_user, only: [:show, :save_post, :tag_post]
   
   def show
-    @user = User.find(params[:id])
+    @posts = @user.posts
   end
 
   def save_post
-    @user = User.find(params[:id])
+    likes = @user.likes.ids
+    @user_likes = Like.where(id: likes)
+    # binding.pry
   end
 
   def tag_post
-    @user = User.find(params[:id])
   end
 
   private
+  def set_show_user
+    @user = User.find(params[:id])
+  end
 
   def like_data
     my_posts = Post.where(user_id: current_user.id).ids

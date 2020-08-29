@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
 
     @room = Room.find(params[:id])
     @messages = @room.messages.includes(:user)
+    @user = @room.users.select{ |user| user != current_user }[0]
   end
 
   private

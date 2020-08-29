@@ -50,6 +50,12 @@ $(function(){
       button.css('display', 'block');
     }
   })
+  $("#message-details-open-id").on('click', function(){
+    $(".message-details").css('display', 'block')
+  })
+  $("#message-details-close-id").on('click', function(){
+    $(".message-details").css('display', 'none')
+  })
   input.on('keypress', function(e){
     if ( e.keyCode === 13) {
       let message = input.val();

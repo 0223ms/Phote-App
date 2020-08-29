@@ -43,6 +43,10 @@
                 font-weight: 600;
               }
             }
+            &__right{
+              margin-top: 6px;
+              cursor: pointer;
+            }
           }
         }
       }
@@ -124,6 +128,81 @@
           top: 34px;
           right: 40px;
           display: none;
+        }
+      }
+    }
+    .message-details{
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: calc(100% - 335px);
+      background-color: $white;
+      display: none;
+      &__header{
+        height: 60px;
+        width: 100%;
+        border-bottom: solid 1px $light-gray;
+        display: flex;
+        justify-content: space-between;
+        .header-title{
+          color: $font-basic;
+          font-size: 16px;
+          font-weight: bold;
+          margin: auto 0 auto 270px;
+        }
+        .header-mark{
+          font-size: 24px;
+          margin: auto 20px auto 0;
+          cursor: pointer;
+        }
+      }
+      &__member{
+        height: 140px;
+        width: 100%;
+        border-bottom: solid 1px $light-gray;
+        padding: 24px;
+        .member-title{
+          font-weight: bold;
+          color: $font-basic;
+          margin-bottom: 10px;
+        }
+        .member-block{
+          display: flex;
+          &__image{
+            text-decoration: none;
+            margin-right: 15px;
+            &__content{
+              border-radius: 50%;
+              border: solid 1px $light-gray;
+            }
+          }
+          &__text{
+            text-decoration: none;
+            margin-top: 2px;
+            &__username{
+              color: $font-basic;
+            }
+            &__nickname{
+              color: $form-font-note;
+            }
+          }
+        }
+      }
+      &__btns{
+        width: 100%;
+        border-bottom: solid 1px $light-gray;
+        padding: 0 24px;
+        ul{
+          li{
+            margin-top: 10px;
+            list-style: none;
+            font-size: 15px;
+            a{
+              color: rgb(255, 93, 93);
+              text-decoration: none;
+            }
+          }
         }
       }
     }

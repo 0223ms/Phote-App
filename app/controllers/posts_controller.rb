@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.images.build
+    @user = User.find(current_user.id)
   end
 
   def show
