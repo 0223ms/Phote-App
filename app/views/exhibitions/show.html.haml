@@ -24,8 +24,8 @@
             投稿リスト
           .none-item-text
             写真や動画を投稿すると、ここに表示されます。
-          -if @user = current_user
-            =link_to "#", class: "post-link" do
+          -if @user == current_user
+            =link_to new_post_path, class: "post-link" do
               %span 投稿する
       - else
         .show-main-posts
