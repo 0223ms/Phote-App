@@ -43,7 +43,7 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'wss://54.168.202.179/cable'
+  # config.action_cable.url = 'wss://54.168.202.179/cable'
   # config.action_cable.allowed_request_origins = [ 'http://54.168.202.179', /http:\/\/54.168.202.179.*/ ]
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
 
