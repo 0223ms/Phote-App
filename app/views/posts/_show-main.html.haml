@@ -47,7 +47,26 @@
                   = @post.user.username
                 .posts__show__main__body__contents__side__right__main__name__text
                   = @post.content
-                  
+                .comments-post__time
+                  %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
+                #comments-create.comments-post
+                  - if @comments
+                    - @comments.each do |comment|
+                      .commet-post__add
+                        .comment-post__add__box
+                          .comments-post__add__box__name
+                            =link_to comment.user.nickname, "/users/#{comment.user_id}", class: "comments-name"
+                          .comments-post__add__box__content
+                            = comment.content
+                      .comments-post__time
+                        %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                      .comment-post__add__delete
+                        - if user_signed_in? && current_user.id == comment.user_id
+                          =link_to "削除", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, class: "comments-delete"
+                    
+                    
+
+
             .posts__show__main__body__contents__side__right__footer
               .posts__show__main__body__contents__side__right__footer__icon
                 = icon('far fa-heart',  class: "main-show-icon")
@@ -63,11 +82,10 @@
 
             .posts__show__main__body__contents__side__right__time
               %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
-              
-            = form_with model: @posts, local: true do |f|
-              .posts__show__main__body__contents__side__right__comment
-                .posts__show__main__body__contents__side__right__comment__box
+            - if current_user  
+              = form_with model: [@post, @comment], local: true, id: "show_comment" do |f|
+                .posts__show__main__body__contents__side__right__comment
+                  .posts__show__main__body__contents__side__right__comment__box
 
-                  = f.text_area :content, class: "posts__show__main__body__contents__side__right__comment__box__add", placeholder: 'コメントを追加...'
-                  = f.submit "投稿する", class: 'posts__show__main__body__contents__side__right__comment__box__submit'
-            
+                    = f.text_area :content, class: "posts__show__main__body__contents__side__right__comment__box__add", id: "comment-text", placeholder: 'コメントを追加...'
+                    = f.submit "投稿する", class: 'posts__show__main__body__contents__side__right__comment__box__submit', id: "comment-submit"

@@ -28,8 +28,13 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:index, :show]
 
-  resources :posts, only: [:index, :new, :create, :show ,:edit, :update, :destroy]
+  resources :posts do
+    resources :comments, only: [:create, :destroy] do
+      get :show_create, on: :collection
+    end
+  end
   resources :tags, only: [:new]
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

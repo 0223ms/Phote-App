@@ -29,12 +29,24 @@
     = post.content
   .mainber__time
     %time(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
+  #comments-create.comments-index
+    - if post.comments
+      - post.comments.each do |comment|
+        .comments-post__box
+          .comments-post__box__add
+            .comments-post__box__add__box
+              .comments-post__box__add__box__name
+                =link_to comment.user.nickname, "/users/#{comment.user_id}", class: "comments-name"
+              .comments-post__box__add__box__content
+                = comment.content
+          .comments-post__box__time
+            %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+          .comment-post__box__add__delete
+            - if user_signed_in? && current_user.id == comment.user_id
+              =link_to "削除", post_comment_path(post_id: post.id, id: comment.id), method: :delete, class: "comments-delete"
+ 
   .mainber__comment
-    = form_with model: @comment, local: true do |f|
+    = form_with model: [post, @comment], local: true, id: "new_comment" do |f|
       .mainber__comment__box
-        = f.text_area :content, class: "comment-text", placeholder: 'コメントを追加...'
-        = f.submit "投稿する", class: "comment-submit"
-
-
-
-        
+        = f.text_area :content, class: "comment-text", id: "comment-text", placeholder: 'コメントを追加...'
+        = f.submit "投稿する", class: "comment-submit", id: "comment-submit"

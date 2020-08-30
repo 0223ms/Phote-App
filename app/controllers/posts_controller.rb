@@ -3,7 +3,10 @@ class PostsController < ApplicationController
   # before_action :post_item, except: [:index, :new, :create]
 
   def index
-    @posts = Post.includes(:user).order('created_at DESC')
+    @posts = Post.all.includes(:user).order('created_at DESC')
+    @comment = Comment.new
+    
+    
   end
   
   def new
@@ -13,6 +16,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
+    @comment_count = Comment.where(post_id: @post.id).count
   end
   
   def create
