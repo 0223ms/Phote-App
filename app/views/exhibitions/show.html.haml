@@ -17,6 +17,7 @@
           =link_to tag_post_exhibition_path(id: @user.id) do
             =icon('far fa-id-card', class: "lists-icon")
             %span タグ付けさせている人
+
       - if @posts.blank?
         .show-main-none
           .none-item-icon
