@@ -222,7 +222,6 @@
     right: 17%;
     width: 293px;
     height: 518px;
-    z-index: 100;
     &__profile {
       margin: 18px 0 10px 0;
       width: 293px;
@@ -350,77 +349,17 @@
                 font-weight: bold;
                 margin-top: 8px;
               }
-              .follow-cancel-btn-top{
+              .follow-btn-top-destroy{
+                color: $font-basic;
                 background-color: transparent;
-                cursor: pointer;
                 border: none;
+                cursor: pointer;
                 outline: none;
+                padding: 0 10px;
                 appearance: none;
-                margin-top: 8px;
                 font-weight: bold;
+                margin-top: 8px;
               }
-              .back-screen{
-                position: fixed;
-                top: 0px;
-                left: 0;
-                bottom: 0;
-                z-index: 200;
-                height: 100vh;
-                width: 100vw;
-                background-color: #0000004b;
-                display: none;  
-              }
-              .follow-cancel-window{
-                display: none;
-                position: fixed;
-                top: calc(50% - 200px);
-                left: calc(50% - 200px);
-                width: 400px;
-                border-radius: 10px;
-                background-color: $background;
-                z-index: 250;
-                &__text{
-                  text-align: center;
-                  font-size: 18px;
-                  color: $font-basic;
-                  padding: 10px 30px;
-                  font-size: 15px;
-                  &__user-image{
-                    border-radius: 50%;
-                    display: block;
-                    margin: 20px auto;
-                  }
-                }
-                &__btn{
-                  .follow-cancel{
-                    height: 50px;
-                    width: 100%;
-                    font-size: 15px;
-                    font-weight: bold;
-                    color: rgb(255, 72, 0);
-                    border: none;
-                    border-top: solid 1px $light-gray;
-                    background-color: transparent;
-                    cursor: pointer;
-                    outline: none;
-                    padding: 10px;
-                    appearance: none;
-                  }
-                }
-                .cancel-window{
-                  height: 50px;
-                  width: 100%;
-                  font-size: 15px;
-                  color: $font-basic;
-                  border: none;
-                  border-top: solid 1px $light-gray;
-                  background-color: transparent;
-                  cursor: pointer;
-                  outline: none;
-                  padding: 10px;
-                  appearance: none;
-                }
-              }  
             }
           }
         }
