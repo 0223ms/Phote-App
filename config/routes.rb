@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :follows, only: [:create, :destroy] do
     collection do
       post :top_create
-      post :top_destroy
+      post :users_create
+    end
+    member do
+      delete :top_destroy
+      delete :users_destroy
     end
   end
   resources :rooms, only: [:index, :new, :create, :destroy] do
@@ -24,6 +28,7 @@ Rails.application.routes.draw do
     member do
       get :save_post
       get :tag_post
+      get :post_show
     end
   end
   resources :messages, only: [:index, :show]
@@ -32,5 +37,6 @@ Rails.application.routes.draw do
     delete '/add' => 'likes#destroy'
   end
   resources :tags, only: [:new]
+  resources :peoples, only: [:index]
   mount ActionCable.server => '/cable'
 end

@@ -10,6 +10,7 @@ function addHTML(length) {
 
 let contentTop = $("#mainber__fab-<%= @post.id %>")
 let contentShow = $(".posts__show__main__body__contents__side__right__like__fab")
+let contentModal = $(".show-side-content__like__fab")
 let like_length = <%= @post.likes.length %>
 let html = addHTML(like_length);
 
@@ -18,3 +19,6 @@ contentTop.append(html);
 
 contentShow.contents().remove();
 contentShow.append(html);
+
+contentModal.contents().remove();
+contentModal.append(html);

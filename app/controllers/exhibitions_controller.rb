@@ -16,6 +16,10 @@ class ExhibitionsController < ApplicationController
   def tag_post
   end
 
+  def post_show
+    @post = Post.find(params[:id])
+  end
+
   private
   def set_show_user
     @user = User.find(params[:id])

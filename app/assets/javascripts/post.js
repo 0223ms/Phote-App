@@ -4,5 +4,5 @@ $(document).on('turbolinks:load', function() {
       $(".gray-back").fadeIn("show");
       $(".option-menu").fadeIn("show");
     })
-  });  
+  });
 });

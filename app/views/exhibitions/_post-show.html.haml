@@ -1,0 +1,73 @@
+.modal-dialog
+  .modal-content
+    .post-show
+      .post-show__image
+        = image_tag @post.images.first.image.url, class: "post-show__image__contents", size: "450"
+      .post-show__side
+        .show-side-header
+          .show-side-header__icon
+            - if @post.user.image?
+              = image_tag @post.users.image.url, size: "32x32", class: "show-header-icon"
+            - else
+              = image_tag "user1.png", size: "32x32", class: "show-header-icon"
+          .show-side-header__name
+            =link_to exhibition_path(@post.user.id) do
+              = @post.user.username
+          .show-side-header__fab
+            %button.option-btn-post
+              = icon('fas fa-ellipsis-h',  class: "show-header-icon")
+            .gray-back-post
+              -if user_signed_in? && current_user.id == @post.user_id
+                .option-menu-post
+                  %ul
+                    %li.option-listc-delete
+                      =link_to '削除', "/posts/#{@post.id}", method: :delete
+                      
+                    %li.option-list-edit
+                      %div{"data-turbolinks" => "false"}
+                        =link_to edit_post_path do
+                          編集
+                    %li.option-list-bottom
+                      %button.cancel-btn キャンセル
+              -else
+                .option-menu-post
+                  %ul
+                    %li.option-list-follow-cancel
+                      =link_to "#" do
+                        フォローをやめる
+                    %li.option-post
+                      =link_to  "#" do
+                        投稿へ移動
+                    %li.option-list-bottom
+                      %button.cancel-btn キャンセル
+        .show-side-content
+          .show-side-content__main
+            .show-side-content__main__icon
+              - if @post.user.image?
+                = image_tag @post.users.image.url, size: "32x32", class: "show-header-icon"
+              - else
+                = image_tag "user1.png", size: "32x32", class: "show-header-icon"
+            .show-side-content__main__name
+              =link_to exhibition_path, class: "show-name" do
+                = @post.user.username
+              .show-side-content__main__name__text
+                = @post.content
+          .show-side-content__footer
+            .show-side-content__footer__heart
+              = render partial: 'likes/like', locals: { post: @post }
+            .show-side-content__footer__icon
+              = icon('far fa-comment',  class: "main-show-icon")
+            .show-side-content__footer__icon
+              = icon('far fa-share-square',  class: "main-show-icon")
+          .show-side-content__like
+            .show-side-content__like__fab
+              = @post.likes.length
+              %span 人が「いいね！」しました
+          .show-side-content__time
+            %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
+          = form_with model: @posts, local: true do |f|
+            .show-side-content__comment
+              .show-side-content__comment__box
+                = f.text_area :content, class: "show-side-content__comment__box__add", placeholder: 'コメントを追加...'
+                = f.submit "投稿する", class: "show-side-content__comment__box__submit"
+

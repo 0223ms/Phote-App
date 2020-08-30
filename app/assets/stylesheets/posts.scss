@@ -103,7 +103,11 @@
       }
     }
     &__images {
-
+      a{
+        .main-new-arrival__product--image--first{
+          object-fit: cover;
+        }
+      }
     }
     &__icon {
       padding: 0 16px;
@@ -218,7 +222,7 @@
     right: 17%;
     width: 293px;
     height: 518px;
-
+    z-index: 100;
     &__profile {
       margin: 18px 0 10px 0;
       width: 293px;
@@ -278,6 +282,10 @@
           margin: -2px 0 -3px 0;
           width: 60px;
           height: 14px;
+          a{
+            text-decoration: none;
+            color: $font-basic;
+          }
         }
       }
       &__user {
@@ -353,12 +361,12 @@
               }
               .back-screen{
                 position: fixed;
-                top: 0;
+                top: 0px;
                 left: 0;
                 bottom: 0;
                 z-index: 200;
-                height: 100%;
-                width: 100%;
+                height: 100vh;
+                width: 100vw;
                 background-color: #0000004b;
                 display: none;  
               }
