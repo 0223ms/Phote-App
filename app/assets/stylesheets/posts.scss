@@ -606,10 +606,9 @@
   &__box {
     &__add {
       &__box {
-        display: flex;
         width: 100%;
         &__name {
-          width: 10%;
+          width: 100%;
           padding-top: 10px;
         }
         &__content {
@@ -617,7 +616,6 @@
           color: #262626;
           font-size: 14px;
           word-break: break-all;
-          padding-top: 12px;
         }
       }
       &__delete {
@@ -678,16 +676,10 @@
   color: #262626;
   font-size: 14px;
   word-break: break-all;
-  padding-top: 13px;
 }
 
 .comments-post__add__box__name {
   padding-top: 10px;
-  padding-right: 5%;
-}
-
-.comment-post__add__box {
-  display: flex;
 }
 
 // モーダルウィンドウ
