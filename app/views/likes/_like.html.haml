@@ -1,0 +1,6 @@
+- if post.liked_by?(current_user)
+  = link_to post_add_path(post), method: :delete, remote: true, class: "post-liked", id: "like-button-#{post.id}" do
+    = icon('fas fa-heart', class: "post-liked__icon")
+- else
+  = link_to post_add_path(post), method: :post, remote: true, class: "post-not-like", id: "like-button-#{post.id}" do
+    = icon('far fa-heart', class: "post-not-like__icon")

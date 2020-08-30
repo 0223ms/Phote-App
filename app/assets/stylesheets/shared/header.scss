@@ -3,8 +3,10 @@
   width: 100%;
   background-color: #fff;
   position: fixed;
+  z-index: 5;
   border-bottom: solid 1px rgb(223, 223, 223);
   .header-inner{
+    position: relative;
     width: 1000px;
     height: 100%;
     background-color: #fff;
@@ -32,8 +34,10 @@
         left: 70px;
         z-index: 1;
         color: $form-font-note;
+        transition: 0.1s;
         .header-search-icon{
           font-size: 12px;
+          transition: 0.1s;
         }
         #search-text-id{
           font-size: 14px;
@@ -42,13 +46,73 @@
       .header-search-field{
         height: 100%;
         width: 100%;
-        padding: 0 20px;
+        padding: 0 25px;
         position: absolute;
         top: 0;
         left: 0;
         border: solid 1px $light-gray;
         border-radius: 2px;
         outline: none;
+      }
+    }
+    #search-design{
+      content: "";
+      z-index: 105;
+      position: absolute;
+      top: 35px;
+      left: 47%;
+      margin-left: -15px;
+      border: 15px solid transparent;
+      border-bottom: 15px solid $white;
+      filter: drop-shadow(0px -3px 2px rgba(199, 199, 199, 0.4));
+      display: none;
+    }
+    &__search-lists{
+      z-index: 100;
+      position: absolute;
+      top: 60px;
+      left: 34%;
+      min-height: 50px;
+      max-height: 500px;
+      width: 250px;
+      background-color: $white;
+      border: solid 1px $light-gray;
+      border-radius: 6px;
+      box-shadow: 0 0 4px 4px rgba(199, 199, 199, 0.4);
+      display: none;
+      overflow: auto;
+      a{
+        text-decoration: none;
+        .header-inner__search-lists__list{
+          height: 70px;
+          border-bottom: solid 1px $light-gray;
+          display: flex;
+          padding: 10px 15px;
+          .none-user{
+            color: $form-font-note;
+            margin: auto 0;
+          }
+          .search-user-left{
+            padding-top: 10px;
+            margin-right: 14px;
+            &__image{
+              border-radius: 50%;
+              border: solid 1px $light-gray;
+            }
+          }
+          .search-user-right{
+            margin-top: 5px;
+            &__username{
+              font-size: 14px;
+              font-weight: bold;
+              color: $font-basic;
+            }
+            &__nickname{
+              font-size: 14px;
+              color: $form-font-note;
+            }
+          }
+        }
       }
     }
     &__options{
@@ -81,13 +145,71 @@
         }
       }
       .header-like{
+        position: relative;
         font-size: 24px;
         margin-left: 20px;
-        a{
-          color: rgb(54, 54, 54);
+        cursor: pointer;
+        .header-like-notification{
+          z-index: 100;
+          position: absolute;
+          z-index: 100;
+          top: 56px;
+          right: -50px;
+          width: 480px;
+          min-height: 50px;
+          max-height: 400px;
+          overflow: auto;
+          background-color: $white;
+          box-shadow: 0 0 4px 4px rgba(199, 199, 199, 0.4);
+          border-radius: 6px;
+          display: none;
+          ul{
+            .like-user-list{
+              display: flex;
+              justify-content: space-between;
+              list-style: none;
+              padding: 6px 16px;
+              &__left{
+                display: flex;
+                &__image{
+                  border-radius: 50%;
+                  border: solid 1px $light-gray;
+                  margin: 5px 8px 0 0;
+                }
+                &__username{
+                  font-size: 14px;
+                  font-weight: bold;
+                  color: $font-basic;
+                  margin-top: 7px;
+                }
+                span{
+                  font-size: 14px;
+                  color: $font-basic;
+                  margin-top: 7px;
+                }  
+              }
+              &__right{
+                &__post-image{
+                }
+              }
+            }
+          }
+        }
+        .header-like-notification-top{
+          z-index: 105;
+          content: "";
+          position: absolute;
+          top: 30px;
+          right: 5px;
+          margin-left: -15px;
+          border: 15px solid transparent;
+          border-bottom: 15px solid $white;
+          filter: drop-shadow(0px -3px 2px rgba(199, 199, 199, 0.4));
+          display: none;
         }
       }
       .header-users{
+        position: relative;
         font-size: 24px;
         margin-left: 20px;
         color: rgb(54, 54, 54);
@@ -97,58 +219,59 @@
         outline: none;
         padding: 0;
         appearance: none;
+        .header-users-notification{
+          position: absolute;
+          z-index: 100;
+          top: 56px;
+          right: -20px;
+          width: 240px;
+          background-color: $white;
+          box-shadow: 0 0 4px 4px rgba(199, 199, 199, 0.4);
+          border-radius: 6px;
+          display: none;
+          text-align: left;
+          .notification-list{
+            a{
+              height: 36px;
+              width: 100%;
+              display: block;
+              text-decoration: none;
+              font-size: 15px;
+              color: $font-basic;
+              line-height: 36px;
+              padding-left: 20px;
+            }
+          }
+          .notification-list-bottom{
+            a{
+              height: 20px;
+              width: 100%;
+              display: block;
+              text-decoration: none;
+              font-size: 15px;
+              color: $font-basic;
+              line-height: 36px;
+              border-top: solid 1px $light-gray;
+              padding-left: 20px;
+              position: relative;
+            }
+          }
+          .notification-list-bottom:before{
+            content: "";
+            position: absolute;
+            top: -30px;
+            left: 87%;
+            margin-left: -15px;
+            border: 15px solid transparent;
+            border-bottom: 15px solid $white;
+            filter: drop-shadow(0px -3px 2px rgba(199, 199, 199, 0.4));
+          }
+        }
       }
     }
   }
 }
-.header-users-notification{
-  position: fixed;
-  z-index: 100;
-  top: 56px;
-  right: 200px;
-  width: 240px;
-  background-color: $white;
-  box-shadow: 0 0 4px 4px rgba(199, 199, 199, 0.4);
-  border-radius: 6px;
-  display: none;
-  z-index: 100;
-  .notification-list{
-    a{
-      height: 36px;
-      width: 100%;
-      display: block;
-      text-decoration: none;
-      font-size: 15px;
-      color: $font-basic;
-      line-height: 36px;
-      padding-left: 20px;
-    }
-  }
-  .notification-list-bottom{
-    a{
-      height: 20px;
-      width: 100%;
-      display: block;
-      text-decoration: none;
-      font-size: 15px;
-      color: $font-basic;
-      line-height: 36px;
-      border-top: solid 1px $light-gray;
-      padding-left: 20px;
-      position: relative;
-    }
-  }
-  .notification-list-bottom:before{
-    content: "";
-    position: absolute;
-    top: -30px;
-    left: 87%;
-    margin-left: -15px;
-    border: 15px solid transparent;
-    border-bottom: 15px solid $white;
-    filter: drop-shadow(0px -3px 2px rgba(199, 199, 199, 0.4));
-  }
-}
+
 .header-block{
   height: 54px;
   width: 100%;

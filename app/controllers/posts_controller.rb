@@ -1,17 +1,19 @@
 class PostsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
+  before_action :like_data
+  before_action :set_users
   # before_action :post_item, except: [:index, :new, :create]
 
   def index
     @posts = Post.all.includes(:user).order('created_at DESC')
     @comment = Comment.new
-    
-    
+    @users = User.where.not(id: current_user.id).limit(5)
   end
   
   def new
     @post = Post.new
     @post.images.build
+    @user = User.find(current_user.id)
   end
 
   def show
@@ -48,8 +50,8 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-
   private
+
   def post_params
     params.require(:post).permit(:content, images_attributes: [:image]).merge(user_id: current_user.id)
   end
@@ -60,5 +62,14 @@ class PostsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def like_data
+    my_posts = Post.where(user_id: current_user.id).ids
+    @likes = Like.where(post_id: my_posts)
+  end
+
+  def set_users
+    @search_users = User.where.not(id: current_user.id)
   end
 end

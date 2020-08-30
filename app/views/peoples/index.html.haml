@@ -1,0 +1,30 @@
+= render 'shared/header-tops'
+.index-users
+  .index-users-text
+    おすすめ
+  .index-users-box
+    %ul.index-users-lists
+      - @users.each do |user|
+        %li.index-users-list
+          .index-users-list__details
+            .index-users-list__details__image
+              = link_to "#" do
+                - if user.image?
+                  = image_tag user.image.url, class: "index-users-list__details__image__content", size: "46"
+                - else
+                  = image_tag src="user1.png", class: "index-users-list__details__image__content", size: "46"
+            .index-users-list__details__text
+              .index-users-list__details__text__username
+                = link_to "#" do
+                  = user.username
+              .index-users-list__details__text__nickname
+                = user.nickname
+          .index-users-list__follow-box
+            - unless current_user.following?(user)
+              = form_for(current_user.follows.build, url: { controller: "follows", action: "users_create" }) do |f|
+                =f.hidden_field :following_id, value: user.id
+                =f.submit 'フォローする', class: 'index-users-list__follow-box__create-btn'
+            - if current_user.following?(user)
+              = form_for(current_user.follows.find_by(following_id: user.id), html: { method: :delete }, url: { controller: "follows", action: "users_destroy", id: user.id }) do |f|
+                =f.hidden_field :following_id, value: user.id
+                =f.submit 'フォロー中', class: 'index-users-list__follow-box__destroy-btn'

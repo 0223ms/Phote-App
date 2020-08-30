@@ -5,5 +5,5 @@
       メッセージ
     .messages-main__content__text
       友達やグループに非公開で写真やメッセージを送信できます。
-    =link_to "#", class: "messages-main__content__submit" do
+    =link_to new_room_path, remote: true, class: "messages-main__content__submit" do
       メッセージを送信

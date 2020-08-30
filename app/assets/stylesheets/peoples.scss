@@ -1,0 +1,73 @@
+.index-users{
+  background-color: $background;
+  height: 100%;
+  width: 100%;
+  padding: 60px 420px;
+  .index-users-text{
+    font-weight: bold;
+    color: $font-basic;
+    margin: 0 0 6px 6px;
+  }
+  .index-users-box{
+    width: 100%;
+    min-height: 100px;
+    background-color: $white;
+    .index-users-lists{
+      .index-users-list{
+        padding: 5px 20px;
+        display: flex;
+        justify-content: space-between;
+        &__details{
+          display: flex;
+          &__image{
+            &__content{
+              border-radius: 50%;
+              border: solid 1px $light-gray;  
+            }
+          }
+          &__text{
+            margin-left: 10px;
+            font-size: 15px;
+            &__username{
+              font-weight: bold;
+              a{
+                color: $font-basic;
+                text-decoration: none;
+              }
+            }
+            &__nickname{
+              color: $form-font;
+            }
+          }
+        }
+        &__follow-box{
+          margin-top: 4px;
+          &__create-btn{
+            color: $white;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: $button;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            outline: none;
+            padding: 4px 10px;
+            appearance: none;
+          }
+          &__destroy-btn{
+            color: $font-basic;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: transparent;
+            border: solid 1px $light-gray;
+            border-radius: 4px;
+            cursor: pointer;
+            outline: none;
+            padding: 4px 10px;
+            appearance: none
+          }
+        }
+      }
+    }
+  }
+}

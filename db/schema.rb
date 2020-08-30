@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_113303) do
     t.string "gender"
     t.text "text"
     t.string "image"
+    t.boolean "online", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

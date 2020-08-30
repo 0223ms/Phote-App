@@ -34,13 +34,12 @@
                 %button.cancel-btn キャンセル
       -else
         .show-header-details-top__follow
-          -# = render partial: 'follows/follow-button', locals: {user: @user}
           - unless current_user.following?(@user)
             =form_for(current_user.follows.build) do |f|
               =f.hidden_field :following_id, value: @user.id
               =f.submit 'フォローする', class: 'follow-btn'
           - if current_user.following?(@user)
-            =link_to "#", class: "follow-message-btn" do
+            =link_to rooms_path, class: "follow-message-btn" do
               メッセージを送信
             %button.follow-cancel-btn
               =icon('fas fa-user-check', class: "follow-cancel-icon")
@@ -76,14 +75,16 @@
                 %button.cancel-btn キャンセル
     .show-header-details-middle
       .post-length
-        %span 投稿０件
+        %span 投稿
+        = @user.posts.length
+        %span 件
       .follower-length
         %span フォロワー
-        =@user.follower_ids.length
+        = @user.follower_ids.length
         %span 人
       .follow-length
         %span フォロー
-        =@user.following_ids.length
+        = @user.following_ids.length
         %span 人
     .show-header-details-bottom
       =@user.nickname

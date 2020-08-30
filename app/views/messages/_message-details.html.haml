@@ -1,0 +1,28 @@
+.message-details
+  .message-details__header
+    .header-title
+      詳細
+    .header-mark#message-details-close-id
+      = icon('fas fa-info-circle',  class: "header-mark__icon")
+  .message-details__member
+    .member-title
+      メンバー
+    .member-block
+      = link_to exhibition_path(@user.id), class: "member-block__image" do
+        - if @user.image?
+          = image_tag @user.image.url, size: "54", class: "member-block__image__content"
+        - else
+          = image_tag src="user1.png", size: "54", class: "member-block__image__content"
+      = link_to exhibition_path(@user.id), class: "member-block__text" do
+        .member-block__text__username
+          = @user.username
+        .member-block__text__nickname
+          = @user.nickname
+  .message-details__btns
+    %ul
+      %li
+        = link_to room_path(@room), method: :delete, class: "message-details__btns__btn" do
+          チャットを削除する
+      %li
+        = link_to "#", class: "message-details__btns__btn" do
+          報告
