@@ -23,8 +23,6 @@ $(document).on('turbolinks:load', function() {
                   </div>`;
       return html;
     }
-
-    $(".comments-index").animate({ scrollTop: $(".comments-index")[0].scrollHeight});
     $('.new-comment').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
@@ -48,7 +46,6 @@ $(document).on('turbolinks:load', function() {
         alert('error');
       })
     })
-
     function buildShow(comment){
       if( comment.images ) {
         var image = comment.image;
@@ -85,7 +82,6 @@ $(document).on('turbolinks:load', function() {
       return html;
     }
     $('#show_comment').on('submit', function(e){
-      console.log(this);
       e.preventDefault();
       var formData = new FormData(this);
       var url = $(this).attr('action')
