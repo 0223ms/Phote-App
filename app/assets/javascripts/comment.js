@@ -5,16 +5,17 @@ $(document).on('turbolinks:load', function() {
                     <div class="comments-post__box__add">
                       <div class="comments-post__box__add__box">
                         <div class="comments-post__box__add__box__name">
-                          <a class="comments-name" href='/users/${comment.user_id}'>${comment.user_name}</a>
+                          <a href="/exhibitions/${comment.user_id}">${comment.user_name}</a>
                         </div>
-                      <div class="comments-post__box__add__box__content">
-                        ${comment.content}
+                        <div class="comments-post__box__add__box__content">
+                          ${comment.content}
+                        </div>
+                        <div class="comments-post__box__time">
+                          <time datetime="${comment.created_at}">       
+                            ${comment.time}                  
+                          </time>
+                        </div>
                       </div>
-                    </div>
-                    <div class="comments-post__box__time">
-                      <time datetime="${comment.created_at}">       
-                        ${comment.time}                  
-                      </time>
                     </div>
                     <div class="comment-post__box__add__delete">
                       <a class="comments-delete" rel="nofollow" data-method="delete" href='/posts/${comment.post_id}/comments/${comment.id}'>削除</a>
@@ -38,11 +39,6 @@ $(document).on('turbolinks:load', function() {
         var html = buildHTML(data);
         $('.comments-index').append(html);
         $('.comments-index').animate({ scrollTop: $('.comments-index')[0].scrollHeight});
-
-        // let input = $('.comments-index').children(".comments-post__box")[0]
-        // console.log(input);
-        // input.remove();
-        // console.log($(".comments-post__box:nth-first-child(1)"));
         $('.comment-text').val('');
         $('.comment-submit').prop('disabled', false);
       })
@@ -52,23 +48,37 @@ $(document).on('turbolinks:load', function() {
     })
 
     function buildShow(comment){
-      var html = `<div class="commet-post__add">
-                    <div class="comment-post__add__box">
-                      <div class="comments-post__add__box__name">
-                        <a class="comments-name" href='/users/${comment.user_id}'>${comment.user_name}</a>
+      if( comment.images ) {
+        var image = comment.image;
+      } else {
+        var image = "/assets/user1-f9546ff45901158469729a6ba7029ea0262bec7dd7b42dca28462d251664b162.png";
+      }
+      var html = `<div class="show-contents">
+                    <span class="show__main__image">
+                      <a href="/exhibitions/${comment.user_id}">
+                        <img class="tops-icon" src = ${image}  width="32" height="32">
+                      </a>
+                    </span>
+                    <div class="show-text">
+                      <div class="commet-post__add">
+                        <div class="comment-post__add__box">
+                          <div class="comments-post__add__box__name">
+                            <a href="/exhibitions/${comment.user_id}">${comment.user_name}</a>
+                          </div>
+                          <div class="comments-post__add__box__content">
+                            ${comment.content}
+                          </div>
+                        </div>
                       </div>
-                      <div class="comments-post__add__box__content">
-                        ${comment.content}
+                      <div class="comments-post__time">
+                        <time datetime="${comment.created_at}">
+                          ${comment.time}                  
+                        </time>
+                      </div>
+                      <div class="comment-post__add__delete">
+                        <a class="comments-delete" data-remote="true" rel="nofollow" data-method="delete" href='/posts/${comment.post_id}/comments/${comment.id}'>削除</a>
                       </div>
                     </div>
-                  </div>
-                  <div class="comments-post__time">
-                    <time datetime="${comment.created_at}">
-                      ${comment.time}                  
-                    </time>
-                  </div>
-                  <div class="comment-post__add__delete">
-                    <a class="comments-delete" data-remote="true" rel="nofollow" data-method="delete" href='/posts/${comment.post_id}/comments/${comment.id}'>削除</a>
                   </div>`;
       return html;
     }
@@ -97,4 +107,6 @@ $(document).on('turbolinks:load', function() {
     })
   });
 });
+
+
 

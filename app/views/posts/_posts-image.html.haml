@@ -2,15 +2,18 @@
   .mainber__header
     .mainber__header__head
       %span.mainber__head__image
-        - if post.user.image?
-          = image_tag post.user.image.url, size: "42", class: "tops-icon"
-        - else
-          = image_tag src="user1.png", size: "42", class: "tops-icon"
+        = link_to exhibition_path(id: post.user.id) do
+          - if post.user.image?
+            = image_tag post.user.image.url, size: "42", class: "tops-icon"
+          - else
+            = image_tag src="user1.png", size: "42", class: "tops-icon"
       .mainber__header__head__name-place
         .mainber__header__head__name-place__name
-          = post.user.username
+          = link_to exhibition_path(id: post.user.id) do
+            = post.user.username
         .mainber__header__head__name-place__place
-          = post.user.nickname
+          = link_to exhibition_path(id: post.user.id) do
+            = post.user.nickname
   %span.mainber__images
     =link_to post_path(post) do
       = image_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614"
@@ -27,7 +30,8 @@
     = post.likes.length
     %span 人が「いいね！」しました
   .mainber__username
-    = post.user.username
+    = link_to exhibition_path(id: post.user.id) do
+      = post.user.username
   .mainber__content
     = post.content
   .mainber__time
@@ -39,11 +43,12 @@
           .comments-post__box__add
             .comments-post__box__add__box
               .comments-post__box__add__box__name
-                =link_to comment.user.nickname, "/users/#{comment.user_id}", class: "comments-name"
+                = link_to exhibition_path(id: comment.user.id) do
+                  = comment.user.username
               .comments-post__box__add__box__content
                 = comment.content
-          .comments-post__box__time
-            %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+              .comments-post__box__time
+                %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
           .comment-post__box__add__delete
             - if user_signed_in? && current_user.id == comment.user_id
               =link_to "削除", post_comment_path(post_id: post.id, id: comment.id), method: :delete, class: "comments-delete"

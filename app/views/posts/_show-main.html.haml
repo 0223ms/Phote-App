@@ -7,9 +7,14 @@
         .posts__show__main__body__contents__side
           .posts__show__main__body__contents__side__header
             .posts__show__main__body__contents__side__header__icon
-              = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "show-header-icon"
+              %span.show__head__image
+                = link_to exhibition_path(id: @post.user.id) do
+                  - if @post.user.image?
+                    = image_tag @post.user.image.url, size: "32", class: "tops-icon"
+                  - else
+                    = image_tag src="user1.png", size: "32", class: "tops-icon"
             .posts__show__main__body__contents__side__header__name
-              =link_to exhibition_path, class: "show-name" do
+              = link_to exhibition_path(id: @post.user.id) do
                 = @post.user.username
             .posts__show__main__body__contents__side__header__fab
               %button.option-btn-post
@@ -40,30 +45,45 @@
                         %button.cancel-btn キャンセル
           .posts__show__main__body__contents__side__right
             .posts__show__main__body__contents__side__right__main
-              .posts__show__main__body__contents__side__right__main__icon
-                = image_tag src="/BackgroundHomeSummer.jpg", size: "32x32", class: "show-header-icon"
-              .posts__show__main__body__contents__side__right__main__name
-                =link_to exhibition_path, class: "show-name" do
-                  = @post.user.username
-                .posts__show__main__body__contents__side__right__main__name__text
-                  = @post.content
-                .comments-post__time
-                  %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
-                #comments-create.comments-post
-                  - if @comments
-                    - @comments.each do |comment|
-                      .commet-post__add
-                        .comment-post__add__box
-                          .comments-post__add__box__name
-                            =link_to comment.user.nickname, "/users/#{comment.user_id}", class: "comments-name"
-                          .comments-post__add__box__content
-                            = comment.content
-                      .comments-post__time
-                        %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
-                      .comment-post__add__delete
-                        - if user_signed_in? && current_user.id == comment.user_id
-                          =link_to "削除", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, class: "comments-delete"
-                    
+              .posts-show-box
+                .posts__show__main__body__contents__side__right__main__icon
+                  %span.show__sub__image
+                    = link_to exhibition_path(id: @post.user.id) do
+                      - if @post.user.image?
+                        = image_tag @post.user.image.url, size: "32", class: "tops-icon"
+                      - else
+                        = image_tag src="user1.png", size: "32", class: "tops-icon"
+                .posts__show__main__body__contents__side__right__main__name
+                  = link_to exhibition_path(id: @post.user.id) do
+                    = @post.user.username
+                  .posts__show__main__body__contents__side__right__main__name__text
+                    = @post.content
+                  .comments-post__time
+                    %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
+              #comments-create.comments-post
+                - if @comments
+                  - @comments.each do |comment|
+                    .show-contents
+                      %span.show__main__image
+                        =link_to exhibition_path(id: comment.user.id)   do
+                          - if comment.user.image?
+                            = image_tag comment.user.image.url, size: "32", class: "tops-icon"
+                          - else
+                            = image_tag src="user1.png", size: "32", class: "tops-icon"
+                      .show-text
+                        .commet-post__add
+                          .comment-post__add__box
+                            .comments-post__add__box__name
+                              = link_to exhibition_path(id: comment.user.id)  do
+                                =comment.user.username
+                            .comments-post__add__box__content
+                              = comment.content
+                        .comments-post__time
+                          %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                        .comment-post__add__delete
+                          - if user_signed_in? && current_user.id == comment.user_id
+                            =link_to "削除", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, class: "comments-delete"
+                  
                     
 
 
@@ -75,8 +95,7 @@
               .posts__show__main__body__contents__side__right__footer__icon
                 = icon('far fa-share-square',  class: "main-show-icon")
             .posts__show__main__body__contents__side__right__like
-              .posts__show__main__body__contents__side__right__like__image
-                = image_tag src="/BackgroundHomeSummer.jpg", size: "25x25", class: "show-header-icon"
+             
               .posts__show__main__body__contents__side__right__like__fab
                 = @post.likes.length
                 %span 人が「いいね！」しました
