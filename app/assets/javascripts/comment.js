@@ -17,11 +17,6 @@ $(document).on('turbolinks:load', function() {
                         </div>
                       </div>
                     </div>
-                    <div class="comments-post__box__time">
-                      <time datetime="${comment.created_at}">       
-                        ${comment.time}
-                      </time>
-                    </div>
                     <div class="comment-post__box__add__delete">
                       <a class="comments-delete" rel="nofollow" data-method="delete" href='/posts/${comment.post_id}/comments/${comment.id}'>削除</a>
                     </div>
@@ -90,6 +85,7 @@ $(document).on('turbolinks:load', function() {
       return html;
     }
     $('#show_comment').on('submit', function(e){
+      console.log(this);
       e.preventDefault();
       var formData = new FormData(this);
       var url = $(this).attr('action')
@@ -114,6 +110,3 @@ $(document).on('turbolinks:load', function() {
     })
   });
 });
-
-
-

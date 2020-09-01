@@ -83,10 +83,6 @@
                         .comment-post__add__delete
                           - if user_signed_in? && current_user.id == comment.user_id
                             =link_to "削除", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, class: "comments-delete"
-                  
-                    
-
-
             .posts__show__main__body__contents__side__right__footer
               .posts__show__main__body__contents__side__right__footer__heart
                 = render partial: 'likes/like', locals: { post: @post }
@@ -106,6 +102,5 @@
               = form_with model: [@post, @comment], local: true, id: "show_comment" do |f|
                 .posts__show__main__body__contents__side__right__comment
                   .posts__show__main__body__contents__side__right__comment__box
-
                     = f.text_area :content, class: "posts__show__main__body__contents__side__right__comment__box__add", id: "comment-text", placeholder: 'コメントを追加...'
                     = f.submit "投稿する", class: 'posts__show__main__body__contents__side__right__comment__box__submit', id: "comment-submit"
