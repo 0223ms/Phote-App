@@ -17,16 +17,23 @@ $(document).on('turbolinks:load', function() {
                         </div>
                       </div>
                     </div>
+                    <div class="comments-post__box__time">
+                      <time datetime="${comment.created_at}">       
+                        ${comment.time}
+                      </time>
+                    </div>
                     <div class="comment-post__box__add__delete">
                       <a class="comments-delete" rel="nofollow" data-method="delete" href='/posts/${comment.post_id}/comments/${comment.id}'>削除</a>
                     </div>
                   </div>`;
       return html;
     }
-    $('#new_comment').on('submit', function(e){
+
+    $(".comments-index").animate({ scrollTop: $(".comments-index")[0].scrollHeight});
+    $('.new-comment').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
-      var url = $(this).attr('action')
+      var url = $(this).attr('action');
       $.ajax({
         url: url,
         type: "POST",
@@ -37,8 +44,8 @@ $(document).on('turbolinks:load', function() {
       })
       .done(function(data){
         var html = buildHTML(data);
-        $('.comments-index').append(html);
-        $('.comments-index').animate({ scrollTop: $('.comments-index')[0].scrollHeight});
+        $(data.id_name).append(html);
+        $(data.id_name).animate({ scrollTop: $(data.id_name)[0].scrollHeight});
         $('.comment-text').val('');
         $('.comment-submit').prop('disabled', false);
       })

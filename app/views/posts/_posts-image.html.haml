@@ -36,7 +36,7 @@
     = post.content
   .mainber__time
     %time(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
-  #comments-create.comments-index
+  .comments-index{ id: "comments-create-#{ post.id }" }
     - if post.comments
       - post.comments.each do |comment|
         .comments-post__box
@@ -54,7 +54,7 @@
               =link_to "削除", post_comment_path(post_id: post.id, id: comment.id), method: :delete, class: "comments-delete"
  
   .mainber__comment
-    = form_with model: [post, @comment], local: true, id: "new_comment" do |f|
+    = form_with model: [post, @comment], local: true, class: "new-comment" do |f|
       .mainber__comment__box
         = f.text_area :content, class: "comment-text", id: "comment-text", placeholder: 'コメントを追加...'
         = f.submit "投稿する", class: "comment-submit", id: "comment-submit"

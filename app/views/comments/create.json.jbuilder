@@ -6,3 +6,4 @@ json.post_id  @comment.post.id
 json.id  @comment.id
 json.image  @comment.user.image.url
 json.images  @comment.user.image?
+json.id_name "#comments-create-#{@comment.post.id}"
