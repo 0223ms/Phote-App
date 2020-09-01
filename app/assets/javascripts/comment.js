@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
-    $(".comments-index").animate({ scrollTop: $(".comments-index")[0].scrollHeight});
     function buildHTML(comment){
       var html = `<div class="comments-post__box">
                     <div class="comments-post__box__add">
@@ -23,6 +22,8 @@ $(document).on('turbolinks:load', function() {
                   </div>`;
       return html;
     }
+
+    $(".comments-index").animate({ scrollTop: $(".comments-index")[0].scrollHeight});
     $('.new-comment').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
