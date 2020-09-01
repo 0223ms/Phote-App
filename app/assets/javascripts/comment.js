@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
+    $(".comments-index").animate({ scrollTop: $(".comments-index")[0].scrollHeight});
     function buildHTML(comment){
       var html = `<div class="comments-post__box">
                     <div class="comments-post__box__add">
@@ -13,7 +14,7 @@ $(document).on('turbolinks:load', function() {
                     </div>
                     <div class="comments-post__box__time">
                       <time datetime="${comment.created_at}">       
-                        ${comment.time}                  
+                        ${comment.time}
                       </time>
                     </div>
                     <div class="comment-post__box__add__delete">
@@ -22,10 +23,10 @@ $(document).on('turbolinks:load', function() {
                   </div>`;
       return html;
     }
-    $('#new_comment').on('submit', function(e){
+    $('.new-comment').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
-      var url = $(this).attr('action')
+      var url = $(this).attr('action');
       $.ajax({
         url: url,
         type: "POST",
@@ -36,8 +37,9 @@ $(document).on('turbolinks:load', function() {
       })
       .done(function(data){
         var html = buildHTML(data);
-        $('.comments-index').append(html);
-        $('.comments-index').animate({ scrollTop: $('.comments-index')[0].scrollHeight});
+
+        $(data.id_name).append(html);
+        $(data.id_name).animate({ scrollTop: $(data.id_name)[0].scrollHeight});
 
         // let input = $('.comments-index').children(".comments-post__box")[0]
         // console.log(input);
