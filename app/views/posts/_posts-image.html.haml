@@ -14,6 +14,33 @@
         .mainber__header__head__name-place__place
           = link_to exhibition_path(id: post.user.id) do
             = post.user.nickname
+      .mainber__header__head__fab
+        %button{class: "option-btn-post", id: "option-btn-post-#{ post.id }" }
+          = icon('fas fa-ellipsis-h',  class: "show-header-icon")
+        .gray-back
+          -# -if user_signed_in? && current_user.id == post.user_id
+          -#   .option-menu
+          -#     %ul
+          -#       %li.option-listc-delete
+          -#         =link_to '削除', "/posts/#{post.id}", method: :delete
+                  
+          -#       %li.option-list-edit
+          -#         %div{"data-turbolinks" => "false"}
+          -#           =link_to edit_post_path do
+          -#             編集
+          -#       %li.option-list-bottom
+          -#         %button.cancel-btn キャンセル
+          -# -else
+          -#   .option-menu
+          -#     %ul
+          -#       %li.option-list-follow-cancel
+          -#         =link_to "#" do
+          -#           フォローをやめる
+          -#       %li.option-post
+          -#         =link_to  "#" do
+          -#           投稿へ移動
+          -#       %li.option-list-bottom
+          -#         %button.cancel-btn キャンセル
   %span.mainber__images
     =link_to post_path(post) do
       = image_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614"
