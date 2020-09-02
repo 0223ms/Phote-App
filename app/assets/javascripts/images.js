@@ -2,11 +2,26 @@ $(document).on('turbolinks:load', function() {
   $(function(){
   
     //プレビューのhtmlを定義
-    function buildHTML(count) {
+    // プレビュー表示がimageのとき
+    function buildHTML_img(count) {
       var html = `<div class="product-image" id="preview-box__${count}">
                     <div class="product-image__content">
                       <div class="product-image__content--icon">
                         <img src="" width="95" height="116">
+                      </div>
+                    </div>
+                    <div class="product-image__operetion">
+                      <div class="product-image__operetion--delete" id="delete_btn_${count}">削除</div>
+                    </div>
+                  </div>`
+      $('.image-box').before(html);
+    }
+    // プレビュー表示がvideoのとき
+    function buildHTML_video(count) {
+      var html = `<div class="product-image" id="preview-box__${count}">
+                    <div class="product-image__content">
+                      <div class="product-image__content--icon">
+                        <video src="" width="95" height="116">
                       </div>
                     </div>
                     <div class="product-image__operetion">
@@ -52,14 +67,20 @@ $(document).on('turbolinks:load', function() {
         var image = this.result;
         //プレビューが元々なかった場合はhtmlを追加
         if ($(`#preview-box__${id}`).length == 0) {
-          var html = buildHTML(id);
+          // fileの拡張子を判別( imageかどうか )
+          if (file.name.match(/\.(jpg|jpeg|png|gif)$/)) {
+            var html = buildHTML_img(id);
+          } else {
+            var html = buildHTML_video(id);
+          }
           //labelの直前のプレビュー群にプレビューを追加
           var prevContent = $('.image-content').prev();
           $(prevContent).append(html);
         }
         //イメージを追加
         $(`#preview-box__${id} img`).attr('src', `${image}`);
-  
+        $(`#preview-box__${id} video`).attr('src', `${image}`);
+
         //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
         if ($(`#post_images_attributes_${id}__destroy`)){
           $(`#post_images_attributes_${id}__destroy`).prop('checked',false);

@@ -35,6 +35,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # version :thumb do
     # process resize_to_filt: [300, 300]
   # end
+  version :thumb, if: :is_thumb?
+
   version :thumb do
     process resize_to_fit: [500, 500]
   end
@@ -50,4 +52,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  private
+  def is_thumb? image
+    image.content_type.include?("image/")
+  end
 end

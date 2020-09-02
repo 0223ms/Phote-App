@@ -3,7 +3,10 @@
     .posts__show__main__body
       .posts__show__main__body__contents
         .posts__show__main__body__contents__image
-          = image_tag @post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "436x436"
+          - if @post.images.first.image.file.content_type.include?('image/')
+            = image_tag @post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "448"
+          - else
+            = video_tag @post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "448", controls: true, loop: true
         .posts__show__main__body__contents__side
           .posts__show__main__body__contents__side__header
             .posts__show__main__body__contents__side__header__icon
