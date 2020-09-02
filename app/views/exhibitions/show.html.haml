@@ -35,7 +35,10 @@
             .black-back
               .show-main-post
                 =link_to post_show_exhibition_path(id: post.id), remote: true do
-                  =image_tag post.images[0].image.url, class: "show-main-post__image"
+                  - if post.images.first.image.file.content_type.include?('image/')
+                    = image_tag post.images.first.image.url, class: "show-main-post__image"
+                  - else
+                    = video_tag post.images.first.image.url, class: "show-main-post__image"
                 .show-main-post__inner
                   .show-main-details
                     .show-main-details__hearts

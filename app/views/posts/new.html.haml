@@ -26,7 +26,7 @@
             またはクリックしてファイルをアップロード 
 
           = f.fields_for :images do |i|
-            = i.file_field :image, class: "image-field"
+            = i.file_field :image, accept: "image/jpeg,image/gif,image/png,video/mp4,video/.webm,video/.ogv", class: "image-field"
             %input{class:"image-field", type: "file", name: "post[images_attributes][1][image]", id: "post_images_attributes_1_image"}
             %input{class:"image-field", type: "file", name: "post[images_attributes][2][image]", id: "post_images_attributes_2_image"}
             %input{class:"image-field", type: "file", name: "post[images_attributes][3][image]", id: "post_images_attributes_3_image"}
