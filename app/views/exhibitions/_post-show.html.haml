@@ -2,7 +2,10 @@
   .modal-content
     .post-show
       .post-show__image
-        = image_tag @post.images.first.image.url, class: "post-show__image__contents", size: "450"
+        - if @post.images.first.image.file.content_type.include?('image/')
+          = image_tag @post.images.first.image.url, class: "post-show__image__contents", size: "450"
+        - else
+          = video_tag @post.images.first.image.url, class: "post-show__image__contents", size: "450", controls: true, loop: true
       .post-show__side
         .show-side-header
           .show-side-header__icon
