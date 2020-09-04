@@ -118,6 +118,7 @@
       a{
         .main-new-arrival__product--image--first{
           object-fit: cover;
+          outline: 0;
         }
       }
     }
@@ -519,7 +520,6 @@
   &__main {
     padding: 4vh 20px 0;
     &__body {
-      
       align-items: center;
       width: 100%;
       &__contents {
@@ -532,6 +532,9 @@
         margin: 0 auto;
         display: flex;
         &__image {
+          .main-new-arrival__product--image--first{
+            outline: 0;
+          }
         }
         &__side {
           &__header {

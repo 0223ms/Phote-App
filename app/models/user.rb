@@ -41,7 +41,7 @@ class User < ApplicationRecord
 
   validates :password, confirmation: true
   devise :validatable, password_length: 6..128
-  validates :username,    presence: true, uniqueness: true
-  validates :nickname,    presence: true
-  validates :email,       presence: true
+  validates :username, presence: true, format: {with: /\A[a-zA-Z0-9]+\z/}, uniqueness: true
+  validates :nickname, presence: true
+  validates :email,    presence: true
 end
