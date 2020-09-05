@@ -4,13 +4,13 @@ $(document).on('turbolinks:load', function() {
       $(".gray-back").fadeIn("show");
       $(".option-menu").fadeIn("show");
     })
-    var val = $(".option-btn-top").attr('id')
-    console.log(val);
-    $(val).on("click", function() {
-      console.log(this);
-      $(".gray-back").fadeIn("show");
-      $(".option-menu").fadeIn("show");
-    })
+    
+  // var val = $(".option-btn-top").attr('id')
+  //   $(val).on("click", function() {
+  //     console.log(this);
+  //     $(".gray-back").fadeIn("show");
+  //     $(".option-menu").fadeIn("show");
+  //   })
   });
 });
 
