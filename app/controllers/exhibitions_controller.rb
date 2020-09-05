@@ -18,6 +18,8 @@ class ExhibitionsController < ApplicationController
 
   def post_show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
   end
 
   private

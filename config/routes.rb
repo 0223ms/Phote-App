@@ -30,6 +30,9 @@ Rails.application.routes.draw do
       get :tag_post
       get :post_show
     end
+    resources :comments, only: [:create, :destroy] do
+      get :show_create, on: :collection
+    end
   end
   resources :messages, only: [:index, :show]
 

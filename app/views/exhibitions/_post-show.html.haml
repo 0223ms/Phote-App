@@ -42,16 +42,42 @@
                       %button.cancel-btn キャンセル
         .show-side-content
           .show-side-content__main
-            .show-side-content__main__icon
-              - if @post.user.image?
-                = image_tag @post.users.image.url, size: "32x32", class: "show-header-icon"
-              - else
-                = image_tag "user1.png", size: "32x32", class: "show-header-icon"
-            .show-side-content__main__name
-              =link_to exhibition_path, class: "show-name" do
-                = @post.user.username
-              .show-side-content__main__name__text
-                = @post.content
+            .show-views
+              .show-side-content__main__icon
+                - if @post.user.image?
+                  = image_tag @post.users.image.url, size: "32x32", class: "show-header-icon"
+                - else
+                  = image_tag "user1.png", size: "32x32", class: "show-header-icon"
+              .show-side-content__main__name
+                =link_to exhibition_path, class: "show-name" do
+                  = @post.user.username
+                .show-side-content__main__name__text
+                  = @post.content
+                  .comments-post__time
+                    %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
+            #comments-create.comments-post
+              - if @comments
+                - @comments.each do |comment|
+                  .show-contents
+                    %span.show__main__image
+                      =link_to exhibition_path(id: comment.user.id)   do
+                        - if comment.user.image?
+                          = image_tag comment.user.image.url, size: "32", class: "tops-icon"
+                        - else
+                          = image_tag src="user1.png", size: "32", class: "tops-icon"
+                    .show-text
+                      .commet-post__add
+                        .comment-post__add__box
+                          .comments-post__add__box__name
+                            = link_to exhibition_path(id: comment.user.id)  do
+                              =comment.user.username
+                          .comments-post__add__box__content
+                            = comment.content
+                      .comments-post__time
+                        %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+                      .comment-post__add__delete
+                        - if user_signed_in? && current_user.id == comment.user_id
+                          =link_to "削除", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, class: "comments-delete"
           .show-side-content__footer
             .show-side-content__footer__heart
               = render partial: 'likes/like', locals: { post: @post }
@@ -63,9 +89,7 @@
             .show-side-content__like__fab
               = @post.likes.length
               %span 人が「いいね！」しました
-          .show-side-content__time
-            %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
-          = form_with model: @posts, local: true do |f|
+          = form_with model: [@post, @comment], local: true, id: "show_comment" do |f|
             .show-side-content__comment
               .show-side-content__comment__box
                 = f.text_area :content, class: "show-side-content__comment__box__add", placeholder: 'コメントを追加...'
