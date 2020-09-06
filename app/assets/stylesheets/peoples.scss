@@ -2,16 +2,18 @@
   background-color: $background;
   height: 100%;
   width: 100%;
-  padding: 60px 420px;
+  padding: 60px 0;
   .index-users-text{
+    width: 600px;
     font-weight: bold;
     color: $font-basic;
-    margin: 0 0 6px 6px;
+    margin: 0 auto 6px;
   }
   .index-users-box{
-    width: 100%;
+    width: 600px;
     min-height: 100px;
     background-color: $white;
+    margin: 0 auto;
     .index-users-lists{
       .index-users-list{
         padding: 5px 20px;

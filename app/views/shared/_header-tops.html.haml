@@ -43,7 +43,10 @@
                       = user.username
                     %span があなたの写真に「いいね！」しました。
                   .like-user-list__right
-                    = image_tag src="#{post.images[0].image.url}", size: "38", class: "like-user-list__right__post-image"
+                    - if post.images[0].image.file.content_type.include?('image/')
+                      = image_tag src="#{post.images[0].image.url}", size: "38", class: "like-user-list__right__post-image"
+                    - else
+                      = video_tag src="#{post.images[0].image.url}", size: "38", class: "like-user-list__right__post-image"
         .header-like-notification-top
       %button.header-users
         =icon('far fa-user-circle', class: "header-users-icon")
