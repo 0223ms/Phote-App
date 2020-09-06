@@ -1,8 +1,10 @@
 $(document).on('turbolinks:load', function() {
-  $(function(){
-    $(".option-btn-post").on("click", function(){
-      $(".gray-back").fadeIn("show");
-      $(".option-menu").fadeIn("show");
+  $(function() {
+    $(".option-btn-post").on('click', function(){
+      var content = $(this).next(".gray-back");
+      content.fadeIn("show");
+      var contentMenu = content.children(".option-menu");
+      contentMenu.fadeIn("show");
     })
   });
 });

@@ -4,13 +4,12 @@ class ExhibitionsController < ApplicationController
   before_action :set_show_user, only: [:show, :save_post, :tag_post]
   
   def show
-    @posts = @user.posts
+    @posts = @user.posts.order(id: "DESC")
   end
 
   def save_post
     likes = @user.likes.ids
     @user_likes = Like.where(id: likes)
-    # binding.pry
   end
 
   def tag_post
@@ -18,6 +17,8 @@ class ExhibitionsController < ApplicationController
 
   def post_show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
   end
 
   private

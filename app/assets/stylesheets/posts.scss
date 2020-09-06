@@ -75,7 +75,7 @@
         &__head {
           padding: 16px;
           height: 70px;
-          width: 582px;
+          width: 100%;
           display: flex;
           align-items: center;
           &__name-place {
@@ -187,7 +187,7 @@
       color: #262626;
       font-size: 14px;
       line-height: 18px;
-
+      word-break: break-all;
       margin-bottom: 4px;
     }
     &__time {
@@ -563,21 +563,23 @@
             height: 378px;
             &__main {
               width: 100%;
-              height: 200px;
+              height: 224px;
               padding: 16px 12px;
               overflow-y: scroll;
               &__icon {
                 margin-right: 18px;
               }
               &__name {
-                  width: 80%;
+                  
                   a {
                     text-decoration: none;
                     color: #262626;
+                    font-size: 14px;
+                    font-weight: 600;
                   }
                 &__text {
                   word-break: break-all;
-                  width: 100%;
+                  width: 90%;
                   font-size: 14px;
                 }
               }
@@ -665,7 +667,6 @@
 .posts-show-box {
   display: flex;
   width: 100%;
-  height: 100px;
 }
 
 .show-contents {
@@ -708,6 +709,12 @@
 
 .posts__show__main__body__contents__side__right__comment__box__submit:focus {
   outline: none;
+}
+
+.show-post__time {
+  font-size: 10px;
+  color: #8e8e8e;
+  padding-bottom: 20px;
 }
 // comment
 .comments-post {
@@ -778,6 +785,10 @@
 .comments-index::-webkit-scrollbar {
   display: none;
 }
+
+.comment-text::-webkit-scrollbar {
+  display: none;
+}
 .comments-name:hover {
   text-decoration: none;
   color: #262626;
@@ -798,7 +809,7 @@
 
 }
 .comments-post__add__box__content {
-  width: 100%;
+  width: 90%;
   color: #262626;
   font-size: 14px;
   word-break: break-all;
@@ -898,8 +909,34 @@
   margin-left: 20px;
 }
 
+.option-btn-post:focus {
+  outline: none;
+}
 
+.option-btn-top {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  margin-left: 20px;
+}
 
+.option-btn-top:focus {
+  outline: none;
+}
+
+// モーダルウィンドウプロフィール 投稿詳細
+.show-side-content__main::-webkit-scrollbar {
+   display: none; 
+}
+
+.show-side-content__comment__box__add::-webkit-scrollbar {
+  display: none; 
+}
+
+。
 // 新規投稿イメージ
 
 
@@ -1265,19 +1302,35 @@
   }
 }
 
+.main__post__contents__cap::-webkit-scrollbar {
+  display: none; 
+}
+
+
 
 // edit
 .edit-content {
   color: #262626;
   font-size: 14px;
-  height: 50%;
-  line-height: 18px;
   width: 100%;
   border: 0px;
   outline: none;
   resize: none;
+  word-break: break-all;
+  height: 100%;
+
+}
+
+.posts-edit-text {
+  width: 100%;
+  height: 335px;
 }
 
 .edit-content::-webkit-scrollbar {
   display: none;
+}
+.posts-edit__main__body {
+  width: 100%;
+  height: 100%;
+  padding: 16px 12px;
 }
