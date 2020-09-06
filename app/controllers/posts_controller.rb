@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:user).order('created_at DESC')
     @comment = Comment.new
     @users = User.where.not(id: current_user.id).limit(5)
-    Redis.current.set('mykey', 'Hello')
+    # Redis.current.set('mykey', 'Hello')
   end
   
   def new
