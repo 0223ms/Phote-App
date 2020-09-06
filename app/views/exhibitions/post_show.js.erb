@@ -1,7 +1,5 @@
-console.log('check-first');
 $("#post-modal").html("<%= escape_javascript(render 'post-show') %>")
 $("#post-modal").modal("show")
-console.log('check-second');
 
 $(".option-btn-post").on("click", function(){
   $(".gray-back-post").fadeIn("show");

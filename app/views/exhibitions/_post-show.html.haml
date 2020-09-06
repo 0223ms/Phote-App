@@ -10,7 +10,7 @@
         .show-side-header
           .show-side-header__icon
             - if @post.user.image?
-              = image_tag @post.users.image.url, size: "32x32", class: "show-header-icon"
+              = image_tag @post.user.image.url, size: "32x32", class: "show-header-icon"
             - else
               = image_tag "user1.png", size: "32x32", class: "show-header-icon"
           .show-side-header__name
@@ -48,7 +48,7 @@
             .show-views
               .show-side-content__main__icon
                 - if @post.user.image?
-                  = image_tag @post.users.image.url, size: "32x32", class: "show-header-icon"
+                  = image_tag @post.user.image.url, size: "32x32", class: "show-header-icon"
                 - else
                   = image_tag "user1.png", size: "32x32", class: "show-header-icon"
               .show-side-content__main__name
