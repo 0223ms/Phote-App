@@ -9,7 +9,7 @@ class ExhibitionsController < ApplicationController
 
   def save_post
     likes = @user.likes.ids
-    @user_likes = Like.where(id: likes)
+    @user_likes = Like.includes(:post).where(id: likes)
   end
 
   def tag_post
