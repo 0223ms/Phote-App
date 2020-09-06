@@ -49,7 +49,7 @@ Rails.application.configure do
 
   config.action_cable.url = '/cable'
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/] 
-  config.web_console.whitelisted_ips = '54.168.202.179'
+  config.console.whitelisted_ips = '54.168.202.179'
   ActionCable.server.config.disable_request_forgery_protection = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
