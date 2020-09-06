@@ -20,43 +20,6 @@
     max-width: 614px;
     width: 100%;
   }
-  .headber {
-    margin-bottom: 24px;
-    padding: 16px 0;
-    background: #FFF;
-    border: 1px solid #dbdbdb;
-    border-radius: 5px;
-
-    &__story {
-      width: 612px;
-      height: 84px;
-      &__line {
-        height: 100%;
-        width: 100%;
-        &__human {
-          list-style: none;
-          display: flex;
-          &__sub {
-            width: 80px;
-            height: 122px;
-            padding: 0 4px;
-            margin: 4px 0 8px 0;
-            text-align: center;
-            &__listimage {
-              width: 56px;
-              height: 56px;
-              border-radius: 50%;
-              
-            }
-            &__listtext {
-              text-align: center;
-              font-size: 12px;
-            }
-          }
-        }
-      }
-    }
-  }
 
   .mainber {
     width: 616px;
