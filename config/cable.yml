@@ -10,5 +10,5 @@ test:
 production:
   # adapter: async
   adapter: redis
-  url: redis://localhost:6379
+  url: redis://54.168.202.179:6379
   channel_prefix: Phote-App_production
