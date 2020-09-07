@@ -86,6 +86,8 @@
               = render partial: 'likes/like', locals: { post: @post }
             .show-side-content__footer__icon
               = icon('far fa-comment',  class: "main-show-icon")
+            .show-side-content__footer__icon
+              = icon('far fa-share-square',  class: "main-show-icon")
           .show-side-content__like
             .show-side-content__like__fab
               = @post.likes.length
