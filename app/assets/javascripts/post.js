@@ -6,5 +6,9 @@ $(document).on('turbolinks:load', function() {
       var contentMenu = content.children(".option-menu");
       contentMenu.fadeIn("show");
     })
+
+    $('.slick').slick({
+      dots:true,
+    });
   });
 });

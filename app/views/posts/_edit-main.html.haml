@@ -13,8 +13,18 @@
         .posts__show__main
           .posts__show__main__body
             .posts__show__main__body__contents
-              .posts__show__main__body__contents__image
-                = image_tag @post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "436x436"
+              .posts__show__main__body__contents__image.slick
+                - @post.images.each do |image|
+                  - if image.image.file.content_type.include?('image/')
+                    -if image[0]
+                      = image_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "436x436"
+                    -else
+                      = image_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "436x436", loading: "lazy"
+                  - else
+                    -if image[0]
+                      = video_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "436x436", controls: true, loop: true
+                    - else
+                      = video_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "436x436", controls: true, loop: true, loading: "lazy"
               .posts__show__main__body__contents__side
                 .posts__show__main__body__contents__side__header
                   %span.mainber__head__image

@@ -2,11 +2,19 @@
   .posts__show__main
     .posts__show__main__body
       .posts__show__main__body__contents
-        .posts__show__main__body__contents__image
-          - if @post.images.first.image.file.content_type.include?('image/')
-            = image_tag @post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "448"
-          - else
-            = video_tag @post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "448", controls: true, loop: true
+        .posts__show__main__body__contents__image.slick
+          - @post.images.each do |image|
+            - if image.image.file.content_type.include?('image/')
+              -if image[0]
+                = image_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "448"
+              -else
+                = image_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "448", loading: "lazy"
+            - else
+              -if image[0]
+                = video_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "448", controls: true, loop: true
+              - else
+                = video_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "448", controls: true, loop: true, loading: "lazy"
+
         .posts__show__main__body__contents__side
           .posts__show__main__body__contents__side__header
             .posts__show__main__body__contents__side__header__icon
@@ -91,8 +99,6 @@
                 = render partial: 'likes/like', locals: { post: @post }
               .posts__show__main__body__contents__side__right__footer__icon
                 = icon('far fa-comment',  class: "main-show-icon")
-              .posts__show__main__body__contents__side__right__footer__icon
-                = icon('far fa-share-square',  class: "main-show-icon")
             .posts__show__main__body__contents__side__right__like
              
               .posts__show__main__body__contents__side__right__like__fab

@@ -40,19 +40,26 @@
                   =link_to '投稿へ移動', "/posts/#{post.id}"
                 %li.option-list-bottom
                   %button.cancel-btn キャンセル
-  %span.mainber__images
-    =link_to post_path(post) do
-      - if post.images.first.image.file.content_type.include?('image/')
-        = image_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614"
-      - else
-        = video_tag post.images.first.image.url, class: "main-new-arrival__product--image--first slick", size: "614", controls: true, loop: true
+  %span.mainber__images.slick
+    - post.images.each do |image|
+      =link_to post_path(post) do
+        - if image.image.file.content_type.include?('image/')
+          -if image[0]
+            = image_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "614"
+          -else
+            = image_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "614", loading: "lazy"
+        - else
+          -if image[0]
+            = video_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "614", controls: true, loop: true
+          -else
+            = video_tag image.image.url, class: "main-new-arrival__product--image--first slick", size: "614", controls: true, loop: true, loading: "lazy"
   %section.mainber__icon
     %span.mainber__icon__heart
       = render partial: 'likes/like', locals: { post: post }
     %span.mainber__icon__comment
-      = icon('far fa-comment',  class: "mainber__icon__heart__btn--icon")
-    %span.mainber__icon__share
-      = icon('far fa-share-square',  class: "mainber__icon__heart__btn--icon")
+      =link_to post_path(post) do
+        = icon('far fa-comment',  class: "mainber__icon__heart__btn--icon")
+    
 
 
   %section.mainber__fab{ id: "mainber__fab-#{ post.id }" }

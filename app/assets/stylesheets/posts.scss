@@ -245,8 +245,6 @@
 }
 
 
-
-
   // mainside
 
   .mainside {
@@ -528,10 +526,12 @@
         border-bottom-right-radius: 3px;
         border-top-right-radius: 3px;
         height: 450px;
-        width: 771px;
+        width: 785px;
         margin: 0 auto;
         display: flex;
         &__image {
+          min-height:0;
+          min-width : 0;
           .main-new-arrival__product--image--first{
             outline: 0;
           }

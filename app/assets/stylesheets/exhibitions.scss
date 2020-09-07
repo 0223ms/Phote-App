@@ -305,6 +305,8 @@
         min-width: 785px;
         display: flex;
         &__image{
+          min-height:0;
+          min-width : 0;
           &__contents{
             object-fit: cover;
           }
