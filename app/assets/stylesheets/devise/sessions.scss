@@ -2,121 +2,178 @@
   height: calc(100vh - 100px);
   width: 100vw;
   background-color: $background;
-  padding: 40px;
+  padding: 60px 120px;
   .signIn-inner{
-    animation: anime1 3s ease;
-    .signIn-main-box{
-      width: 380px;
-      background-color: white;
-      border: solid 0.5px #c9c9c9;
-      margin: 0 auto 10px;
-      padding: 20px 40px;
-      &__title{
-        h1{
-          font-size: 50px;
-          font-family: 'Sacramento', cursive;
-          text-align: center;
-          margin-bottom: 30px;
-        }
-      }
-      &__form{
-        margin-bottom: 20px;
-        .signIp-form-field{
-          height: 38px;
-          width: 100%;
-          margin-bottom: 8px;
-          padding: 0 10px 0 100px;
-          background-color: #f7f5f5;
-          font-size: 14px;
-          border: solid 1px #dfdfdf;
-          border-radius: 2px;
-          outline: none;
-        }
-        .email-field-box{
-          position: relative;
-          label{
-            font-size: 12px;
-            color: $form-font-note;
-            position: absolute;
-            z-index: 1;
-            top: 10px;
-            left: 8px;
-            width: 100%;
-            transition: 0.3s;
-            letter-spacing: 0.5px;
-          }
-          #signIp-form-field-email:focus ~ label {
-            font-size: 10px;
-            top: 0px;
-            transition: 0.3s;
-            color: $form-font-note;
-          }  
-        }
-        .password-field-box{
-          position: relative;
-          label{
-            font-size: 12px;
-            color: $form-font-note;
-            position: absolute;
-            z-index: 1;
-            top: 10px;
-            left: 8px;
-            width: 100%;
-            transition: 0.3s;
-            letter-spacing: 0.5px;
-          }
-          #signIp-form-field-password:focus ~ label {
-            font-size: 10px;
-            top: 0px;
-            transition: 0.3s;
-            color: $form-font-note;
-          }  
-        }
-        .signIn-main-box__form:focus{
-          border-color: #bbbbbb;
-        }
-        .signIp-form-submit{
-          height: 30px;
-          width: 100%;
-          margin-top: 10px;
-          background-color: #02a1fd9c;
-          color: $white;
-          font-size: 15px;
-          font-weight: bold;
-          border-radius: 4px;
-          border-style: none;
-          pointer-events: none;
-        }
-      }
-    }
-    .signUp-box{
-      width: 380px;
-      background-color: white;
-      border: solid 0.5px #c9c9c9;
-      margin: 10px auto;
-      padding: 20px 50px;
-      display: flex;
-      &__text{
-        font-size: 13px;
-      }
-      &__link{
-        font-size: 13px;
-        a{
-          text-decoration: none;
-          color: rgb(0, 170, 255);
-        }
-      }
-    }
-    .download-items{
-      width: 300px;
-      margin: 20px auto;
-      text-align: center;
+    width: 100%;
+    height: 100%;
+    background-image: url("camera8.jpeg");
+    background-size: cover;
+    background-position: center;
+    padding-top: 80px;
+    border: solid 1px $light-gray;
+    display: flex;
+    justify-content: center;
+    &__text{
+      position: relative;
+      display: inline-block;
+      width: 500px;
+      height: 320px;
+      padding-left: 10px;
+      margin: 150px 10px 0 0;
       p{
-        margin-bottom: 20px;
-        font-size: 15px;
+        color: $white;
+        font-size: 62px;
+        font-family: 'Sacramento', cursive;
+        animation: fadeIn 0.8s backwards;
+        animation-delay: 3s;
+        @keyframes fadeIn{
+          0%{
+            opacity: 0;
+          }
+        }
       }
-      a{
-        text-decoration: none;
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: $background;
+        transform: scaleX(0);
+        animation: labelIn 0.8s 0s ease, labelOut 0.3s 0.3s ease;
+        animation-fill-mode: forwards;
+        animation-delay: 3s;
+        @keyframes labelIn {
+          0% {
+            transform-origin: left;
+            transform: scaleX(0);
+          }
+          100% {
+            transform-origin: left;
+            transform: scaleX(1);
+          }
+        }
+        @keyframes labelOut {
+          0% {
+            transform-origin: right;
+            transform: scaleX(1);
+          }
+          100% {
+            transform-origin: right;
+            transform: scaleX(0);
+          }
+        }
+      }
+    }
+    &__box{
+      position: relative;
+      animation: anime1 1.5s ease;
+      animation-delay: 1.8s;
+      .signIn-main-box{
+        width: 380px;
+        background-color: white;
+        border: solid 0.5px #c9c9c9;
+        margin: 0 auto 10px;
+        padding: 20px 40px;
+        box-shadow: 0 0 8px gray;
+        &__title{
+          h1{
+            font-size: 50px;
+            font-family: 'Sacramento', cursive;
+            text-align: center;
+            margin-bottom: 30px;
+          }
+        }
+        &__form{
+          margin-bottom: 20px;
+          .signIp-form-field{
+            height: 38px;
+            width: 100%;
+            margin-bottom: 8px;
+            padding: 0 10px 0 100px;
+            background-color: #f7f5f5;
+            font-size: 14px;
+            border: solid 1px #dfdfdf;
+            border-radius: 2px;
+            outline: none;
+          }
+          .email-field-box{
+            position: relative;
+            label{
+              font-size: 12px;
+              color: $form-font-note;
+              position: absolute;
+              z-index: 1;
+              top: 10px;
+              left: 8px;
+              width: 100%;
+              transition: 0.3s;
+              letter-spacing: 0.5px;
+            }
+            #signIp-form-field-email:focus ~ label {
+              font-size: 10px;
+              top: 0px;
+              transition: 0.3s;
+              color: $form-font-note;
+            }  
+          }
+          .password-field-box{
+            position: relative;
+            label{
+              font-size: 12px;
+              color: $form-font-note;
+              position: absolute;
+              z-index: 1;
+              top: 10px;
+              left: 8px;
+              width: 100%;
+              transition: 0.3s;
+              letter-spacing: 0.5px;
+            }
+            #signIp-form-field-password:focus ~ label {
+              font-size: 10px;
+              top: 0px;
+              transition: 0.3s;
+              color: $form-font-note;
+            }  
+          }
+          .signIn-main-box__form:focus{
+            border-color: #bbbbbb;
+          }
+          .signIp-form-submit{
+            height: 30px;
+            width: 100%;
+            margin-top: 10px;
+            background-color: #02a1fd9c;
+            color: $white;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            border-style: none;
+            pointer-events: none;
+          }
+        }
+      }
+      .signUp-box{
+        width: 380px;
+        background-color: white;
+        border: solid 0.5px #c9c9c9;
+        margin: 10px auto;
+        padding: 20px 50px;
+        display: flex;
+        box-shadow: 0 0 8px gray;
+        &__text{
+          font-size: 13px;
+        }
+        &__link{
+          font-size: 13px;
+          a{
+            text-decoration: none;
+            color: rgb(0, 170, 255);
+          }
+        }
       }
     }
   }
@@ -130,6 +187,53 @@
   margin-bottom: 4px;
   padding: 4px 10px;
 }
+
+h1 {
+  position: relative;
+  display: inline-block;
+  span {
+    animation: fadeIn 0s 0.3s backwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+    }
+  }
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #02576c;
+    transform: scaleX(0);
+    animation: labelIn 0.3s 0s ease, labelOut 0.3s 0.3s ease;
+    animation-fill-mode: forwards;
+    @keyframes labelIn {
+      0% {
+        transform-origin: left;
+        transform: scaleX(0);
+      }
+      100% {
+        transform-origin: left;
+        transform: scaleX(1);
+      }
+    }
+    @keyframes labelOut {
+      0% {
+        transform-origin: right;
+        transform: scaleX(1);
+      }
+      100% {
+        transform-origin: right;
+        transform: scaleX(0);
+      }
+    }
+  }
+}
+
 @keyframes anime1 {
   0% {
     opacity: 0;
