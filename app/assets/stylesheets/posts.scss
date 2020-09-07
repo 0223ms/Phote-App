@@ -232,8 +232,6 @@
 }
 
 
-
-
   // mainside
 
   .mainside {
@@ -515,12 +513,15 @@
         border-bottom-right-radius: 3px;
         border-top-right-radius: 3px;
         height: 450px;
-        width: 771px;
+        width: 785px;
         margin: 0 auto;
         display: flex;
         &__image {
+          min-height:0;
+          min-width : 0;
           .main-new-arrival__product--image--first{
             outline: 0;
+            object-fit: cover;
           }
         }
         &__side {
@@ -1320,4 +1321,13 @@
   width: 100%;
   height: 100%;
   padding: 16px 12px;
+}
+
+.posts__show__main__body__contents__image {
+  a {
+    .main-new-arrival__product--image--first {
+      object-fit: cover;
+      outline: 0;
+    }
+  }
 }
