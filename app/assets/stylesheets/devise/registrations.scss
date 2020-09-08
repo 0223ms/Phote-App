@@ -1,177 +1,235 @@
 .signUp-background{
+  height: 100vh;
   width: 100vw;
   background-color: $background;
-  padding: 10px 0 30px;
+  padding: 60px 120px;
   .signUp-inner{
-    animation: anime1 3s ease;
-    .signUp-main-box{
-      width: 380px;
-      background-color: white;
-      border: solid 0.5px #c9c9c9;
-      margin: 0 auto;
-      padding: 20px 40px;
-      &__title{
-        h1{
-          font-size: 50px;
-          font-family: 'Sacramento', cursive;
-          text-align: center;
-        }
-      }
-      &__heading-text{
-        p{
-          font-size: 18px;
-          font-weight: bold;
-          color: $form-font;
-          text-align: center;
-        }
-      }
-      &__form{
-        .signUp-form-field{
-          height: 38px;
-          width: 100%;
-          margin-bottom: 8px;
-          padding: 0 10px 0 100px;
-          background-color: #f7f5f5;
-          font-size: 12px;
-          border: solid 1px #dfdfdf;
-          border-radius: 2px;
-          outline: none;
-        }
-        .signUp-form-field:focus{
-          border-color: #bbbbbb;
-        }
-        .email-field-box-signUp{
-          position: relative;
-          label{
-            font-size: 12px;
-            color: $form-font-note;
-            position: absolute;
-            z-index: 1;
-            top: 10px;
-            left: 8px;
-            width: 100%;
-            transition: 0.3s;
-            letter-spacing: 0.5px;
-          }
-          #signUp-form-field-email:focus ~ label {
-            font-size: 10px;
-            top: 0px;
-            transition: 0.3s;
-            color: $form-font-note;
-          }
-        }
-        .nickname-field-box-signUp{
-          position: relative;
-          label{
-            font-size: 12px;
-            color: $form-font-note;
-            position: absolute;
-            z-index: 1;
-            top: 10px;
-            left: 8px;
-            width: 100%;
-            transition: 0.3s;
-            letter-spacing: 0.5px;
-          }
-          #signUp-form-field-nickname:focus ~ label {
-            font-size: 10px;
-            top: 0px;
-            transition: 0.3s;
-            color: $form-font-note;
-          }
-        }
-        .username-field-box-signUp{
-          position: relative;
-          label{
-            font-size: 12px;
-            color: $form-font-note;
-            position: absolute;
-            z-index: 1;
-            top: 10px;
-            left: 8px;
-            width: 100%;
-            transition: 0.3s;
-            letter-spacing: 0.5px;
-          }
-          #signUp-form-field-username:focus ~ label {
-            font-size: 10px;
-            top: 0px;
-            transition: 0.3s;
-            color: $form-font-note;
-          }
-        }
-        .password-field-box-signUp{
-          position: relative;
-          label{
-            font-size: 12px;
-            color: $form-font-note;
-            position: absolute;
-            z-index: 1;
-            top: 10px;
-            left: 8px;
-            width: 100%;
-            transition: 0.3s;
-            letter-spacing: 0.5px;
-          }
-          #signUp-form-password:focus ~ label {
-            font-size: 10px;
-            top: 0px;
-            transition: 0.3s;
-            color: $form-font-note;
-          }
-        }
-        .signUp-form-submit{
-          height: 30px;
-          width: 100%;
-          margin-top: 10px;
-          background-color: #02a1fd9c;
-          color: $white;
-          font-size: 15px;
-          font-weight: bold;
-          border-radius: 4px;
-          border-style: none;
-          pointer-events: none;
-        }
-      }
-      &__note{
-        margin: 20px 0;
-        font-size: 12px;
-        color: $form-font-note;
-        a{
-          text-decoration: none;
-          color: $form-font-note;
-          font-weight: bold;
-        }
-      }
-    }
-    .signIn-box{
-      width: 380px;
-      background-color: white;
-      border: solid 0.5px #c9c9c9;
-      margin: 10px auto;
-      padding: 20px 50px;
-      display: flex;
-      &__text{
-        font-size: 13px;
-      }
-      &__link{
-        font-size: 13px;
-        a{
-          text-decoration: none;
-          color: rgb(0, 170, 255);
-        }
-      }
-    }
-    .download-items{
-      width: 300px;
-      margin: 20px auto;
-      text-align: center;
+    width: 100%;
+    height: 100%;
+    background-image: url("camera6.jpeg");
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+    border: solid 1px $light-gray;
+    display: flex;
+    justify-content: center;
+    &__text{
+      position: relative;
+      display: inline-block;
+      width: 500px;
+      height: 320px;
+      padding-left: 10px;
+      margin: 250px 10px 0 0;
       p{
-        margin-bottom: 20px;
-        font-size: 15px;
+        color: $white;
+        font-size: 62px;
+        font-family: 'Sacramento', cursive;
+        animation: fadeIn 0.8s backwards;
+        animation-delay: 3s;
+        @keyframes fadeIn{
+          0%{
+            opacity: 0;
+          }
+        }
       }
-      a{
-        text-decoration: none;
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: $background;
+        transform: scaleX(0);
+        animation: labelIn 0.8s 0s ease, labelOut 0.3s 0.3s ease;
+        animation-fill-mode: forwards;
+        animation-delay: 3s;
+        @keyframes labelIn {
+          0% {
+            transform-origin: left;
+            transform: scaleX(0);
+          }
+          100% {
+            transform-origin: left;
+            transform: scaleX(1);
+          }
+        }
+        @keyframes labelOut {
+          0% {
+            transform-origin: right;
+            transform: scaleX(1);
+          }
+          100% {
+            transform-origin: right;
+            transform: scaleX(0);
+          }
+        }
+      }
+    }
+    &__box{
+      position: relative;
+      animation: anime1 1.5s ease;
+      animation-delay: 1.8s;
+      .signUp-main-box{
+        width: 380px;
+        background-color: white;
+        border: solid 0.5px #c9c9c9;
+        margin: 0 auto;
+        padding: 20px 40px;
+        box-shadow: 0 0 8px gray;
+        &__title{
+          h1{
+            font-size: 50px;
+            font-family: 'Sacramento', cursive;
+            text-align: center;
+          }
+        }
+        &__heading-text{
+          p{
+            font-size: 18px;
+            font-weight: bold;
+            color: $form-font;
+            text-align: center;
+          }
+        }
+        &__form{
+          .signUp-form-field{
+            height: 38px;
+            width: 100%;
+            margin-bottom: 8px;
+            padding: 0 10px 0 100px;
+            background-color: #f7f5f5;
+            font-size: 12px;
+            border: solid 1px #dfdfdf;
+            border-radius: 2px;
+            outline: none;
+          }
+          .signUp-form-field:focus{
+            border-color: #bbbbbb;
+          }
+          .email-field-box-signUp{
+            position: relative;
+            label{
+              font-size: 12px;
+              color: $form-font-note;
+              position: absolute;
+              z-index: 1;
+              top: 10px;
+              left: 8px;
+              width: 100%;
+              transition: 0.3s;
+              letter-spacing: 0.5px;
+            }
+            #signUp-form-field-email:focus ~ label {
+              font-size: 10px;
+              top: 0px;
+              transition: 0.3s;
+              color: $form-font-note;
+            }
+          }
+          .nickname-field-box-signUp{
+            position: relative;
+            label{
+              font-size: 12px;
+              color: $form-font-note;
+              position: absolute;
+              z-index: 1;
+              top: 10px;
+              left: 8px;
+              width: 100%;
+              transition: 0.3s;
+              letter-spacing: 0.5px;
+            }
+            #signUp-form-field-nickname:focus ~ label {
+              font-size: 10px;
+              top: 0px;
+              transition: 0.3s;
+              color: $form-font-note;
+            }
+          }
+          .username-field-box-signUp{
+            position: relative;
+            label{
+              font-size: 12px;
+              color: $form-font-note;
+              position: absolute;
+              z-index: 1;
+              top: 10px;
+              left: 8px;
+              width: 100%;
+              transition: 0.3s;
+              letter-spacing: 0.5px;
+            }
+            #signUp-form-field-username:focus ~ label {
+              font-size: 10px;
+              top: 0px;
+              transition: 0.3s;
+              color: $form-font-note;
+            }
+          }
+          .password-field-box-signUp{
+            position: relative;
+            label{
+              font-size: 12px;
+              color: $form-font-note;
+              position: absolute;
+              z-index: 1;
+              top: 10px;
+              left: 8px;
+              width: 100%;
+              transition: 0.3s;
+              letter-spacing: 0.5px;
+            }
+            #signUp-form-password:focus ~ label {
+              font-size: 10px;
+              top: 0px;
+              transition: 0.3s;
+              color: $form-font-note;
+            }
+          }
+          .signUp-form-submit{
+            height: 30px;
+            width: 100%;
+            margin-top: 10px;
+            background-color: #02a1fd9c;
+            color: $white;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            border-style: none;
+            pointer-events: none;
+          }
+        }
+        &__note{
+          margin: 20px 0;
+          font-size: 12px;
+          color: $form-font-note;
+          a{
+            text-decoration: none;
+            color: $form-font-note;
+            font-weight: bold;
+          }
+        }
+      }
+      .signIn-box{
+        width: 380px;
+        background-color: white;
+        border: solid 0.5px #c9c9c9;
+        margin: 10px auto;
+        padding: 20px 50px;
+        display: flex;
+        box-shadow: 0 0 8px gray;
+        &__text{
+          font-size: 13px;
+        }
+        &__link{
+          font-size: 13px;
+          a{
+            text-decoration: none;
+            color: rgb(0, 170, 255);
+          }
+        }
       }
     }
   }
