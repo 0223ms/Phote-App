@@ -1,0 +1,25 @@
+.loader-wrap
+  .loader
+  .loader-text
+    Photo
+= render 'shared/header-nice'
+#post-modal{class: "modal fade", "aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+.allPosts
+  .allPosts-lists
+    - @posts.each do |post|
+      = link_to post_show_exhibition_path(id: post.id), class: "allPosts-lists__list", remote: true do
+        - if post.images[0].image.file.content_type.include?('image/')
+          = image_tag post.images[0].image.url, class: "list-content", size: "320"
+        - else
+          = video_tag post.images[0].image.url, class: "list-content", size: "320"
+        .allPosts-lists__list__inner
+          .show-main-details
+            .show-main-details__hearts
+              = icon('fas fa-heart', class: "show-main-details__hearts__icon")
+              .show-main-details__hearts__length
+                = post.likes.length
+            .show-main-details__comments
+              = icon('fas fa-comment', class: "show-main-details__comments__icon")
+              .show-main-details__comments__length
+                = post.comments.length
+        .black-back

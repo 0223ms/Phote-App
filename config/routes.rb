@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :posts do
     post 'add' => 'likes#create'
     delete '/add' => 'likes#destroy'
+    get :all_posts, on: :collection
     resources :comments, only: [:create, :destroy] do
       get :show_create, on: :collection
     end

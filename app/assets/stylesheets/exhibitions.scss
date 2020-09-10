@@ -293,175 +293,6 @@
       }
     }
   }
-  .modal-dialog{
-    .modal-content{
-      position: fixed;
-      top: 100px;
-      left: -30%;
-      z-index: 10;
-      .post-show{
-        background-color: $white;
-        height: 450px;
-        min-width: 785px;
-        display: flex;
-        &__image{
-          min-height:0;
-          min-width : 0;
-          &__contents{
-            object-fit: cover;
-          }
-        }
-        &__side{
-          .show-side-header{
-            padding: 16px 12px;
-            border-bottom: 1px solid #efefef;
-            border-left: 1px solid #efefef;
-            height: 72px;
-            width: 335px;
-            display: flex;
-            align-items: center;
-            &__icon{
-              &__content{
-                border-radius: 50%;
-              }
-            }
-            &__name{
-              margin-left: 14px;
-              width: 256px;
-              height: 26px;
-              a{
-                text-decoration: none;
-                color: #262626;
-                font-size: 14px;
-                font-weight: 600;
-              }
-            }
-            &__fab{
-              .option-btn-post{
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-                outline: none;
-                padding: 0;
-                appearance: none;
-              }
-              .gray-back-post{
-                position: fixed;
-                top: -28px;
-                left: -470px;
-                z-index: 200;
-                height: 100vh;
-                width: 130vw;
-                background-color: #000000a6;
-                display: none;
-                .option-menu-post{
-                  position: fixed;
-                  top: 80px;
-                  left: 50px;
-                  z-index: 250;
-                  width: 400px;
-                  border-radius: 10px;
-                  background-color: $background;
-                  display: none;
-                }
-              }
-            }
-          }
-          .show-side-content{
-            border-left: 1px solid #efefef;
-            width: 334px;
-            height: 378px;
-            &__main{
-              width: 100%;
-              height: 224px;
-              padding: 16px 12px;
-              overflow-y: scroll;
-              &__icon{
-                margin-right: 18px;
-              }
-              &__name{
-                &__text{
-                  width: 90%;
-                  font-size: 14px;
-                  word-break: break-all;
-
-                }
-              }
-            }
-            &__footer{
-              border-top: 1px solid #efefef;
-              margin-top: 4px;
-              padding: 4px 16px 0 16px;
-              display: flex;
-              &__heart{
-                width: 34px;
-                position: relative;
-                .post-liked{
-                  color: rgb(255, 50, 50);
-                  font-size: 26px;
-                  transition: 0.5s;
-                  position: absolute;
-                }
-                .post-not-like{
-                  color: $font-basic;
-                  font-size: 26px;
-                  transition: 0.5s;
-                  position: absolute;
-                }
-                .post-liked:active{
-                  font-size: 35px;
-                }
-                .post-not-like:active{
-                  font-size: 35px;
-                }
-              }
-            }
-            &__like{
-              display: flex;
-              padding: 0 16px;
-              margin-bottom: 4px;
-              height: 36px;
-              &__fab {
-                color: #262626;
-                font-size: 14px;
-                font-weight: 600;
-                padding-left: 5px;
-              }
-            }
-            &__time {
-              font-size: 10px;
-              color: #8e8e8e;
-              padding-left: 16px;
-            }
-            &__comment {
-              border-top: 1px solid #efefef;
-              padding: 0 16px;
-              margin-top: 8px;
-              &__box {
-                display: flex;
-                &__add {
-                  width: 246px;
-                  height: 18px;
-                  border: 0px;
-                  outline: none;
-                  resize: none;
-                  height: 40px;
-                  padding-top: 18px;
-                }
-                &__submit {
-                  color: #0095f6;
-                  font-size: 14px;
-                  border: 0px;
-                  background-color: #fff;
-                  padding-top: 20px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 .show-views {
   display: flex;
   width: 100%;
@@ -574,4 +405,174 @@
 
 .show-side-content__comment__box__submit:focus {
   outline: none;
+}
+
+.modal-dialog{
+  .modal-content{
+    position: fixed;
+    top: 100px;
+    left: -30%;
+    z-index: 10;
+    .post-show{
+      background-color: $white;
+      height: 450px;
+      min-width: 785px;
+      display: flex;
+      &__image{
+        min-height:0;
+        min-width : 0;
+        &__contents{
+          object-fit: cover;
+        }
+      }
+      &__side{
+        .show-side-header{
+          padding: 16px 12px;
+          border-bottom: 1px solid #efefef;
+          border-left: 1px solid #efefef;
+          height: 72px;
+          width: 335px;
+          display: flex;
+          align-items: center;
+          &__icon{
+            &__content{
+              border-radius: 50%;
+            }
+          }
+          &__name{
+            margin-left: 14px;
+            width: 256px;
+            height: 26px;
+            a{
+              text-decoration: none;
+              color: #262626;
+              font-size: 14px;
+              font-weight: 600;
+            }
+          }
+          &__fab{
+            .option-btn-post{
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              outline: none;
+              padding: 0;
+              appearance: none;
+            }
+            .gray-back-post{
+              position: fixed;
+              top: -28px;
+              left: -470px;
+              z-index: 200;
+              height: 100vh;
+              width: 130vw;
+              background-color: #000000a6;
+              display: none;
+              .option-menu-post{
+                position: fixed;
+                top: 80px;
+                left: 50px;
+                z-index: 250;
+                width: 400px;
+                border-radius: 10px;
+                background-color: $background;
+                display: none;
+              }
+            }
+          }
+        }
+        .show-side-content{
+          border-left: 1px solid #efefef;
+          width: 334px;
+          height: 378px;
+          &__main{
+            width: 100%;
+            height: 224px;
+            padding: 16px 12px;
+            overflow-y: scroll;
+            &__icon{
+              margin-right: 18px;
+            }
+            &__name{
+              &__text{
+                width: 90%;
+                font-size: 14px;
+                word-break: break-all;
+
+              }
+            }
+          }
+          &__footer{
+            border-top: 1px solid #efefef;
+            margin-top: 4px;
+            padding: 4px 16px 0 16px;
+            display: flex;
+            &__heart{
+              width: 34px;
+              position: relative;
+              .post-liked{
+                color: rgb(255, 50, 50);
+                font-size: 26px;
+                transition: 0.5s;
+                position: absolute;
+              }
+              .post-not-like{
+                color: $font-basic;
+                font-size: 26px;
+                transition: 0.5s;
+                position: absolute;
+              }
+              .post-liked:active{
+                font-size: 35px;
+              }
+              .post-not-like:active{
+                font-size: 35px;
+              }
+            }
+          }
+          &__like{
+            display: flex;
+            padding: 0 16px;
+            margin-bottom: 4px;
+            height: 36px;
+            &__fab {
+              color: #262626;
+              font-size: 14px;
+              font-weight: 600;
+              padding-left: 5px;
+            }
+          }
+          &__time {
+            font-size: 10px;
+            color: #8e8e8e;
+            padding-left: 16px;
+          }
+          &__comment {
+            border-top: 1px solid #efefef;
+            padding: 0 16px;
+            margin-top: 8px;
+            &__box {
+              display: flex;
+              &__add {
+                width: 246px;
+                height: 18px;
+                border: 0px;
+                outline: none;
+                resize: none;
+                height: 40px;
+                padding-top: 18px;
+              }
+              &__submit {
+                color: #0095f6;
+                font-size: 14px;
+                border: 0px;
+                background-color: #fff;
+                padding-top: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
