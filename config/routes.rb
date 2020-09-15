@@ -39,13 +39,15 @@ Rails.application.routes.draw do
   resources :posts do
     post 'add' => 'likes#create'
     delete '/add' => 'likes#destroy'
+    get :tag, param: :name
     get :all_posts, on: :collection
     resources :comments, only: [:create, :destroy] do
       get :show_create, on: :collection
     end
   end
 
-  resources :tags, only: [:new]
+  resources :tags, only: [:new, :index, :show]
   resources :peoples, only: [:index]
+  get '/posts/tag/:name' => 'posts#tag'
   mount ActionCable.server => '/cable'
 end

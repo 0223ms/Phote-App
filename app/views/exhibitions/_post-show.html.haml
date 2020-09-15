@@ -55,7 +55,7 @@
                 =link_to exhibition_path, class: "show-name" do
                   = @post.user.username
                 .show-side-content__main__name__text
-                  = @post.content
+                  = render_with_hashtags(@post.content)
                   .comments-post__time
                     %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
             #comments-create.comments-post
@@ -86,8 +86,6 @@
               = render partial: 'likes/like', locals: { post: @post }
             .show-side-content__footer__icon
               = icon('far fa-comment',  class: "main-show-icon")
-            .show-side-content__footer__icon
-              = icon('far fa-share-square',  class: "main-show-icon")
           .show-side-content__like
             .show-side-content__like__fab
               = @post.likes.length

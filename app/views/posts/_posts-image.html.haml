@@ -75,7 +75,13 @@
     = link_to exhibition_path(id: post.user.id) do
       = post.user.username
   .mainber__content
-    = post.content
+    = render_with_hashtags(post.content)
+  -# .mainber__content
+  -#   = simple_format(post.content.gsub!(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/, ""))
+  -#   - if post.tags.any?
+  -#     - post.tags.each do |tag|
+  -#       %p.main__tag
+  -#         \##{tag.name}
   .mainber__time
     %time(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
   .comments-index{ id: "comments-create-#{ post.id }" }
