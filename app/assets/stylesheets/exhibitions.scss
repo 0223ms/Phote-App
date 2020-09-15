@@ -335,6 +335,10 @@
                 font-size: 14px;
                 font-weight: 600;
               }
+              a:hover {
+                color: #262626;
+                text-decoration: none;
+              }
             }
             &__fab{
               .option-btn-post{
@@ -380,11 +384,20 @@
                 margin-right: 18px;
               }
               &__name{
+                .show-name {
+                  text-decoration: none;
+                  color: #262626;
+                }
                 &__text{
-                  width: 90%;
                   font-size: 14px;
                   word-break: break-all;
-
+                  a {
+                    display: block;
+                  }
+                  a:hover {
+                    text-decoration: none;
+                    color: #007bff;
+                  }
                 }
               }
             }

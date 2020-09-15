@@ -44,21 +44,3 @@
           .main__post__tag__icon
             =link_to root_path do
               =icon('fas fa-chevron-left', class: "main-tag-icon")
-
-
-
-  
-
-      
-      
-      -#  .main__post
-      -#   .main__post__contents
-      -#     .main__post__contents__icon
-      -#       = image_tag "/BackgroundHomeSummer.jpg", size: "30x30", alt: "顔写真1", class: "post-icon"
-      -#     = f.text_area :content, class: "main__post__contents__cap", placeholder: 'キャプションを入力...'
-      -#     = f.fields_for :images, class: "image-file", id: "product_images" do |i|
-      -#       = i.label :image, class: 'main__post__contents__image' do
-      -#         =icon('far fa-image', class: "main-newpost-icon")
-      -#       = i.file_field :image, class: "image-field"
-      -#       - @post.images.length.upto(9) do |i|
-      -#         %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"image-field", type:"file"}

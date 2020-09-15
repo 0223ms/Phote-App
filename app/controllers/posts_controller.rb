@@ -51,10 +51,18 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def tag
+    @user = current_user
+    @tag = Tag.find_by(name: params[:name])
+    @posts = @tag.posts
+    @tag_count = @posts.count
+  end
+
+
   private
 
   def post_params
-    params.require(:post).permit(:content, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:post).permit(:content, :tag_ids, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_post

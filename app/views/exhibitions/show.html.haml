@@ -13,10 +13,10 @@
           =link_to save_post_exhibition_path(id: @user.id) do
             =icon('far fa-bookmark', class: "lists-icon")
             %span いいねした投稿
-        %li.show-main-list
-          =link_to tag_post_exhibition_path(id: @user.id) do
-            =icon('far fa-id-card', class: "lists-icon")
-            %span タグ付けさせている人
+        -# %li.show-main-list
+        -#   =link_to tag_post_exhibition_path(id: @user.id) do
+        -#     =icon('far fa-id-card', class: "lists-icon")
+        -#     %span タグ付けさせている人
       - if @posts.blank?
         .show-main-none
           .none-item-icon

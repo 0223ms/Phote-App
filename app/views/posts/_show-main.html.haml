@@ -68,7 +68,8 @@
                   = link_to exhibition_path(id: @post.user.id) do
                     = @post.user.username
                   .posts__show__main__body__contents__side__right__main__name__text
-                    = @post.content
+                    -# = @post.content
+                    = render_with_hashtags(@post.content)
                   .show-post__time
                     %time(datetime="#{@post.created_at}")= time_ago_in_words(@post.created_at)
               #comments-create.comments-post
