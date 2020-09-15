@@ -293,6 +293,12 @@
       }
     }
   }
+  
+  .show-views {
+    display: flex;
+    width: 100%;
+    padding-bottom: 20px;
+  }
   .show-main-box{
     .show-main-inner{
       width: 900px;
@@ -401,13 +407,6 @@
 .show-side-content__comment__box__submit:focus {
   outline: none;
 }
-
-.show-views {
-  display: flex;
-  width: 100%;
-  padding-bottom: 20px;
-}
-
 
 .modal-dialog{
   .modal-content{
