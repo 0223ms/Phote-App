@@ -36,11 +36,3 @@
             %input{class:"image-field", type: "file", name: "post[images_attributes][7][image]", accept: "image/jpeg,image/gif,image/png,video/mp4,video/.webm,video/.ogv", id: "post_images_attributes_7_image"}
             %input{class:"image-field", type: "file", name: "post[images_attributes][8][image]", accept: "image/jpeg,image/gif,image/png,video/mp4,video/.webm,video/.ogv", id: "post_images_attributes_8_image"}
             %input{class:"image-field", type: "file", name: "post[images_attributes][9][image]", accept: "image/jpeg,image/gif,image/png,video/mp4,video/.webm,video/.ogv", id: "post_images_attributes_9_image"}
-
-        .main__post__tag
-          .main__post__tag__add
-            =link_to new_tag_path, class: "tag-add" do
-              タグ付けする
-          .main__post__tag__icon
-            =link_to root_path do
-              =icon('fas fa-chevron-left', class: "main-tag-icon")
