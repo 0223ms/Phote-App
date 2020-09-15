@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # before_action :post_item, except: [:index, :new, :create]
 
   def index
-    @posts = Post.includes(:user).order('created_at DESC')
+    @posts = Post.includes(:images, :user).order('created_at DESC')
     @comment = Comment.new
     @users = User.where.not(id: current_user.id).limit(5)
   end
@@ -58,6 +58,10 @@ class PostsController < ApplicationController
     @tag_count = @posts.count
   end
 
+
+  def all_posts
+    @posts = Post.includes(:images).sort {|a,b| b.liked_users.count <=> a.liked_users.count}
+  end
 
   private
 

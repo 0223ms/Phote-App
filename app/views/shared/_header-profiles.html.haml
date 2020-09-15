@@ -23,7 +23,8 @@
         =link_to rooms_path, class: "notification-list-link" do
           =icon('far fa-paper-plane', class: "header-message-icon")
       .header-compass
-        =icon('far fa-compass', class: "header-compass-icon")
+        =link_to all_posts_posts_path, class: "notification-list-link" do
+          =icon('far fa-compass', class: "header-compass-icon")
       .header-like
         =icon('far fa-heart', class: "header-like-icon")
         .header-like-notification
