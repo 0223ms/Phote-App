@@ -35,11 +35,15 @@
       }
     }
   }
+  &__center::-webkit-scrollbar{
+    display: none;
+    -webkit-appearance: none;
+  }
   &__center {
-    height: 657px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-     
+    height: 638px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     &__contents {
       padding-top: 8px;
       
@@ -109,12 +113,13 @@
   text-decoration: none;
 }
 
-.modal-dialog{
+#user-modal{
   .modal-content{
     height: 350px;
     border-radius: 10px;
     background-color: $white;
     position: fixed;
+    left: 2%;
     z-index: 10;
     .modal-header{
       height: 50px;

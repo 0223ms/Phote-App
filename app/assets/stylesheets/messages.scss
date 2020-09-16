@@ -50,7 +50,13 @@
           }
         }
       }
-      &__main {
+      &__main::-webkit-scrollbar{
+        display: none;
+        -webkit-appearance: none;
+      }
+      &__main{
+        -ms-overflow-style: none;
+        scrollbar-width: none;
         width: 100%;
         height: calc(100% - 60px);
         overflow: scroll;
