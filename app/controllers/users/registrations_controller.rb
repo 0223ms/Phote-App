@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :authenticate_scope!, only: [:edit, :edit_password, :update, :update_password]
   before_action :like_data, only: [:edit_password, :edit]
   before_action :set_users, only: [:edit_password, :edit]
+  before_action :forbid_test_user, only: [:edit, :edit_password, :update, :update_password]
 
   # GET /resource/sign_up
   def new
@@ -105,6 +106,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def set_users
     @search_users = User.where.not(id: current_user.id)
+  end
+
+  def forbid_test_user
+    if @user.email == "test@test"
+      flash[:alert] = "テストユーザーのため変更できません"
+      redirect_to root_path
+    end
   end
 
   # The path used after sign up.

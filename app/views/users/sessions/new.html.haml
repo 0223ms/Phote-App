@@ -22,6 +22,11 @@
               =f.password_field :password, class: "signIp-form-field", id: "signIp-form-field-password"
               %label(for="signIp-form-field-password") パスワード
             =f.submit 'ログイン', class: "signIp-form-submit"
+        .signIn-main-box__testUser
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            = f.hidden_field :email, value: "test@test"
+            = f.hidden_field :password, value: "aaaaaa"
+            = f.submit "ゲストログイン", class: "testUser-submit"
       .signUp-box
         .signUp-box__text
           アカウントをお持ちでないですか？
