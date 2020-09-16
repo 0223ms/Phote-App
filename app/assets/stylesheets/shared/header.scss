@@ -277,3 +277,61 @@
   height: 54px;
   width: 100%;
 }
+
+
+.header-post {
+  transition: 1.0s ;
+}
+
+.header-post:hover {
+  opacity: 0.5 ;
+}
+
+
+.header-home {
+  transition: 1.0s ;
+}
+
+
+.header-message {
+  transition: 1.0s ;
+}
+
+
+.header-compass {
+  transition: 1.0s ;
+}
+
+
+.header-like {
+  transition: 1.0s ;
+}
+
+
+.header-home:hover {
+  opacity: 0.5 ;
+}
+
+
+.header-message:hover {
+  opacity: 0.5 ;
+}
+
+
+.header-compass:hover {
+  opacity: 0.5 ;
+}
+
+
+.header-like:hover {
+  opacity: 0.5 ;
+}
+
+.fa-user-circle {
+  transition: 1.0s ;
+}
+
+.fa-user-circle:hover {
+  opacity: 0.5 ;
+}
+
