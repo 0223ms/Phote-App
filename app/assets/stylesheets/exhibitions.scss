@@ -259,7 +259,6 @@
       .show-header-details-middle{
         margin-top: 20px;
         display: flex;
-        justify-content: space-between;
         .post-length{
           color: $font-basic;
           font-weight: bold;
@@ -290,6 +289,12 @@
         color: $font-basic;
         font-size: 15px;
         font-weight: bold;
+      }
+      .show-header-details-text{
+        height: 70px;
+        width: 520px; 
+        overflow: scroll;
+        word-wrap: break-word;
       }
     }
   }

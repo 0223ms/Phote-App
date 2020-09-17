@@ -994,7 +994,6 @@
   text-align: center;
   padding-bottom: 16px;
   border-bottom: 1px solid #dbdbdb;
-
 }
 
 
@@ -1307,15 +1306,17 @@
   height: 115px;
   width: 116px;
   border: 1px solid #eee;
-  margin: 10px 0.93% 0 0.93%;
+  margin: 10px 0.93% 40px 0.93%;
   padding-top: 45px;
   position: relative;
-  
   &__content{
     margin-left: 10px;
     &--icon{
       position: absolute;
       top: 0;
+      img{
+        object-fit: cover;
+      }
     }
   }
   &__operetion{
