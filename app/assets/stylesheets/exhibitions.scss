@@ -295,6 +295,12 @@
         width: 520px; 
         overflow: scroll;
         word-wrap: break-word;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .show-header-details-text::-webkit-scrollbar{
+        display: none;
+        -webkit-appearance: none;
       }
     }
   }
