@@ -1401,26 +1401,26 @@ button{
   width: 0;
   height: 0;
   border-left: 0 solid transparent;
-  border-right: 15px solid #113463;
+  border-right: 15px solid #030b14;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  z-index: 30;
+  z-index: 1;
+  filter: drop-shadow(0 0 5px #ffffff);
 }
 .next-arrow{
   right: 10px;
   width: 0;
   height: 0;
   border-right: 0 solid transparent;
-  border-left: 15px solid #113463;
+  border-left: 15px solid #030b14;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
+  filter: drop-shadow(0 0 5px #ffffff);
 }
 
 .slide-arrow:focus {
   outline: none;
-  
 }
-
 
 .header__post {
   border-bottom: solid 1px #dfdfdf;

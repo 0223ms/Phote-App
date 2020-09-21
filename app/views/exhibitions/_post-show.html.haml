@@ -1,11 +1,18 @@
 .modal-dialog
   .modal-content
     .post-show
-      .post-show__image
-        - if @post.images.first.image.file.content_type.include?('image/')
-          = image_tag @post.images.first.image.url, class: "post-show__image__contents", size: "450"
-        - else
-          = video_tag @post.images.first.image.url, class: "post-show__image__contents", size: "450", controls: true, loop: true
+      .post-show__images
+        - @post.images.each do |image|
+          - if image.image.file.content_type.include?('image/')
+            - if image[0]
+              = image_tag image.image.url, class: "post-show__images__contents"
+            - else
+              = image_tag image.image.url, class: "post-show__images__contents", loading: "lazy"
+          - else
+            - if image[0]
+              = video_tag image.image.url, class: "post-show__images__contents", controls: true, loop: true
+            - else
+              = video_tag image.image.url, class: "post-show__images__contents", controls: true, loop: true, loading: "lazy"
       .post-show__side
         .show-side-header
           .show-side-header__icon
@@ -90,9 +97,10 @@
             .show-side-content__like__fab
               = @post.likes.length
               %span 人が「いいね！」しました
-          = form_with model: [@post, @comment], local: true, id: "show_comment" do |f|
+          = form_with model: [@post, @comment], local: true, id: "show-comment" do |f|
             .show-side-content__comment
               .show-side-content__comment__box
                 = f.text_area :content, class: "show-side-content__comment__box__add", placeholder: 'コメントを追加...'
                 = f.submit "投稿する", class: "show-side-content__comment__box__submit"
 
+.slick

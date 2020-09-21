@@ -430,10 +430,12 @@
       height: 450px;
       min-width: 785px;
       display: flex;
-      &__image{
-        min-height:0;
-        min-width : 0;
+      &__images{
+        width: 450px;
         &__contents{
+          outline: 0;
+          height: 450px;
+          width: 100%;
           object-fit: cover;
         }
       }

@@ -11,10 +11,6 @@ $(".gray-back-post").on('click', function() {
   $(".option-menu-post").fadeOut("show");
 })
 
-$(function(){
-	$('.js-slider').slide();	
-});
-
 function buildShow(comment){
   if( comment.images ) {
     var image = comment.image;
@@ -50,8 +46,7 @@ function buildShow(comment){
               </div>`;
   return html;
 }
-$('#show_comment').on('submit', function(e){
-  console.log(this);
+$('#show-comment').on('submit', function(e){
   e.preventDefault();
   var formData = new FormData(this);
   var url = $(this).attr('action')
@@ -76,4 +71,15 @@ $('#show_comment').on('submit', function(e){
   })
 })
 
+var slider = $('.post-show__images');
+slider.css('opacity',0);
+slider.animate({'z-index':1},500,function(){
+  slider.slick('setPosition');
+  slider.animate({'opacity':1});
+});
 
+$(".post-show__images").slick({
+  dots:true,
+  prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+  nextArrow: '<button class="slide-arrow next-arrow"></button>'
+});
