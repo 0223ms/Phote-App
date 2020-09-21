@@ -4,9 +4,6 @@
     Photo
 .warapper
   =render "shared/header-tops"
-  .notifications
-    - flash.each do |key, value|
-      = content_tag(:div, value, class: key)
   .top-maincontents
     =render "main"
     =render "mainside-rightber"
