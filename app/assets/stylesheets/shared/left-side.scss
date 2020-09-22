@@ -84,6 +84,8 @@
             &__icon {
               margin-right: 12px;
               border-radius: 50%;
+              border: solid 1px $light-gray;
+              object-fit: cover;
             }
             &__content {
               width: 226px;

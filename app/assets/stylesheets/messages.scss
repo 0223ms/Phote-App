@@ -36,6 +36,8 @@
                 margin: auto 0;
                 margin-left: 8px;
                 border-radius: 50%;
+                border: solid 1px $light-gray;
+                object-fit: cover;
               }
               &__username {
                 margin-left: 10px;
@@ -181,6 +183,7 @@
             &__content{
               border-radius: 50%;
               border: solid 1px $light-gray;
+              object-fit: cover;
             }
           }
           &__text{

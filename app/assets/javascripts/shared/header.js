@@ -108,5 +108,18 @@ $(document).on('turbolinks:load', function() {
         alert("通信エラーです。ユーザーが表示できません。");
       });
     });
+
+    var startPos = 0,winScrollTop = 0;
+    $(window).on('scroll',function(){
+      winScrollTop = $(this).scrollTop();
+      if (winScrollTop >= startPos) {
+        if(winScrollTop >= 150){
+          $('.header-box').addClass('hide');
+        }
+      } else {
+        $('.header-box').removeClass('hide');
+      }
+      startPos = winScrollTop;
+    });
   });
 });

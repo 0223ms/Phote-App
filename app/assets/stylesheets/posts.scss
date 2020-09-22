@@ -30,14 +30,13 @@
 }
 
 .top-maincontents {
-  width: 900px;
+  width: 1000px;
   height: 100%;
   margin: 0 auto;
   padding-top: 30px;
   display: flex;
   
   // main
-
   .main {
     margin-right: 28px;
     max-width: 614px;
@@ -266,15 +265,15 @@
 
 
   // mainside
-
   .mainside {
     position: fixed;
-    right: 17%;
-    width: 293px;
+    left: 50%;
+    width: 330px;
     height: 518px;
+    margin-left: 160px;
     &__profile {
       margin: 18px 0 10px 0;
-      width: 293px;
+      width: 100%;
       height: 56px;
       &__line {
         padding-left: 5px;
@@ -307,7 +306,7 @@
       }
     }
     &__recommended {
-      width: 325px;
+      width: 100%;
       height: 321px;
       &__side {
         display: flex;
@@ -418,10 +417,10 @@
   }
 }
 
-
 .tops-icon {
   border-radius: 50%;
   border: solid 1px $light-gray;
+  object-fit: cover;
 }
 
 .post__contents {
@@ -516,6 +515,8 @@
 
 .post-icon {
   border-radius: 20px;
+  border: solid 1px $light-gray;
+  object-fit: cover;
 }
 
 .tag-add {
@@ -523,11 +524,6 @@
   font-size: 16px;
   text-decoration: none;
 }
-
-// .image-field {
-//   display: none;
-// }
-
 
 // show
 
@@ -705,6 +701,8 @@
 
 .show-header-icon {
   border-radius: 50%;
+  border: solid 1px $light-gray;
+  object-fit: cover;
 }
 
 .posts__show__main__body__contents__side__right__main::-webkit-scrollbar {
@@ -966,9 +964,6 @@
 
 。
 // 新規投稿イメージ
-
-
-
 .image-box{
   align-items: center;
   background-color: rgb(245, 245, 245);
@@ -1018,9 +1013,6 @@
   font-size: 12px;
   vertical-align: top;
 }
-
-
-
 
 .product-name{
   background: #ffffff;
@@ -1205,7 +1197,6 @@
   }
 }
 
-
 .containt__main__container__inner__footer{
   font-size: 12px;
   line-height: 1.4em;
@@ -1215,7 +1206,6 @@
     text-decoration: none;
   }
 }
-
 
 .containt__foot{
   width: 1440px;
@@ -1258,7 +1248,6 @@
   }
 }
 
-
 .image-field{
   display:none;
 }
@@ -1296,9 +1285,6 @@
 #image-box--10{
   display: none;
 }
-
-
-
 
 .product-image{
   display: inline-block;
@@ -1338,8 +1324,6 @@
   display: none; 
 }
 
-
-
 // edit
 .edit-content {
   color: #262626;
@@ -1375,7 +1359,6 @@
     }
   }
 }
-
 
 // スライドカーソル
 
@@ -1430,7 +1413,6 @@ button{
 .posts__show__main__body {
   margin-top: 90px;
 }
-
 
 // タグページ
 .tag-main {
@@ -1522,7 +1504,6 @@ button{
     }
   }
 }
-
 
 .modal-dialog{
   .modal-content{
@@ -1712,8 +1693,6 @@ button{
   width: 100%;
   padding-bottom: 20px;
 }
-
-
 
 // allPost
 .allPosts{

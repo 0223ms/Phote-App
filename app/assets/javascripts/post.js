@@ -23,5 +23,23 @@ $(document).on('turbolinks:load', function() {
         $(this).find(".allPosts-lists__list__inner").css('display', 'none');
       }
     )
+    var wsize = $(window).width();
+    if( wsize <= 1000 ){
+      $(".mainside").css('display', 'none');
+      $(".main").parent().css('margin', '0 auto');
+    } else {
+      $(".mainside").css('display', 'block');
+      $(".main").parent().css('margin', '');
+    }
+    $(window).resize(function(){
+      var wsize = $(window).width();
+      if( wsize <= 1000 ){
+        $(".mainside").css('display', 'none');
+        $(".main").parent().css('margin', '0 auto');
+      } else {
+        $(".mainside").css('display', 'block');
+        $(".main").parent().css('margin', '');
+      }
+    })
   });
 });
