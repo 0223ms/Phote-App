@@ -51,7 +51,7 @@ $(document).on('turbolinks:load', function() {
     $(".notification-list-link").on("click", function(e){
       e.preventDefault();
       let linkUrl = $(this).attr('href');
-      $(".header-users-notification").fadeOut("0");
+      $(".header-users-notification").fadeOut("fast");
       function action() {
         location.href = linkUrl;
       }
