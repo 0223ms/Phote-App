@@ -1,69 +1,200 @@
 .signUp-background{
   height: 100vh;
   width: 100vw;
-  background-color: $background;
-  padding: 60px 120px;
+  background-image: image-url("camera10.jpeg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  .cover1,
+  .cover2,
+  .cover3 {
+    animation: cover 2s cubic-bezier(.4, 0, .2, 1) forwards;
+    background: $background;
+    height: calc(100%/3);
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+  }
+
+  .cover1 {
+    animation-delay: 1.6s;
+    top: 0;
+  }
+
+  .cover2 {
+    animation-delay: 1.8s;
+    top: calc(100%/3);
+  }
+
+  .cover3 {
+    animation-delay: 2s;
+    top: calc(100%/3*2);
+  }
+
+  @keyframes cover {
+    100% {
+      transform: translateX(100%);
+    }
+  }
   .signUp-inner{
-    width: 100%;
-    height: 100%;
-    background-image: image-url("camera6.jpeg");
-    background-size: cover;
-    background-position: center;
-    padding-top: 40px;
-    border: solid 1px $light-gray;
     display: flex;
     justify-content: center;
+    padding-top: 120px;
     &__text{
-      position: relative;
-      display: inline-block;
       width: 500px;
-      height: 320px;
-      padding-left: 10px;
-      margin: 250px 10px 0 0;
-      p{
-        color: $white;
-        font-size: 62px;
-        font-family: 'Sacramento', cursive;
-        animation: fadeIn 0.8s backwards;
-        animation-delay: 3s;
-        @keyframes fadeIn{
-          0%{
-            opacity: 0;
-          }
+      margin: 220px 80px 0 0;
+      position: relative;
+      &__1{
+        width: 480px;
+        p{
+          color: $white;
+          font-size: 60px;
+          font-family: 'Hiragino Kaku Gothic Std';
+          animation: fadeIn 0.8s backwards;
+          animation-delay: 3.6s;
+        }
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: $background;
+          transform: scaleX(0);
+          animation: labelIn 0.8s 0s ease, labelOut 0.3s 0.3s ease;
+          animation-delay: 3.6s;
+          animation-fill-mode: forwards;
         }
       }
-      &::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: $background;
-        transform: scaleX(0);
-        animation: labelIn 0.8s 0s ease, labelOut 0.3s 0.3s ease;
-        animation-fill-mode: forwards;
-        animation-delay: 3s;
-        @keyframes labelIn {
-          0% {
-            transform-origin: left;
-            transform: scaleX(0);
-          }
-          100% {
-            transform-origin: left;
-            transform: scaleX(1);
-          }
+      &__2{
+        width: 320px;
+        p{
+          color: $white;
+          font-size: 60px;
+          font-family: 'Hiragino Kaku Gothic Std';
+          animation: fadeIn 0.8s backwards;
+          animation-delay: 3.8s;
         }
-        @keyframes labelOut {
-          0% {
-            transform-origin: right;
-            transform: scaleX(1);
-          }
-          100% {
-            transform-origin: right;
-            transform: scaleX(0);
-          }
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: $background;
+          transform: scaleX(0);
+          animation: labelIn 0.8s 0s ease, labelOut 0.3s 0.3s ease;
+          animation-delay: 3.8s;
+          animation-fill-mode: forwards;
+        }
+      }
+      &__3{
+        width: 560px;
+        p{
+          color: $white;
+          font-size: 60px;
+          font-family: 'Hiragino Kaku Gothic Std';
+          animation: fadeIn 0.8s backwards;
+          animation-delay: 4s;
+        }
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: $background;
+          transform: scaleX(0);
+          animation: labelIn 0.8s 0s ease, labelOut 0.3s 0.3s ease;
+          animation-delay: 4s;
+          animation-fill-mode: forwards;
+        }
+      }
+      @keyframes fadeIn{
+        0%{
+          opacity: 0;
+        }
+      }
+      @keyframes labelIn {
+        0% {
+          transform-origin: left;
+          transform: scaleX(0);
+        }
+        100% {
+          transform-origin: left;
+          transform: scaleX(1);
+        }
+      }
+      @keyframes labelOut {
+        0% {
+          transform-origin: right;
+          transform: scaleX(1);
+        }
+        100% {
+          transform-origin: right;
+          transform: scaleX(0);
+        }
+      }
+      &__1,
+      &__2,
+      &__3{
+        position: relative;
+        display: inline-block;
+        height: 80px;
+        padding-left: 10px;
+        margin-top: 14px;
+      }
+      &__4{
+        width: 190px;
+        position: absolute;
+        top: 80px;
+      }
+      &__5{
+        width: 150px;
+        position: absolute;
+        top: 180px;
+      }
+      &__6{
+        width: 130px;
+        position: absolute;
+        top: 270px;
+      }
+      &__4,
+      &__5,
+      &__6{
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+        height: 26px;
+        padding: 0 20px;
+        p{
+          position: relative;
+          z-index: 1;
+          animation: fadeIn 0.8s backwards;
+          animation-delay: 4.2s;
+        }
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: rgb(190, 190, 190);
+          transform: scaleX(0);
+          animation: labelIn 0.8s 0s ease;
+          animation-delay: 4.2s;
+          animation-fill-mode: forwards;
         }
       }
     }
