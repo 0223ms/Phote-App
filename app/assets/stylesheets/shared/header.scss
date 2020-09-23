@@ -8,7 +8,8 @@
   transition: 0.6s;
   .header-inner{
     position: relative;
-    width: 1000px;
+    min-width: 300px;
+    max-width: 1000px;
     height: 100%;
     background-color: #fff;
     margin: 0 auto;

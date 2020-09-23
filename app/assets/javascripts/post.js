@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function() {
       }
     )
     var wsize = $(window).width();
-    if( wsize <= 1000 ){
+    if ( wsize <= 1000 ){
       $(".mainside").css('display', 'none');
       $(".main").parent().css('margin', '0 auto');
     } else {
@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function() {
     }
     $(window).resize(function(){
       var wsize = $(window).width();
-      if( wsize <= 1000 ){
+      if ( wsize <= 1000 ){
         $(".mainside").css('display', 'none');
         $(".main").parent().css('margin', '0 auto');
       } else {

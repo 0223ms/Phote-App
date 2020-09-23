@@ -52,5 +52,42 @@ $(document).on('turbolinks:load', function() {
         $(".password-submit").css('background-color', '#02a1fd9c');
       }
     })
-  });  
+    var wsize = $(window).width();
+    var hsize = $(window).height();
+    if ( hsize <= 700 || wsize <= 1020 ){
+      $(".signIn-inner__text").css('display', 'none');
+    } else {
+      $(".signIn-inner__text").css('display', 'block');
+    }
+    if ( hsize <= 600 ){
+      $(".footer").css('display', 'none');
+      $(".signIn-background").css('height', '100vh')
+    } else {
+      $(".footer").css('display', 'block');
+      $(".signIn-background").css('height', 'calc(100vh - 100px)')
+    }
+    if ( hsize <= 700 ){
+      $(".footer").css('display', 'none');
+      $(".signUp-inner").css('overflow', 'auto');
+    } else {
+      $(".footer").css('display', 'block');
+      $(".signUp-inner").css('overflow', 'nomal');
+    }
+    $(window).resize(function(){
+      var wsize = $(window).width();
+      var hsize = $(window).height();
+      if ( hsize <= 700 || wsize <= 1020 ){
+        $(".signUp-inner__text").css('display', 'none');
+      } else {
+        $(".signUp-inner__text").css('display', 'block');
+      }
+      if ( hsize <= 700 ){
+        $(".footer").css('display', 'none');
+        $(".signUp-inner").css('overflow', 'auto');
+      } else {
+        $(".footer").css('display', 'block');
+        $(".signUp-inner").css('overflow', 'nomal');
+      }
+    })
+  });
 });
