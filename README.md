@@ -11,5 +11,4 @@
 ## Explanation
 
 ### TopPage
-<video src="https://i.gyazo.com/d74d273cd50dc5206a122ee5e4d21add.mp4" autoplay></video>
-<!-- ![PhotoTop](https://i.gyazo.com/d74d273cd50dc5206a122ee5e4d21add.mp4) -->
+![PhotoTop](toppage.gif)
