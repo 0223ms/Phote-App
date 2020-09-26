@@ -11,4 +11,4 @@
 ## Explanation
 
 ### TopPage
-![PhotoTop](https://user-images.githubusercontent.com/59810344/94341835-a6707d00-0047-11eb-92d3-46ce1c751405.png)
+![PhotoTop](app/assets/images/toppage-min.gif)
