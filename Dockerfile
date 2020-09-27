@@ -5,12 +5,6 @@ RUN apt-get update -qq && \
   libpq-dev \        
   nodejs           
 
-RUN mkdir /Phote-App
-ENV APP_ROOT /Phote-App
-WORKDIR $APP_ROOT
-
-ADD ./Gemfile $APP_ROOT/Gemfile
-ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
-
+WORKDIR /Phote-App
+COPY Gemfile Gemfile.lock /Phote-App/
 RUN bundle install
-ADD . $APP_ROOT
