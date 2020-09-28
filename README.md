@@ -11,7 +11,7 @@
 ## 📕Feature
 
 ### TopPage
-![PhotoTop](https://i.gyazo.com/54eae15b00c9a1689081a8f33521f92d.gif)
+![PhotoTop](https://i.gyazo.com/5360fa96a12629468fcb50e18d692b32.gif)
 ### Message
 ![Message](https://i.gyazo.com/6bd61379796be52d19e75e66a63d0e2b.gif)
 ### PostList
