@@ -13,7 +13,7 @@
 ### TopPage
 ![PhotoTop](https://i.gyazo.com/b45fb5c476a69a312042e8a03f5fd8af.gif)
 ### Message
-![Message](https://i.gyazo.com/6bd61379796be52d19e75e66a63d0e2b.gif)
+![Message](https://i.gyazo.com/d2760f18b13bb7e516ee2e5f0950dec0.gif)
 ### PostList
 ![PostList](https://i.gyazo.com/7da9dbfc00683a396092a4280bd32814.gif)
 ### ProfileEdit
@@ -24,4 +24,3 @@
 ![SignIn](https://i.gyazo.com/d2760f18b13bb7e516ee2e5f0950dec0.gif)
 ### SignUp
 ![SignUp](https://i.gyazo.com/65167c737d0b3dd532cc28c7acfeeac0.gif)
-https://i.gyazo.com/65167c737d0b3dd532cc28c7acfeeac0.gif
