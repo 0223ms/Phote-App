@@ -1,6 +1,6 @@
 ![PhotoTop](https://i.gyazo.com/a61c09f264138fe5fa59f06fd11a2406.jpg)
 
-<h2 align="center">Photo</h2>
+<h1 align="center">Photo</h1>
 
 <p align="center"><br>
   <b><a>- member -</a></b><br><br>
@@ -8,7 +8,17 @@
   <b><a><a href="https://github.com/akkun016"><img src="https://avatars1.githubusercontent.com/u/59810344?s=460&v=4" width="70px;" /></a></b>
 </p><br>
 
-## 📕Feature
+## 📕本番環境について
+- アプリURL
+  - http://54.168.202.179/
+- ゲストログインするには？
+  - ログインページのログインフォームにある"ゲストログイン"のボタンをクリック。
+    ※ゲストログインしているユーザーはプロフィール編集とパスワード編集ができないので注意。
+
+## 📕アプリについて
+<p>私たちはTECH::CAMPの受講終了後2人で協力しインスタグラムのようなアプリ開発に取り組んできました。
+
+## 📕イメージ
 
 ### 1,TopPage
 ![PhotoTop](https://i.gyazo.com/5360fa96a12629468fcb50e18d692b32.gif)
@@ -28,3 +38,4 @@
 ![SignIn](https://i.gyazo.com/47699c005015975e38294f78f4b98441.gif)
 ### 9,SignUp
 ![SignUp](https://i.gyazo.com/8e7081c3e0a6f4ac8ab9eafca6b1b37b.gif)
+
