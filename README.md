@@ -50,3 +50,32 @@
 ![SignIn](https://i.gyazo.com/47699c005015975e38294f78f4b98441.gif)
 ### 9,SignUp
 ![SignUp](https://i.gyazo.com/8e7081c3e0a6f4ac8ab9eafca6b1b37b.gif)
+
+### DB設計
+
+**userテーブル**
+|Column|Type|Option|
+|------|----|------|
+|username|string|null: false|
+|nickname|string|null: false|
+|email|string|null: false, default: ""|
+|password|string|null: false, default: ""|
+|phonenumber|integer||
+|gender|string||
+|text|text||
+|image|string||
+|online|boolean|default: false|
+
+**Association**
+- has_many :messages
+- has_many :comments, dependent: :destroy
+- has_many :room_users
+- has_many :rooms, through: :room_users, dependent: :destroy
+- has_many :posts, dependent: :destroy
+- has_many :likes, dependetn: destroy
+- has_many :like_posts, through: :likes, source: :post
+- has_many :follows, foreign_key, 'follower_id'
+- has_many  :followings, through: :follows, source: :following
+- has_many :reverse_of_follows, class_name: 'Follow', foreign_key: 'following_id'
+-   has_many :followers, through: :reverse_of_follows, source: :follower
+
