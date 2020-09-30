@@ -53,7 +53,7 @@
 
 ### DB設計
 
-**userテーブル**
+` **userテーブル** `
 |Column|Type|Option|
 |------|----|------|
 |username|string|null: false|
