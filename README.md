@@ -75,7 +75,120 @@
 - has_many :likes, dependetn: destroy
 - has_many :like_posts, through: :likes, source: :post
 - has_many :follows, foreign_key, 'follower_id'
-- has_many  :followings, through: :follows, source: :following
+- has_many :followings, through: :follows, source: :following
 - has_many :reverse_of_follows, class_name: 'Follow', foreign_key: 'following_id'
 -   has_many :followers, through: :reverse_of_follows, source: :follower
+<br>
 
+**postテーブル**
+|Column|Type|Option|
+|------|----|------|
+|content|text|null: false|
+|user|reference|null: false, foreign_key: true|
+
+**Association**
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :liked_users, through: :likes, source: :user
+- belongs_to :user
+- has_many :tag_posts, dependent: :delete_all
+- has_many :tags, through: :tag_posts
+- has_many :images, dependent: :destroy
+<br>
+
+**followテーブル**
+|Column|Type|Option|
+|------|----|------|
+|following|reference|null: false, foreign_key: { to_table: :users }|
+|follower|reference|null: false, foreign_key: { to_table: :users }|
+
+**Association**
+- belongs_to :following, class_name: "User"
+- belongs_to :follower, class_name: "User"
+<br>
+
+**imageテーブル**
+|Column|Type|Option|
+|------|----|------|
+|image|string|null: false|
+|post|reference|null: false, foregin_key: true|
+
+**Association**
+- belongs_to :post, optional: true
+<br>
+
+**messageテーブル**
+|Column|Type|Option|
+|------|----|------|
+|content|string|null: false, foregin_key: true|
+|user_id|bigint|null: false, foregin_key: true|
+|room_id|bigint|null: false, foregin_key: true|
+
+**Association**
+- belongs_to :user
+- belongs_to :room
+<br>
+
+**roomテーブル**
+|Column|Type|Option|
+|------|----|------|
+
+**Association**
+- has_many :room_users, dependent: :destroy
+- has_many :users, dependent: :destroy, through: :room_users
+- has_many :messages, dependent: :destroy
+<br>
+
+**tagテーブル**
+|Column|Type|Option|
+|------|----|------|
+|name|string|null: false|
+
+**Association**
+- has_many :tag_posts, dependent: :delete_all
+- has_many :posts, through: :tag_posts
+<br>
+
+**tag_postテーブル**
+|Column|Type|Option|
+|------|----|------|
+|tag|reference|null: false, foreign_key: true|
+|post|reference|null: false, foreign_key: true|
+
+**Association**
+- belongs_to :post
+- belongs_to :tag
+<br>
+
+**likeテーブル**
+|Column|Type|Option|
+|------|----|------|
+|user|reference|null: false, foreign_key: true|
+|post|reference|null: false, foreign_key: true|
+
+**Association**
+- belongs_to :user
+- belongs_to :post
+<br>
+
+**commentテーブル**
+|Column|Type|Option|
+|------|----|------|
+|content|string|null: false|
+|user|reference|null: false, foreign_key: true|
+|post|reference|null: false, foreign_key: true|
+
+**Association**
+- belongs_to :user
+- belongs_to :post
+<br>
+
+**room_userテーブル**
+|Column|Type|Option|
+|------|----|------|
+|user_id|bigint|null: false, foreign_key: true|
+|room_id|bigint|null: false, foreign_key: true|
+
+**Association**
+- belongs_to :user
+- belongs_to :room
