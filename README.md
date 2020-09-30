@@ -80,7 +80,7 @@
 -   has_many :followers, through: :reverse_of_follows, source: :follower
 <br>
 
-**postテーブル**
+**`postテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |content|text|null: false|
@@ -96,7 +96,7 @@
 - has_many :images, dependent: :destroy
 <br>
 
-**followテーブル**
+**`followテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |following|reference|null: false, foreign_key: { to_table: :users }|
@@ -107,7 +107,7 @@
 - belongs_to :follower, class_name: "User"
 <br>
 
-**imageテーブル**
+**`imageテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |image|string|null: false|
@@ -117,7 +117,7 @@
 - belongs_to :post, optional: true
 <br>
 
-**messageテーブル**
+**`messageテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |content|string|null: false, foregin_key: true|
@@ -129,7 +129,7 @@
 - belongs_to :room
 <br>
 
-**roomテーブル**
+**`roomテーブル`**
 |Column|Type|Option|
 |------|----|------|
 
@@ -139,7 +139,7 @@
 - has_many :messages, dependent: :destroy
 <br>
 
-**tagテーブル**
+**`tagテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
@@ -149,7 +149,7 @@
 - has_many :posts, through: :tag_posts
 <br>
 
-**tag_postテーブル**
+**`tag_postテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |tag|reference|null: false, foreign_key: true|
@@ -160,7 +160,7 @@
 - belongs_to :tag
 <br>
 
-**likeテーブル**
+**`likeテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |user|reference|null: false, foreign_key: true|
@@ -171,7 +171,7 @@
 - belongs_to :post
 <br>
 
-**commentテーブル**
+**`commentテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |content|string|null: false|
@@ -183,7 +183,7 @@
 - belongs_to :post
 <br>
 
-**room_userテーブル**
+**`room_userテーブル`**
 |Column|Type|Option|
 |------|----|------|
 |user_id|bigint|null: false, foreign_key: true|
