@@ -45,7 +45,7 @@
 ### 6,ProfileEdit
 ![PhotoTop](https://i.gyazo.com/ad2d0c016d9e7c2e245a8a02774061f9.png)
 ### 7,PasswordEdit
-![PasswordEdit](https://i.gyazo.com/8ee5ac410cc3ccbabcd1c64f38a01fba.png)
+![PasswordEdit](https://i.gyazo.com/76e15ee74a2a45a3190303b45c590a09.png)
 ### 8,SignIn
 ![SignIn](https://i.gyazo.com/47699c005015975e38294f78f4b98441.gif)
 ### 9,SignUp
