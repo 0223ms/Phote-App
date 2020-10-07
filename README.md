@@ -47,17 +47,17 @@
 - CSS
 - jQuery
 - Bootstrap(モーダル表示のみ)
-- slick
+- slick \n
 **【サーバサイド】**
 - Ruby2.5.1
 - Rails5.2.4.3
-- MySQL
+- MySQL \n
 **【開発環境】**
-- Docker
+- Docker \n
 **【本番環境】**
 - AWS
 - Nginx, unicorn
-- Capistrano(自動デプロイ)
+- Capistrano(自動デプロイ)\n
 **【その他】**
 - GitHub
 - GitHub Desktop
