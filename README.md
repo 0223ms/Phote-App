@@ -58,17 +58,14 @@
 
 **【開発環境】**
 - Docker
+- GitHub
+- GitHub Desktop
 <br>
 
 **【本番環境】**
 - AWS
 - Nginx, unicorn
 - Capistrano(自動デプロイ)
-<br>
-
-**【その他】**
-- GitHub
-- GitHub Desktop
 <br>
 
 ## アプリについて
