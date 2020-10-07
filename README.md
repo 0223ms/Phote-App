@@ -45,6 +45,9 @@
 **【フロントサイド】**
 - HTML
 - CSS
+- Haml
+- Scss
+- JavaScript
 - jQuery
 - Bootstrap(モーダル表示のみ)
 - slick
@@ -52,7 +55,7 @@
 
 **【サーバサイド】**
 - Ruby2.5.1
-- Rails5.2.4.3
+- Ruby on Rails 5.2.4.3
 - MySQL
 <br>
 
