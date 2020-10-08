@@ -57,6 +57,9 @@
 **【サーバサイド】**
 - Ruby2.5.1
 - Ruby on Rails 5.2.4.3
+<br>
+
+**【DB】**
 - MySQL
 <br>
 
