@@ -104,7 +104,7 @@
 ### 9,SignUp
 ![SignUp](https://i.gyazo.com/8e7081c3e0a6f4ac8ab9eafca6b1b37b.gif)
 
-### DB設計
+## DB設計
 
 **`userテーブル`**
 |Column|Type|Option|
