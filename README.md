@@ -108,7 +108,7 @@
 ## DB設計
 
 ### ER図
-https://gyazo.com/c74c7308cd2b01101449636faa3f11b5
+https://i.gyazo.com/c74c7308cd2b01101449636faa3f11b5.png
 
 **`userテーブル`**
 |Column|Type|Option|
