@@ -107,6 +107,9 @@
 
 ## DB設計
 
+### ER図
+https://i.gyazo.com/c74c7308cd2b01101449636faa3f11b5.png
+
 **`userテーブル`**
 |Column|Type|Option|
 |------|----|------|
@@ -138,7 +141,7 @@
 |Column|Type|Option|
 |------|----|------|
 |content|text|null: false|
-|user|reference|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 
 **Association**
 - has_many :comments, dependent: :destroy
@@ -153,8 +156,8 @@
 **`followテーブル`**
 |Column|Type|Option|
 |------|----|------|
-|following|reference|null: false, foreign_key: { to_table: :users }|
-|follower|reference|null: false, foreign_key: { to_table: :users }|
+|following_id|reference|null: false, foreign_key: { to_table: :users }|
+|follower_id|reference|null: false, foreign_key: { to_table: :users }|
 
 **Association**
 - belongs_to :following, class_name: "User"
@@ -165,7 +168,7 @@
 |Column|Type|Option|
 |------|----|------|
 |image|string|null: false|
-|post|reference|null: false, foregin_key: true|
+|post_id|reference|null: false, foregin_key: true|
 
 **Association**
 - belongs_to :post, optional: true
@@ -206,8 +209,8 @@
 **`tag_postテーブル`**
 |Column|Type|Option|
 |------|----|------|
-|tag|reference|null: false, foreign_key: true|
-|post|reference|null: false, foreign_key: true|
+|tag_id|reference|null: false, foreign_key: true|
+|post_id|reference|null: false, foreign_key: true|
 
 **Association**
 - belongs_to :post
@@ -217,8 +220,8 @@
 **`likeテーブル`**
 |Column|Type|Option|
 |------|----|------|
-|user|reference|null: false, foreign_key: true|
-|post|reference|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|post_id|reference|null: false, foreign_key: true|
 
 **Association**
 - belongs_to :user
@@ -229,8 +232,8 @@
 |Column|Type|Option|
 |------|----|------|
 |content|string|null: false|
-|user|reference|null: false, foreign_key: true|
-|post|reference|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|post_id|reference|null: false, foreign_key: true|
 
 **Association**
 - belongs_to :user
