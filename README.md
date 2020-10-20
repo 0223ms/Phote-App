@@ -86,23 +86,23 @@
 
 ## イメージ
 
-### 1,TopPage
+### 1.TopPage
 ![PhotoTop](https://i.gyazo.com/5360fa96a12629468fcb50e18d692b32.gif)
-### 2,Post
+### 2.Post
 ![Post](https://i.gyazo.com/79b622a96354958d526e9a7261e2637c.png)
-### 3,Message
+### 3.Message
 ![Message](https://i.gyazo.com/6bd61379796be52d19e75e66a63d0e2b.gif)
-### 4,PostList
+### 4.PostList
 ![PostList](https://i.gyazo.com/62e46e39af4b15e722e0fe72bc733610.gif)
-### 5,Profile
+### 5.Profile
 ![Profile](https://i.gyazo.com/de14ad2f4dab5ac5e7cea68023aa920d.jpg)
-### 6,ProfileEdit
+### 6.ProfileEdit
 ![PhotoTop](https://i.gyazo.com/ad2d0c016d9e7c2e245a8a02774061f9.png)
-### 7,PasswordEdit
+### 7.PasswordEdit
 ![PasswordEdit](https://i.gyazo.com/76e15ee74a2a45a3190303b45c590a09.png)
-### 8,SignIn
+### 8.SignIn
 ![SignIn](https://i.gyazo.com/47699c005015975e38294f78f4b98441.gif)
-### 9,SignUp
+### 9.SignUp
 ![SignUp](https://i.gyazo.com/8e7081c3e0a6f4ac8ab9eafca6b1b37b.gif)
 
 ## DB設計
