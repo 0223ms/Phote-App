@@ -69,6 +69,7 @@
 - docker-compose
 - GitHub
 - GitHub Desktop
+- Visual Studio Code
 <br>
 
 **【本番環境】**
