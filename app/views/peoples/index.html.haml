@@ -8,14 +8,14 @@
         %li.index-users-list
           .index-users-list__details
             .index-users-list__details__image
-              = link_to "#" do
+              = link_to exhibition_path(user.id) do
                 - if user.image?
                   = image_tag user.image.url, class: "index-users-list__details__image__content", size: "46"
                 - else
                   = image_tag src="user1.png", class: "index-users-list__details__image__content", size: "46"
             .index-users-list__details__text
               .index-users-list__details__text__username
-                = link_to "#" do
+                = link_to exhibition_path(user.id) do
                   = user.username
               .index-users-list__details__text__nickname
                 = user.nickname
