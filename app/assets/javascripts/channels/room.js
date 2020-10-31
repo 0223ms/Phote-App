@@ -7,7 +7,18 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
   },
   received: function(data) {
     if(data['user_id'] == data['current_user_id']) {
-      let html = `
+      if(data['time'] == data['before_time']) {
+          let html = `
+          <div class="message-chat__main__content__chat">
+            <div class="message-chat__main__content__chat__comment-current">
+              ${data['content']}
+            </div>
+          </div>
+        `
+        $('.message-chat__main__content').append(html);
+        $('.message-chat__main').animate({ scrollTop: $('.message-chat__main')[0].scrollHeight }, 'slow');
+      } else {
+        let html = `
         <div class="message-chat__main__content__chat">
           <div class="message-chat__main__content__chat__time">
             ${data['time']}
@@ -19,19 +30,32 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
       `
       $('.message-chat__main__content').append(html);
       $('.message-chat__main').animate({ scrollTop: $('.message-chat__main')[0].scrollHeight }, 'slow');
+      }
     } else {
-      let html = `
-        <div class="message-chat__main__content__chat">
-          <div class="message-chat__main__content__chat__time">
-            ${data['time']}
+      if(data['time'] == data['before_time']) {
+        let html = `
+          <div class="message-chat__main__content__chat">
+            <div class="message-chat__main__content__chat__comment">
+              ${data['content']}
+            </div>
           </div>
-          <div class="message-chat__main__content__chat__comment">
-            ${data['content']}
+        `
+        $('.message-chat__main__content').append(html);
+        $('.message-chat__main').animate({ scrollTop: $('.message-chat__main')[0].scrollHeight }, 'slow');
+      } else {
+        let html = `
+          <div class="message-chat__main__content__chat">
+            <div class="message-chat__main__content__chat__time">
+              ${data['time']}
+            </div>
+            <div class="message-chat__main__content__chat__comment">
+              ${data['content']}
+            </div>
           </div>
-        </div>
-      `
-      $('.message-chat__main__content').append(html);
-      $('.message-chat__main').animate({ scrollTop: $('.message-chat__main')[0].scrollHeight }, 'slow');
+        `
+        $('.message-chat__main__content').append(html);
+        $('.message-chat__main').animate({ scrollTop: $('.message-chat__main')[0].scrollHeight }, 'slow');
+      }
     }
   },
   speak: function(message, user, room) {
