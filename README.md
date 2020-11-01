@@ -102,7 +102,7 @@
 ### 3.Message
 ![Message](https://i.gyazo.com/6bd61379796be52d19e75e66a63d0e2b.gif)
 ### 4.User online / offline
-![Message](https://gyazo.com/56b57556d0072dddc9381ab10b2aa51d)
+![Message](https://i.gyazo.com/56b57556d0072dddc9381ab10b2aa51d.png)
 ### 5.PostList
 ![PostList](https://i.gyazo.com/62e46e39af4b15e722e0fe72bc733610.gif)
 ### 6.Profile
