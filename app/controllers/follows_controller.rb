@@ -22,7 +22,7 @@ class FollowsController < ApplicationController
   def top_create
     following = current_user.following(@user)
     if following.save
-      redirect_to root_path
+      render 'follow-create.js.erb'
     else
       redirect_to root_path
     end
@@ -31,7 +31,7 @@ class FollowsController < ApplicationController
   def top_destroy
     following = current_user.unfollow(@user)
     if following.destroy
-      redirect_to root_path
+      render 'follow-create.js.erb'
     else
       redirect_to root_path
     end
